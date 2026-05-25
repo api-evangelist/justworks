@@ -1,0 +1,172 @@
+openapi: 3.1.0
+info:
+  title: Justworks Webhooks API
+  description: |
+    Manage Justworks Partner API webhooks. Justworks delivers signed events
+    over HTTPS to a partner-controlled URL with at-least-once semantics
+    and automatic retries on failure. This API allows listing the
+    webhooks registered on an installation, resuming delivery on a
+    previously closed webhook, and simulating event delivery in the
+    Tour environment.
+
+    Webhook event payloads carry a top-level id, event_type,
+    event_created_at, event_delivered_at, and a data object that mirrors
+    the affected resource. Requests include `X-Justworks-Webhook-Signature`
+    and `X-Justworks-Webhook-Signature-Timestamp` headers that must be
+    verified before any payload is processed.
+  version: '2026-05-25'
+  contact:
+    name: Justworks Partner Support
+    url: https://public-api.justworks.com/v1/docs
+
+servers:
+  - url: https://public-api.justworks.com
+    description: Production Server
+
+security:
+  - OAuth2: []
+
+tags:
+  - name: Webhooks
+    description: List, resume, and simulate Justworks webhooks
+
+paths:
+  /v1/webhooks/get:
+    post:
+      summary: Justworks List Webhooks
+      description: List webhooks registered on the installation, optionally filtered by open or closed status.
+      operationId: listWebhooks
+      tags:
+        - Webhooks
+      parameters:
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum:
+              - opened
+              - closed
+      responses:
+        '200':
+          description: List of webhooks
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Webhook'
+
+  /v1/webhooks/{webhook_id}/resume:
+    post:
+      summary: Justworks Resume Webhook
+      description: Resume delivery on a webhook that was previously closed due to repeated failures.
+      operationId: resumeWebhook
+      tags:
+        - Webhooks
+      parameters:
+        - $ref: '#/components/parameters/WebhookId'
+      responses:
+        '200':
+          description: Webhook resumed
+
+  /v1/webhooks/{webhook_id}/simulate:
+    post:
+      summary: Justworks Simulate Webhook
+      description: Simulate webhook delivery in the Tour environment to validate the partner listener.
+      operationId: simulateWebhook
+      tags:
+        - Webhooks
+      parameters:
+        - $ref: '#/components/parameters/WebhookId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                payload_override:
+                  type: object
+                url_override:
+                  type: string
+                  format: uri
+      responses:
+        '200':
+          description: Simulation accepted
+
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://secure.justworks.com/oauth/authorize
+          tokenUrl: https://public-api.justworks.com/oauth/token
+          refreshUrl: https://public-api.justworks.com/oauth/token
+          scopes: {}
+
+  parameters:
+    WebhookId:
+      name: webhook_id
+      in: path
+      required: true
+      schema:
+        type: string
+
+  schemas:
+    Webhook:
+      type: object
+      properties:
+        id:
+          type: string
+        url:
+          type: string
+          format: uri
+        status:
+          type: string
+          enum:
+            - opened
+            - closed
+        event_types:
+          type: array
+          items:
+            type: string
+            enum:
+              - member.profile.created
+              - member.profile.updated
+              - member.employment_state.termination_scheduled
+              - member.employment_state.termination_canceled
+              - department.created
+              - department.updated
+              - department.deleted
+
+    WebhookEvent:
+      type: object
+      description: |
+        Envelope for every webhook event Justworks delivers. The `id`
+        field is unique per event and can be used for idempotency on the
+        partner side. The `data` payload mirrors the affected resource
+        and varies by `event_type`.
+      properties:
+        id:
+          type: string
+        event_type:
+          type: string
+          enum:
+            - member.profile.created
+            - member.profile.updated
+            - member.employment_state.termination_scheduled
+            - member.employment_state.termination_canceled
+            - department.created
+            - department.updated
+            - department.deleted
+        event_created_at:
+          type: string
+          format: date-time
+        event_delivered_at:
+          type: string
+          format: date-time
+        data:
+          type: object

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/justworks/main/json-schema/justworks-member-schema.json",
+  "title": "Justworks Member",
+  "description": "A Justworks member — an employee, contractor, or other workforce participant on the Justworks PEO/HR platform.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "company_id": { "type": "string" },
+    "work_id": { "type": "string" },
+    "name": {
+      "type": "object",
+      "properties": {
+        "family_name": { "type": "string" },
+        "given_name": { "type": "string" },
+        "full_preferred_name": { "type": "string" },
+        "preferred_name": { "type": "string" },
+        "additional_names": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "active": { "type": "boolean" },
+    "employment_location_type": { "type": "string" },
+    "type": { "type": "string" },
+    "addresses": { "type": "array", "items": { "type": "object" } },
+    "emails": { "type": "array", "items": { "type": "object" } },
+    "employment_history": { "type": "array", "items": { "type": "object" } },
+    "pay_history": { "type": "array", "items": { "type": "object" } },
+    "phones": { "type": "array", "items": { "type": "object" } },
+    "current_employment": { "type": "object" },
+    "current_pay": { "type": "object" },
+    "current_pay_frequency": { "type": "string" },
+    "date_added_to_justworks": { "type": "string", "format": "date" },
+    "date_of_birth": { "type": "string", "format": "date" },
+    "department": { "type": "object" },
+    "employment_start_date": { "type": "string", "format": "date" },
+    "employment_termination_date": { "type": ["string", "null"], "format": "date" },
+    "job_title": { "type": "string" },
+    "manager": { "type": "object" },
+    "office": { "type": "object" },
+    "partner_settings": { "type": "object" },
+    "sex_assigned_at_birth": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" }
+  },
+  "required": ["id", "company_id", "active"]
+}

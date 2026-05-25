@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/justworks/main/json-schema/justworks-time-off-request-schema.json",
+  "title": "Justworks Time Off Request",
+  "description": "A request submitted by a Justworks member against a time-off policy.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "member_id": { "type": "string" },
+    "policy_id": { "type": "string" },
+    "status": { "type": "string" },
+    "unit_type": { "type": "string" },
+    "amount": { "type": "number" },
+    "end_date": { "type": "string", "format": "date" },
+    "notes": { "type": "string" },
+    "start_date": { "type": "string", "format": "date" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" }
+  },
+  "required": ["id", "member_id", "policy_id", "status", "amount", "start_date", "end_date"]
+}

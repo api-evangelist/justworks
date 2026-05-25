@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/justworks/main/json-schema/justworks-deduction-schema.json",
+  "title": "Justworks Deduction",
+  "description": "A Justworks deduction applied to a member's paycheck. Frequencies are one_time or every_paycheck. Amount is a zero-decimal integer when amount_type is a fixed currency amount.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "member_id": { "type": "string" },
+    "amount_type": { "type": "string" },
+    "amount": { "type": "integer" },
+    "currency": { "type": "string" },
+    "deduction_type_code": { "type": "string" },
+    "description": { "type": "string" },
+    "end_date": { "type": ["string", "null"], "format": "date" },
+    "frequency": {
+      "type": "string",
+      "enum": ["one_time", "every_paycheck"]
+    },
+    "start_date": { "type": "string", "format": "date" }
+  },
+  "required": ["id", "member_id", "amount", "currency", "deduction_type_code", "frequency", "start_date"]
+}

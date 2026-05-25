@@ -1,0 +1,300 @@
+openapi: 3.1.0
+info:
+  title: Justworks Payroll API
+  description: |
+    Read payroll runs, fees, and paystubs from the Justworks Partner API.
+    Each payroll record summarizes a run's gross pay, net pay, taxes, and
+    debit information; paystubs break down per-member earnings, employee
+    deductions, and employer contributions.
+  version: '2026-05-25'
+  contact:
+    name: Justworks Partner Support
+    url: https://public-api.justworks.com/v1/docs
+
+servers:
+  - url: https://public-api.justworks.com
+    description: Production Server
+
+security:
+  - OAuth2: []
+
+tags:
+  - name: Payrolls
+    description: Read access to payroll runs and per-payroll fees
+  - name: Paystubs
+    description: Read access to per-member paystubs
+
+paths:
+  /v1/payrolls:
+    get:
+      summary: Justworks List Payrolls
+      description: List payroll runs within a date range.
+      operationId: listPayrolls
+      tags:
+        - Payrolls
+      parameters:
+        - name: start_date
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: end_date
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          description: A paginated list of payroll runs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PayrollList'
+
+  /v1/payrolls/{payroll_id}/fees:
+    get:
+      summary: Justworks List Payroll Fees
+      description: List per-member fees applied to a payroll run.
+      operationId: listPayrollFees
+      tags:
+        - Payrolls
+      parameters:
+        - $ref: '#/components/parameters/PayrollId'
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          description: A paginated list of payroll fees
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PayrollFee'
+                  next_cursor:
+                    type: string
+                    nullable: true
+
+  /v1/payrolls/{payroll_id}/paystubs:
+    get:
+      summary: Justworks List Paystubs For Payroll
+      description: List per-member paystub summaries for a payroll run.
+      operationId: listPaystubsForPayroll
+      tags:
+        - Paystubs
+      parameters:
+        - $ref: '#/components/parameters/PayrollId'
+        - $ref: '#/components/parameters/Cursor'
+        - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          description: A paginated list of paystub summaries
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PaystubSummary'
+                  next_cursor:
+                    type: string
+                    nullable: true
+
+  /v1/paystubs/{paystub_id}:
+    get:
+      summary: Justworks Get Paystub
+      description: Retrieve a single paystub including earnings, employee deductions, and employer contributions.
+      operationId: getPaystub
+      tags:
+        - Paystubs
+      parameters:
+        - name: paystub_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A paystub with detail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Paystub'
+
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://secure.justworks.com/oauth/authorize
+          tokenUrl: https://public-api.justworks.com/oauth/token
+          refreshUrl: https://public-api.justworks.com/oauth/token
+          scopes:
+            payroll:read: Read payroll runs and fees
+            paystub:read: Read paystub detail
+
+  parameters:
+    PayrollId:
+      name: payroll_id
+      in: path
+      required: true
+      schema:
+        type: string
+    Cursor:
+      name: cursor
+      in: query
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 100
+
+  schemas:
+    PayrollList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Payroll'
+        next_cursor:
+          type: string
+          nullable: true
+
+    Payroll:
+      type: object
+      description: |
+        A payroll run. Monetary amounts use zero-decimal currency units —
+        $45.00 is represented as the integer 4500.
+      properties:
+        id:
+          type: string
+        company_debit:
+          type: integer
+        employee_taxes:
+          type: integer
+        employer_taxes:
+          type: integer
+        gross_pay:
+          type: integer
+        net_pay:
+          type: integer
+        currency:
+          type: string
+        debit_date:
+          type: string
+          format: date
+        pay_date:
+          type: string
+          format: date
+        payment_method:
+          type: string
+
+    PayrollFee:
+      type: object
+      properties:
+        member_id:
+          type: string
+        reference_id:
+          type: string
+        name:
+          type: string
+        reference_type:
+          type: string
+        type:
+          type: string
+        amount:
+          type: integer
+        currency:
+          type: string
+
+    PaystubSummary:
+      type: object
+      properties:
+        member_id:
+          type: string
+        paystub_id:
+          type: string
+        gross_pay:
+          type: integer
+        net_pay:
+          type: integer
+        currency:
+          type: string
+        pay_date:
+          type: string
+          format: date
+        pay_group:
+          type: string
+        pay_period_end:
+          type: string
+          format: date
+        pay_period_start:
+          type: string
+          format: date
+
+    Paystub:
+      type: object
+      properties:
+        member_id:
+          type: string
+        paystub_id:
+          type: string
+        gross_pay:
+          type: integer
+        net_pay:
+          type: integer
+        currency:
+          type: string
+        pay_date:
+          type: string
+          format: date
+        pay_group:
+          type: string
+        pay_period_end:
+          type: string
+          format: date
+        pay_period_start:
+          type: string
+          format: date
+        earnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineItem'
+        employee_deductions:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineItem'
+        employer_contributions:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineItem'
+
+    LineItem:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        amount:
+          type: integer
+        category:
+          type: string
+        currency:
+          type: string

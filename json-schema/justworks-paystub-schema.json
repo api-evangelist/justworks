@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/justworks/main/json-schema/justworks-paystub-schema.json",
+  "title": "Justworks Paystub",
+  "description": "A Justworks paystub for a single member and pay period. Includes itemized earnings, employee deductions, and employer contributions.",
+  "type": "object",
+  "properties": {
+    "member_id": { "type": "string" },
+    "paystub_id": { "type": "string" },
+    "gross_pay": { "type": "integer" },
+    "net_pay": { "type": "integer" },
+    "currency": { "type": "string" },
+    "pay_date": { "type": "string", "format": "date" },
+    "pay_group": { "type": "string" },
+    "pay_period_end": { "type": "string", "format": "date" },
+    "pay_period_start": { "type": "string", "format": "date" },
+    "earnings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/LineItem" }
+    },
+    "employee_deductions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/LineItem" }
+    },
+    "employer_contributions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/LineItem" }
+    }
+  },
+  "required": ["member_id", "paystub_id", "gross_pay", "net_pay", "currency"],
+  "$defs": {
+    "LineItem": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "type": { "type": "string" },
+        "amount": { "type": "integer" },
+        "category": { "type": "string" },
+        "currency": { "type": "string" }
+      }
+    }
+  }
+}

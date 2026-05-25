@@ -1,0 +1,110 @@
+openapi: 3.1.0
+info:
+  title: Justworks OAuth API
+  description: |
+    Obtain and revoke OAuth 2.0 tokens for the Justworks Partner API.
+    Access tokens are valid for 24 hours; refresh tokens are valid for
+    30 days. The authorization code flow is the only supported grant for
+    initial token acquisition.
+  version: '2026-05-25'
+  contact:
+    name: Justworks Partner Support
+    url: https://public-api.justworks.com/v1/docs
+
+servers:
+  - url: https://public-api.justworks.com
+    description: Production Server
+
+tags:
+  - name: OAuth
+    description: OAuth 2.0 token endpoints
+
+paths:
+  /oauth/token:
+    post:
+      summary: Justworks Obtain OAuth Token
+      description: Exchange an authorization code (or refresh token) for an access token.
+      operationId: obtainOAuthToken
+      tags:
+        - OAuth
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+                - grant_type
+                - client_id
+                - client_secret
+              properties:
+                grant_type:
+                  type: string
+                  enum:
+                    - authorization_code
+                    - refresh_token
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+                scope:
+                  type: string
+                redirect_uri:
+                  type: string
+                  format: uri
+                code:
+                  type: string
+                refresh_token:
+                  type: string
+      responses:
+        '200':
+          description: Token response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token_type:
+                    type: string
+                  access_token:
+                    type: string
+                  expires_at:
+                    type: string
+                    format: date-time
+                  refresh_token:
+                    type: string
+                  scope:
+                    type: string
+
+  /v1/oauth/revoke:
+    post:
+      summary: Justworks Revoke OAuth Token
+      description: Revoke an access or refresh token.
+      operationId: revokeOAuthToken
+      tags:
+        - OAuth
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+                - client_id
+                - client_secret
+                - token
+              properties:
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+                token:
+                  type: string
+                token_type_hint:
+                  type: string
+                  enum:
+                    - access_token
+                    - refresh_token
+      responses:
+        '200':
+          description: Token revoked

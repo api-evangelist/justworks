@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/justworks/main/json-schema/justworks-payroll-schema.json",
+  "title": "Justworks Payroll",
+  "description": "A single Justworks payroll run. Monetary fields are zero-decimal integers — for USD, $45.00 is represented as 4500.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "company_debit": { "type": "integer" },
+    "employee_taxes": { "type": "integer" },
+    "employer_taxes": { "type": "integer" },
+    "gross_pay": { "type": "integer" },
+    "net_pay": { "type": "integer" },
+    "currency": { "type": "string" },
+    "debit_date": { "type": "string", "format": "date" },
+    "pay_date": { "type": "string", "format": "date" },
+    "payment_method": { "type": "string" }
+  },
+  "required": ["id", "gross_pay", "net_pay", "currency", "pay_date"]
+}

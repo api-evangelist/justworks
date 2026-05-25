@@ -1,0 +1,146 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Justworks Members API — Members
+  description: 'Justworks Members API — Members. 4 operations. Lead operation: Justworks List Members. Self-contained
+    Naftiko capability covering the Justworks workforce read surface.'
+  tags:
+  - Justworks
+  - Members
+  - HR
+  - PEO
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    JUSTWORKS_ACCESS_TOKEN: JUSTWORKS_ACCESS_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: members
+    baseUri: https://public-api.justworks.com
+    description: Justworks Members API — Members business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-members
+      path: /v1/members
+      operations:
+      - name: listmembers
+        method: GET
+        description: Justworks List Members
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-members-member_id
+      path: /v1/members/{member_id}
+      operations:
+      - name: getmember
+        method: GET
+        description: Justworks Get Member
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-members-member_id-custom-field-values
+      path: /v1/members/{member_id}/custom-field-values
+      operations:
+      - name: listmembercustomfieldvalues
+        method: GET
+        description: Justworks List Member Custom Field Values
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-members-member_id-tax-id
+      path: /v1/members/{member_id}/tax-id
+      operations:
+      - name: getmembertaxid
+        method: GET
+        description: Justworks Get Member Tax ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      key: Authorization
+      value: 'Bearer {{env.JUSTWORKS_ACCESS_TOKEN}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: members-rest
+    port: 8080
+    description: REST adapter for Justworks Members API — Members. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/v1/members
+      name: v1-members
+      description: REST surface for v1-members.
+      operations:
+      - method: GET
+        name: listmembers
+        description: Justworks List Members
+        call: members.listmembers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/members/{member-id}
+      name: v1-members-member-id
+      description: REST surface for v1-members-member_id.
+      operations:
+      - method: GET
+        name: getmember
+        description: Justworks Get Member
+        call: members.getmember
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: members-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Justworks Members API — Members. One tool per consumed operation.
+    tools:
+    - name: justworks-list-members
+      description: Justworks List Members
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: members.listmembers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: justworks-get-member
+      description: Justworks Get Member
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: members.getmember
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: justworks-list-member-custom-field-values
+      description: Justworks List Member Custom Field Values
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: members.listmembercustomfieldvalues
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: justworks-get-member-tax-id
+      description: Justworks Get Member Tax ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: members.getmembertaxid
+      outputParameters:
+      - type: object
+        mapping: $.

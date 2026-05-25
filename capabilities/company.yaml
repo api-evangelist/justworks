@@ -1,0 +1,138 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Justworks Company API — Company
+  description: 'Justworks Company API. 5 operations. Lead operation: Justworks Get Company. Company identity, bank account, business info, custom fields, and jurisdictions.'
+  tags:
+  - Justworks
+  - Company
+  - HR
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    JUSTWORKS_ACCESS_TOKEN: JUSTWORKS_ACCESS_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: company
+    baseUri: https://public-api.justworks.com
+    description: Justworks Company API business capability.
+    resources:
+    - name: v1-company
+      path: /v1/company
+      operations:
+      - name: getcompany
+        method: GET
+        description: Justworks Get Company
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-company-bank-account
+      path: /v1/company/bank-account
+      operations:
+      - name: getcompanybankaccount
+        method: GET
+        description: Justworks Get Company Bank Account
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-company-business-info
+      path: /v1/company/business-info
+      operations:
+      - name: getcompanybusinessinfo
+        method: GET
+        description: Justworks Get Company Business Info
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-company-custom-fields
+      path: /v1/company/custom-fields
+      operations:
+      - name: listcompanycustomfields
+        method: GET
+        description: Justworks List Company Custom Fields
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-company-jurisdictions
+      path: /v1/company/jurisdictions
+      operations:
+      - name: listcompanyjurisdictions
+        method: GET
+        description: Justworks List Company Jurisdictions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      key: Authorization
+      value: 'Bearer {{env.JUSTWORKS_ACCESS_TOKEN}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: company-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Justworks Company API.
+    tools:
+    - name: justworks-get-company
+      description: Justworks Get Company
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: company.getcompany
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: justworks-get-company-bank-account
+      description: Justworks Get Company Bank Account
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: company.getcompanybankaccount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: justworks-get-company-business-info
+      description: Justworks Get Company Business Info
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: company.getcompanybusinessinfo
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: justworks-list-company-custom-fields
+      description: Justworks List Company Custom Fields
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: company.listcompanycustomfields
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: justworks-list-company-jurisdictions
+      description: Justworks List Company Jurisdictions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: company.listcompanyjurisdictions
+      outputParameters:
+      - type: object
+        mapping: $.

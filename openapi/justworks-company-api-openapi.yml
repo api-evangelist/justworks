@@ -1,0 +1,213 @@
+openapi: 3.1.0
+info:
+  title: Justworks Company API
+  description: |
+    Read company-level data from the Justworks Partner API including
+    company identity, bank account on file, verified business information,
+    custom field definitions, and operating jurisdictions.
+  version: '2026-05-25'
+  contact:
+    name: Justworks Partner Support
+    url: https://public-api.justworks.com/v1/docs
+
+servers:
+  - url: https://public-api.justworks.com
+    description: Production Server
+
+security:
+  - OAuth2: []
+
+tags:
+  - name: Company
+    description: Read access to company-level Justworks data
+
+paths:
+  /v1/company:
+    get:
+      summary: Justworks Get Company
+      description: Retrieve company identity, departments, offices, and country data.
+      operationId: getCompany
+      tags:
+        - Company
+      responses:
+        '200':
+          description: Company record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+
+  /v1/company/bank-account:
+    get:
+      summary: Justworks Get Company Bank Account
+      description: Retrieve the company bank account on file (masked).
+      operationId: getCompanyBankAccount
+      tags:
+        - Company
+      responses:
+        '200':
+          description: Bank account on file
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  bank_name:
+                    type: string
+                  account_type:
+                    type: string
+                  account_number_tail:
+                    type: string
+                  routing_number:
+                    type: string
+
+  /v1/company/business-info:
+    get:
+      summary: Justworks Get Company Business Info
+      description: Retrieve verified business identifiers and officer information.
+      operationId: getCompanyBusinessInfo
+      tags:
+        - Company
+      responses:
+        '200':
+          description: Business info
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  entity_identifiers:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        file_number:
+                          type: string
+                        issue_date:
+                          type: string
+                          format: date
+                        state:
+                          type: string
+                  officers:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        titles:
+                          type: array
+                          items:
+                            type: string
+
+  /v1/company/custom-fields:
+    get:
+      summary: Justworks List Company Custom Fields
+      description: List company-defined custom field definitions.
+      operationId: listCompanyCustomFields
+      tags:
+        - Company
+      responses:
+        '200':
+          description: Custom field definitions
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CustomFieldDefinition'
+
+  /v1/company/jurisdictions:
+    get:
+      summary: Justworks List Company Jurisdictions
+      description: List jurisdictions in which the company operates.
+      operationId: listCompanyJurisdictions
+      tags:
+        - Company
+      responses:
+        '200':
+          description: Jurisdictions
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        zone_code:
+                          type: string
+
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://secure.justworks.com/oauth/authorize
+          tokenUrl: https://public-api.justworks.com/oauth/token
+          refreshUrl: https://public-api.justworks.com/oauth/token
+          scopes:
+            company.basic:read: Read basic company data
+            company.detail:read: Read detailed company data
+            company.bank_account:read: Read company bank account on file
+
+  schemas:
+    Company:
+      type: object
+      properties:
+        id:
+          type: string
+        tax_id:
+          type: string
+        display_name:
+          type: string
+        legal_name:
+          type: string
+        addresses:
+          type: array
+          items:
+            type: object
+        departments:
+          type: array
+          items:
+            type: object
+        offices:
+          type: array
+          items:
+            type: object
+        phones:
+          type: array
+          items:
+            type: object
+        country_data:
+          type: object
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    CustomFieldDefinition:
+      type: object
+      properties:
+        id:
+          type: string
+        label:
+          type: string
+        type:
+          type: string
+        options:
+          type: array
+          items:
+            type: string
+        cardinality:
+          type: string
+        category:
+          type: string

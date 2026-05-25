@@ -1,0 +1,109 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Justworks
+providerId: justworks
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+tags:
+  - FinOps
+  - PEO
+  - Payroll
+  - HR
+  - Benefits
+description: |
+  FOCUS-aligned FinOps view of Justworks. Charges originate from the subscription tier (Payroll, PEO Basic,
+  PEO Plus, EOR International), priced per-employee-per-month, plus benefits premium pass-through and a
+  one-time payroll-funding debit per pay run. The Partner API itself is not separately metered — partner
+  charges roll up to the underlying Justworks customer subscription.
+sources:
+  - https://www.justworks.com/pricing
+  - https://public-api.justworks.com/v1/docs
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Justworks
+serviceCategory: Human Capital Management
+billingModel:
+  pricingCategory: Subscription + Pass-Through
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+    - Usage
+    - Purchase
+    - Tax
+    - Credit
+    - Adjustment
+  primaryUnit: employee-month
+  secondaryUnits:
+    - benefit-premium
+    - payroll-run
+focusColumns:
+  ServiceName: Justworks PEO / Payroll
+  ServiceCategory: Human Capital Management
+  ProviderName: Justworks
+  PublisherName: Justworks
+  InvoiceIssuerName: Justworks
+  PricingCategory: Subscription
+  PricingUnit: employee-month
+  BillingCurrency: USD
+meters:
+  - name: peo_basic_seats
+    unit: employee-month
+    aggregation: sum
+    dimensions:
+      - plan
+      - employment_state
+      - jurisdiction
+  - name: peo_plus_seats
+    unit: employee-month
+    aggregation: sum
+    dimensions:
+      - plan
+      - benefit_election
+      - jurisdiction
+  - name: payroll_only_seats
+    unit: employee-month
+    aggregation: sum
+    dimensions:
+      - plan
+      - jurisdiction
+  - name: eor_international_seats
+    unit: employee-month
+    aggregation: sum
+    dimensions:
+      - country
+      - role
+  - name: benefits_premiums
+    unit: premium-line
+    aggregation: sum
+    dimensions:
+      - benefit_type
+      - carrier
+      - employee_id
+  - name: payroll_funding
+    unit: payroll-run
+    aggregation: sum
+    dimensions:
+      - pay_date
+      - debit_date
+      - payment_method
+visibilityCapabilities:
+  - List payroll runs by date range via GET /v1/payrolls
+  - Itemize per-employee earnings, deductions, and contributions via GET /v1/paystubs/{paystub_id}
+  - Inspect deduction-type catalog via GET /v1/deduction-types for allocation tagging
+  - Stream member.profile.* webhooks to drive seat-count reconciliation in real time
+allocationDimensions:
+  - department (from member.department)
+  - office (from member.office)
+  - manager (from member.manager)
+  - jurisdiction (from company.jurisdictions[].zone_code)
+  - custom-fields (company.custom-fields → member.custom-field-values)
+notes:
+  - All Partner API monetary values are zero-decimal integers (e.g., $45.00 = 4500).
+  - Custom fields are the canonical lever for cost-center, project, and BU allocation.
+  - There is no separate per-API charge; FinOps focus is on per-seat subscription and benefits pass-through.

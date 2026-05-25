@@ -1,0 +1,148 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://schema.org/",
+    "justworks": "https://public-api.justworks.com/v1/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "hydra": "http://www.w3.org/ns/hydra/core#",
+
+    "Company": {
+      "@id": "schema:Organization",
+      "@context": {
+        "id": { "@id": "justworks:Company/id", "@type": "xsd:string" },
+        "tax_id": { "@id": "justworks:Company/taxId", "@type": "xsd:string" },
+        "display_name": { "@id": "schema:name", "@type": "xsd:string" },
+        "legal_name": { "@id": "schema:legalName", "@type": "xsd:string" },
+        "addresses": { "@id": "schema:address", "@container": "@list" },
+        "departments": { "@id": "justworks:Company/departments", "@container": "@list" },
+        "offices": { "@id": "justworks:Company/offices", "@container": "@list" },
+        "phones": { "@id": "schema:telephone", "@container": "@list" },
+        "country_data": { "@id": "justworks:Company/countryData" },
+        "created_at": { "@id": "dcterms:created", "@type": "xsd:dateTime" },
+        "updated_at": { "@id": "dcterms:modified", "@type": "xsd:dateTime" }
+      }
+    },
+
+    "Member": {
+      "@id": "schema:Person",
+      "@context": {
+        "id": { "@id": "justworks:Member/id", "@type": "xsd:string" },
+        "company_id": { "@id": "schema:worksFor", "@type": "xsd:string" },
+        "work_id": { "@id": "justworks:Member/workId", "@type": "xsd:string" },
+        "name": { "@id": "schema:name" },
+        "active": { "@id": "justworks:Member/active", "@type": "xsd:boolean" },
+        "employment_location_type": { "@id": "justworks:Member/employmentLocationType", "@type": "xsd:string" },
+        "type": { "@id": "justworks:Member/type", "@type": "xsd:string" },
+        "addresses": { "@id": "schema:address", "@container": "@list" },
+        "emails": { "@id": "schema:email", "@container": "@list" },
+        "phones": { "@id": "schema:telephone", "@container": "@list" },
+        "current_employment": { "@id": "justworks:Member/currentEmployment" },
+        "current_pay": { "@id": "schema:baseSalary" },
+        "current_pay_frequency": { "@id": "schema:salaryCurrency", "@type": "xsd:string" },
+        "date_added_to_justworks": { "@id": "justworks:Member/dateAddedToJustworks", "@type": "xsd:date" },
+        "date_of_birth": { "@id": "schema:birthDate", "@type": "xsd:date" },
+        "department": { "@id": "justworks:Member/department" },
+        "employment_start_date": { "@id": "justworks:Member/employmentStartDate", "@type": "xsd:date" },
+        "employment_termination_date": { "@id": "justworks:Member/employmentTerminationDate", "@type": "xsd:date" },
+        "job_title": { "@id": "schema:jobTitle", "@type": "xsd:string" },
+        "manager": { "@id": "justworks:Member/manager" },
+        "office": { "@id": "justworks:Member/office" },
+        "sex_assigned_at_birth": { "@id": "justworks:Member/sexAssignedAtBirth", "@type": "xsd:string" },
+        "created_at": { "@id": "dcterms:created", "@type": "xsd:dateTime" },
+        "updated_at": { "@id": "dcterms:modified", "@type": "xsd:dateTime" }
+      }
+    },
+
+    "Payroll": {
+      "@id": "justworks:Payroll",
+      "@context": {
+        "id": { "@id": "justworks:Payroll/id", "@type": "xsd:string" },
+        "company_debit": { "@id": "justworks:Payroll/companyDebit", "@type": "xsd:integer" },
+        "employee_taxes": { "@id": "justworks:Payroll/employeeTaxes", "@type": "xsd:integer" },
+        "employer_taxes": { "@id": "justworks:Payroll/employerTaxes", "@type": "xsd:integer" },
+        "gross_pay": { "@id": "justworks:Payroll/grossPay", "@type": "xsd:integer" },
+        "net_pay": { "@id": "justworks:Payroll/netPay", "@type": "xsd:integer" },
+        "currency": { "@id": "schema:priceCurrency", "@type": "xsd:string" },
+        "debit_date": { "@id": "justworks:Payroll/debitDate", "@type": "xsd:date" },
+        "pay_date": { "@id": "justworks:Payroll/payDate", "@type": "xsd:date" },
+        "payment_method": { "@id": "schema:paymentMethod", "@type": "xsd:string" }
+      }
+    },
+
+    "Paystub": {
+      "@id": "justworks:Paystub",
+      "@context": {
+        "member_id": { "@id": "justworks:Paystub/memberId", "@type": "xsd:string" },
+        "paystub_id": { "@id": "justworks:Paystub/paystubId", "@type": "xsd:string" },
+        "gross_pay": { "@id": "justworks:Paystub/grossPay", "@type": "xsd:integer" },
+        "net_pay": { "@id": "justworks:Paystub/netPay", "@type": "xsd:integer" },
+        "currency": { "@id": "schema:priceCurrency", "@type": "xsd:string" },
+        "pay_date": { "@id": "justworks:Paystub/payDate", "@type": "xsd:date" },
+        "pay_group": { "@id": "justworks:Paystub/payGroup", "@type": "xsd:string" },
+        "pay_period_start": { "@id": "justworks:Paystub/payPeriodStart", "@type": "xsd:date" },
+        "pay_period_end": { "@id": "justworks:Paystub/payPeriodEnd", "@type": "xsd:date" },
+        "earnings": { "@id": "justworks:Paystub/earnings", "@container": "@list" },
+        "employee_deductions": { "@id": "justworks:Paystub/employeeDeductions", "@container": "@list" },
+        "employer_contributions": { "@id": "justworks:Paystub/employerContributions", "@container": "@list" }
+      }
+    },
+
+    "Deduction": {
+      "@id": "justworks:Deduction",
+      "@context": {
+        "id": { "@id": "justworks:Deduction/id", "@type": "xsd:string" },
+        "member_id": { "@id": "justworks:Deduction/memberId", "@type": "xsd:string" },
+        "amount_type": { "@id": "justworks:Deduction/amountType", "@type": "xsd:string" },
+        "amount": { "@id": "schema:price", "@type": "xsd:integer" },
+        "currency": { "@id": "schema:priceCurrency", "@type": "xsd:string" },
+        "deduction_type_code": { "@id": "justworks:Deduction/typeCode", "@type": "xsd:string" },
+        "description": { "@id": "schema:description", "@type": "xsd:string" },
+        "frequency": { "@id": "justworks:Deduction/frequency", "@type": "xsd:string" },
+        "start_date": { "@id": "schema:startDate", "@type": "xsd:date" },
+        "end_date": { "@id": "schema:endDate", "@type": "xsd:date" }
+      }
+    },
+
+    "TimeOffPolicy": {
+      "@id": "justworks:TimeOffPolicy",
+      "@context": {
+        "id": { "@id": "justworks:TimeOffPolicy/id", "@type": "xsd:string" },
+        "name": { "@id": "schema:name", "@type": "xsd:string" },
+        "status": { "@id": "justworks:TimeOffPolicy/status", "@type": "xsd:string" },
+        "type": { "@id": "justworks:TimeOffPolicy/type", "@type": "xsd:string" },
+        "effective_date": { "@id": "schema:startDate", "@type": "xsd:date" },
+        "deactivation_date": { "@id": "schema:endDate", "@type": "xsd:date" }
+      }
+    },
+
+    "TimeOffRequest": {
+      "@id": "justworks:TimeOffRequest",
+      "@context": {
+        "id": { "@id": "justworks:TimeOffRequest/id", "@type": "xsd:string" },
+        "member_id": { "@id": "justworks:TimeOffRequest/memberId", "@type": "xsd:string" },
+        "policy_id": { "@id": "justworks:TimeOffRequest/policyId", "@type": "xsd:string" },
+        "status": { "@id": "justworks:TimeOffRequest/status", "@type": "xsd:string" },
+        "unit_type": { "@id": "justworks:TimeOffRequest/unitType", "@type": "xsd:string" },
+        "amount": { "@id": "schema:value", "@type": "xsd:decimal" },
+        "start_date": { "@id": "schema:startDate", "@type": "xsd:date" },
+        "end_date": { "@id": "schema:endDate", "@type": "xsd:date" },
+        "notes": { "@id": "schema:description", "@type": "xsd:string" },
+        "created_at": { "@id": "dcterms:created", "@type": "xsd:dateTime" },
+        "updated_at": { "@id": "dcterms:modified", "@type": "xsd:dateTime" }
+      }
+    },
+
+    "WebhookEvent": {
+      "@id": "justworks:WebhookEvent",
+      "@context": {
+        "id": { "@id": "justworks:WebhookEvent/id", "@type": "xsd:string" },
+        "event_type": { "@id": "justworks:WebhookEvent/eventType", "@type": "xsd:string" },
+        "event_created_at": { "@id": "dcterms:created", "@type": "xsd:dateTime" },
+        "event_delivered_at": { "@id": "justworks:WebhookEvent/eventDeliveredAt", "@type": "xsd:dateTime" },
+        "data": { "@id": "justworks:WebhookEvent/data" }
+      }
+    }
+  }
+}

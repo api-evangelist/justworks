@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/justworks/main/json-schema/justworks-webhook-event-schema.json",
+  "title": "Justworks Webhook Event",
+  "description": "Envelope for every webhook Justworks delivers. The id field is unique per event and is the recommended idempotency key on the partner side. Justworks signs every request and offers at-least-once delivery with automatic retries.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "member.profile.created",
+        "member.profile.updated",
+        "member.employment_state.termination_scheduled",
+        "member.employment_state.termination_canceled",
+        "department.created",
+        "department.updated",
+        "department.deleted"
+      ]
+    },
+    "event_created_at": { "type": "string", "format": "date-time" },
+    "event_delivered_at": { "type": "string", "format": "date-time" },
+    "data": { "type": "object" }
+  },
+  "required": ["id", "event_type", "event_created_at", "data"]
+}

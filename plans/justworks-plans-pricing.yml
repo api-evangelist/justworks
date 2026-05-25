@@ -1,0 +1,143 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Justworks
+providerId: justworks
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+tags:
+  - PEO
+  - Payroll
+  - HR
+  - Benefits
+  - Small Business
+description: |
+  Per-employee-per-month pricing for the Justworks PEO and small-business HR products. Justworks publishes
+  starting prices on its pricing page; final pricing depends on benefits selections, headcount, and product
+  mix (PEO vs Payroll vs international hiring via EOR). The Partner API itself is free for approved
+  integration partners — the cost is the underlying Justworks subscription.
+sources:
+  - https://www.justworks.com/pricing
+  - https://www.justworks.com/products
+  - https://public-api.justworks.com/v1/docs
+plans:
+  - id: justworks-payroll
+    name: Justworks Payroll
+    type: tiered
+    description: Standalone payroll, time tracking, and HR tools for small businesses that already source their own benefits.
+    entries:
+      - label: Base per employee per month
+        name: peepm
+        type: metered
+        metric: employees
+        limit: -1
+        timeFrame: month
+        geo: US
+        unit: 1
+        price: '8.00'
+        userMultiplied: true
+        notes: Starting price for Payroll plan; varies by add-ons and headcount.
+    elements:
+      - name: Payroll processing
+      - name: Tax filing and remittance
+      - name: New-hire reporting
+      - name: Direct deposit
+      - name: Time tracking
+      - name: PTO management
+      - name: Employee self-service portal
+      - name: 1099 contractor payments
+
+  - id: justworks-peo-basic
+    name: Justworks PEO Basic
+    type: tiered
+    description: Co-employment PEO offering payroll, HR support, compliance, and access to large-group benefits.
+    entries:
+      - label: Base per employee per month
+        name: peepm
+        type: metered
+        metric: employees
+        limit: -1
+        timeFrame: month
+        geo: US
+        unit: 1
+        price: '59.00'
+        userMultiplied: true
+        notes: Starting PEO Basic price; benefits costs additional.
+    elements:
+      - name: Payroll and tax filings (multi-state)
+      - name: Access to medical, dental, vision (employee-paid)
+      - name: HR consulting and compliance support
+      - name: Workers comp coverage
+      - name: COBRA and FSA/HSA administration
+      - name: Employee perks marketplace
+      - name: 24/7 customer support
+
+  - id: justworks-peo-plus
+    name: Justworks PEO Plus
+    type: tiered
+    description: PEO Basic plus the Justworks medical, dental, and vision benefits package included.
+    entries:
+      - label: Base per employee per month
+        name: peepm
+        type: metered
+        metric: employees
+        limit: -1
+        timeFrame: month
+        geo: US
+        unit: 1
+        price: '109.00'
+        userMultiplied: true
+        notes: Starting PEO Plus price; includes employer share of benefits premiums for typical plan mix.
+    elements:
+      - name: Everything in PEO Basic
+      - name: Medical insurance (Aetna, Kaiser networks)
+      - name: Dental and vision coverage
+      - name: Life and AD&D insurance
+      - name: Short-term and long-term disability
+      - name: 401(k) plan administration
+      - name: Commuter benefits
+
+  - id: justworks-eor
+    name: Justworks EOR International
+    type: usage-based
+    description: Employer-of-record service for hiring full-time employees in foreign jurisdictions without a local entity.
+    entries:
+      - label: Base per international employee per month
+        name: peepm
+        type: metered
+        metric: employees
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '599.00'
+        userMultiplied: true
+        notes: Starting EOR price varies meaningfully by jurisdiction.
+    elements:
+      - name: Local entity coverage in supported countries
+      - name: Compliant local employment contracts
+      - name: Local payroll and tax filing
+      - name: Statutory benefits administration
+      - name: Onboarding and offboarding
+
+  - id: justworks-partner-api
+    name: Justworks Partner API
+    type: free
+    description: |
+      The Justworks Partner API is offered free to approved partners who integrate against
+      Justworks-using customers. Access requires an OAuth client provisioned by Justworks Partnerships.
+    entries:
+      - label: API access
+        name: api-access
+        type: included
+        metric: requests
+        limit: -1
+        timeFrame: month
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: OAuth 2.0 authorization code flow
+      - name: Members, Company, Payroll, Paystubs, Deductions, Time Off endpoints
+      - name: Signed webhooks with at-least-once delivery
+      - name: Tour environment for testing
