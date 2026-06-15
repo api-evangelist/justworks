@@ -1,0 +1,542 @@
+{
+  "item": [
+    {
+      "id": "66db87d2-381f-4132-975d-532a9d4a6d74",
+      "name": "Time Off Balances",
+      "description": {
+        "content": "Asynchronous balance reports for time-off policies",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "88b96b40-211d-4e36-a757-ad88733ffe72",
+          "name": "Justworks Create Time Off Balances Report",
+          "request": {
+            "name": "Justworks Create Time Off Balances Report",
+            "description": {
+              "content": "Request an asynchronous time-off balance report for a member, policy, and as-of date.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "time-off",
+                "balances"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"member_id\": \"<string>\",\n  \"policy_id\": \"<string>\",\n  \"as_of_date\": \"<date>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9e4479c6-a5b9-4d19-86fb-a3fd3378d18d",
+              "name": "Report accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "time-off",
+                    "balances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"member_id\": \"<string>\",\n  \"policy_id\": \"<string>\",\n  \"as_of_date\": \"<date>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"report_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f95da2cb-b72e-44e3-9add-338078535ad6",
+          "name": "Justworks Get Time Off Balances Report",
+          "request": {
+            "name": "Justworks Get Time Off Balances Report",
+            "description": {
+              "content": "Retrieve a time-off balance report by id. Poll until status indicates the report is ready.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "time-off",
+                "balances",
+                ":report_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "report_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6c61c407-9b86-402a-8257-f3439159b0b1",
+              "name": "Time-off balance report",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "time-off",
+                    "balances",
+                    ":report_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "report_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"message\": \"string\",\n  \"items\": [\n    {\n      \"member_id\": \"string\",\n      \"policy_id\": \"string\",\n      \"unit_type\": \"string\",\n      \"available\": 7151.086398332993,\n      \"used\": 3922.32975218453\n    },\n    {\n      \"member_id\": \"string\",\n      \"policy_id\": \"string\",\n      \"unit_type\": \"string\",\n      \"available\": 5205.702034387216,\n      \"used\": 8081.352218707576\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a92c02d6-0375-4740-830b-bb1d0671fe57",
+      "name": "Time Off Policies",
+      "description": {
+        "content": "Read access to time-off policy catalog",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6404437a-2f10-4ee2-af91-c7fc52e34dcb",
+          "name": "Justworks List Time Off Policies",
+          "request": {
+            "name": "Justworks List Time Off Policies",
+            "description": {
+              "content": "List time-off policies configured for the company.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "time-off",
+                "policies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "153dde95-0e04-4613-91ae-e943d89e94d5",
+              "name": "A paginated list of policies",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "time-off",
+                    "policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"status\": \"string\",\n      \"type\": \"string\",\n      \"deactivation_date\": \"1985-05-13\",\n      \"effective_date\": \"1963-03-08\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"status\": \"string\",\n      \"type\": \"string\",\n      \"deactivation_date\": \"1979-07-19\",\n      \"effective_date\": \"1967-10-11\"\n    }\n  ],\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a9c86a6e-667c-4368-8548-fc757b3394ec",
+      "name": "Time Off Requests",
+      "description": {
+        "content": "Read access to time-off requests submitted by members",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "375de9b2-aa82-4c87-90e0-84a36d7131d6",
+          "name": "Justworks List Time Off Requests",
+          "request": {
+            "name": "Justworks List Time Off Requests",
+            "description": {
+              "content": "List time-off requests within a date range, optionally filtered by member, policy, or status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "time-off",
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "member_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "policy_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7ebf27be-2303-4ccb-9329-10a176fb2834",
+              "name": "A paginated list of time-off requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "time-off",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "member_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "policy_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"member_id\": \"string\",\n      \"policy_id\": \"string\",\n      \"status\": \"string\",\n      \"unit_type\": \"string\",\n      \"amount\": 5777.14085023131,\n      \"end_date\": \"2022-01-30\",\n      \"notes\": \"string\",\n      \"start_date\": \"2018-06-05\",\n      \"created_at\": \"1957-12-23T03:41:11.406Z\",\n      \"updated_at\": \"1958-04-26T15:38:15.588Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"member_id\": \"string\",\n      \"policy_id\": \"string\",\n      \"status\": \"string\",\n      \"unit_type\": \"string\",\n      \"amount\": 536.8631695009984,\n      \"end_date\": \"1998-11-26\",\n      \"notes\": \"string\",\n      \"start_date\": \"1968-12-09\",\n      \"created_at\": \"2015-03-09T15:14:46.289Z\",\n      \"updated_at\": \"1996-06-29T16:10:35.943Z\"\n    }\n  ],\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://public-api.justworks.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "time_off:read"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://public-api.justworks.com/oauth/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://public-api.justworks.com/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://secure.justworks.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "416b7d04-8165-40ed-926a-ae3f3b793fad",
+    "name": "Justworks Time Off API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Manage time-off balances, policies, and requests in the Justworks\nPartner API. Time-off balances are produced as asynchronous reports —\nsubmit a request, then poll the report endpoint until ready.\n\n\nContact Support:\n Name: Justworks Partner Support",
+      "type": "text/plain"
+    }
+  }
+}

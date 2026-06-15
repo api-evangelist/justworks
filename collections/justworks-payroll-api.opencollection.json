@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Justworks Payroll API",
+    "version": "2026-05-25"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://secure.justworks.com/oauth/authorize",
+      "accessTokenUrl": "https://public-api.justworks.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payrolls",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Justworks List Payrolls",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-api.justworks.com/v1/payrolls",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List payroll runs within a date range."
+        },
+        {
+          "info": {
+            "name": "Justworks List Payroll Fees",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-api.justworks.com/v1/payrolls/:payroll_id/fees",
+            "params": [
+              {
+                "name": "payroll_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List per-member fees applied to a payroll run."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Paystubs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Justworks List Paystubs For Payroll",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-api.justworks.com/v1/payrolls/:payroll_id/paystubs",
+            "params": [
+              {
+                "name": "payroll_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List per-member paystub summaries for a payroll run."
+        },
+        {
+          "info": {
+            "name": "Justworks Get Paystub",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-api.justworks.com/v1/paystubs/:paystub_id",
+            "params": [
+              {
+                "name": "paystub_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a single paystub including earnings, employee deductions, and employer contributions."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

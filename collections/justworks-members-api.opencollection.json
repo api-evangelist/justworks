@@ -1,0 +1,124 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Justworks Members API",
+    "version": "2026-05-25"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://secure.justworks.com/oauth/authorize",
+      "accessTokenUrl": "https://public-api.justworks.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Members",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Justworks List Members",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-api.justworks.com/v1/members",
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Opaque pagination cursor returned by the previous response"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Page size between 1 and 100"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by employment status"
+              },
+              {
+                "name": "updated_at",
+                "value": "",
+                "type": "query",
+                "description": "ISO-8601 timestamp filter. Append an operator suffix to compare:\n_gt, _gte, _lt, _lte, _ne.\n"
+              }
+            ]
+          },
+          "docs": "List members of the company. Supports cursor pagination, status\nfiltering (active or terminated), and updated_at filtering with\ncomparison operators.\n"
+        },
+        {
+          "info": {
+            "name": "Justworks Get Member",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-api.justworks.com/v1/members/:member_id",
+            "params": [
+              {
+                "name": "member_id",
+                "value": "",
+                "type": "path",
+                "description": "Justworks member identifier"
+              }
+            ]
+          },
+          "docs": "Retrieve a single Justworks member by id."
+        },
+        {
+          "info": {
+            "name": "Justworks List Member Custom Field Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-api.justworks.com/v1/members/:member_id/custom-field-values",
+            "params": [
+              {
+                "name": "member_id",
+                "value": "",
+                "type": "path",
+                "description": "Justworks member identifier"
+              }
+            ]
+          },
+          "docs": "List custom field values associated with a member."
+        },
+        {
+          "info": {
+            "name": "Justworks Get Member Tax ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-api.justworks.com/v1/members/:member_id/tax-id",
+            "params": [
+              {
+                "name": "member_id",
+                "value": "",
+                "type": "path",
+                "description": "Justworks member identifier"
+              }
+            ]
+          },
+          "docs": "Retrieve a member's U.S. Social Security Number. Restricted to\ndomestic members; returns 400 for international contractors and\n404 for employer-of-record and international employees.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

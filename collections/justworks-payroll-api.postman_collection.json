@@ -1,0 +1,526 @@
+{
+  "item": [
+    {
+      "id": "52bd28fb-87f8-40fd-b4b6-e888318b6955",
+      "name": "Payrolls",
+      "description": {
+        "content": "Read access to payroll runs and per-payroll fees",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3812f4dd-0843-4adf-985f-2fb7a9d090c3",
+          "name": "Justworks List Payrolls",
+          "request": {
+            "name": "Justworks List Payrolls",
+            "description": {
+              "content": "List payroll runs within a date range.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "payrolls"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5ad26f6a-65d2-46c9-96bb-636eac871086",
+              "name": "A paginated list of payroll runs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "payrolls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"company_debit\": 8013,\n      \"employee_taxes\": 7974,\n      \"employer_taxes\": 4001,\n      \"gross_pay\": 9246,\n      \"net_pay\": 1174,\n      \"currency\": \"string\",\n      \"debit_date\": \"1957-12-18\",\n      \"pay_date\": \"2015-11-08\",\n      \"payment_method\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"company_debit\": 4113,\n      \"employee_taxes\": 2066,\n      \"employer_taxes\": 5973,\n      \"gross_pay\": 9878,\n      \"net_pay\": 2069,\n      \"currency\": \"string\",\n      \"debit_date\": \"2007-07-31\",\n      \"pay_date\": \"2020-01-14\",\n      \"payment_method\": \"string\"\n    }\n  ],\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dde8e887-178b-47de-a53b-852cf80d9c6c",
+          "name": "Justworks List Payroll Fees",
+          "request": {
+            "name": "Justworks List Payroll Fees",
+            "description": {
+              "content": "List per-member fees applied to a payroll run.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "payrolls",
+                ":payroll_id",
+                "fees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "payroll_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "576ecc8e-84df-4437-9a91-bcfb7c8253ac",
+              "name": "A paginated list of payroll fees",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "payrolls",
+                    ":payroll_id",
+                    "fees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payroll_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"member_id\": \"string\",\n      \"reference_id\": \"string\",\n      \"name\": \"string\",\n      \"reference_type\": \"string\",\n      \"type\": \"string\",\n      \"amount\": 224,\n      \"currency\": \"string\"\n    },\n    {\n      \"member_id\": \"string\",\n      \"reference_id\": \"string\",\n      \"name\": \"string\",\n      \"reference_type\": \"string\",\n      \"type\": \"string\",\n      \"amount\": 258,\n      \"currency\": \"string\"\n    }\n  ],\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "24e08f51-cb5b-4c9d-afcd-bd9859c4a507",
+      "name": "Paystubs",
+      "description": {
+        "content": "Read access to per-member paystubs",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "adc929a9-bbde-42fd-8daf-2450ac549e8f",
+          "name": "Justworks List Paystubs For Payroll",
+          "request": {
+            "name": "Justworks List Paystubs For Payroll",
+            "description": {
+              "content": "List per-member paystub summaries for a payroll run.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "payrolls",
+                ":payroll_id",
+                "paystubs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "payroll_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "38fcc5d8-284f-46af-bd71-64320385ac71",
+              "name": "A paginated list of paystub summaries",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "payrolls",
+                    ":payroll_id",
+                    "paystubs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payroll_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"member_id\": \"string\",\n      \"paystub_id\": \"string\",\n      \"gross_pay\": 7260,\n      \"net_pay\": 6686,\n      \"currency\": \"string\",\n      \"pay_date\": \"2003-12-24\",\n      \"pay_group\": \"string\",\n      \"pay_period_end\": \"2018-02-12\",\n      \"pay_period_start\": \"2015-03-02\"\n    },\n    {\n      \"member_id\": \"string\",\n      \"paystub_id\": \"string\",\n      \"gross_pay\": 7513,\n      \"net_pay\": 2815,\n      \"currency\": \"string\",\n      \"pay_date\": \"1975-02-25\",\n      \"pay_group\": \"string\",\n      \"pay_period_end\": \"1961-11-01\",\n      \"pay_period_start\": \"1962-02-25\"\n    }\n  ],\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c33f095-95f9-4fac-a10d-545e586436a6",
+          "name": "Justworks Get Paystub",
+          "request": {
+            "name": "Justworks Get Paystub",
+            "description": {
+              "content": "Retrieve a single paystub including earnings, employee deductions, and employer contributions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "paystubs",
+                ":paystub_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "paystub_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "01990e50-4de7-4279-b0e3-8234bde1b24f",
+              "name": "A paystub with detail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "paystubs",
+                    ":paystub_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paystub_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"member_id\": \"string\",\n  \"paystub_id\": \"string\",\n  \"gross_pay\": 8762,\n  \"net_pay\": 80,\n  \"currency\": \"string\",\n  \"pay_date\": \"2006-12-20\",\n  \"pay_group\": \"string\",\n  \"pay_period_end\": \"1995-10-18\",\n  \"pay_period_start\": \"2005-04-01\",\n  \"earnings\": [\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"amount\": 1639,\n      \"category\": \"string\",\n      \"currency\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"amount\": 5472,\n      \"category\": \"string\",\n      \"currency\": \"string\"\n    }\n  ],\n  \"employee_deductions\": [\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"amount\": 77,\n      \"category\": \"string\",\n      \"currency\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"amount\": 6004,\n      \"category\": \"string\",\n      \"currency\": \"string\"\n    }\n  ],\n  \"employer_contributions\": [\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"amount\": 5396,\n      \"category\": \"string\",\n      \"currency\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"amount\": 5770,\n      \"category\": \"string\",\n      \"currency\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://public-api.justworks.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "payroll:read paystub:read"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://public-api.justworks.com/oauth/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://public-api.justworks.com/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://secure.justworks.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f30b2e90-ec8c-4370-bee0-7ba39041887a",
+    "name": "Justworks Payroll API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Read payroll runs, fees, and paystubs from the Justworks Partner API.\nEach payroll record summarizes a run's gross pay, net pay, taxes, and\ndebit information; paystubs break down per-member earnings, employee\ndeductions, and employer contributions.\n\n\nContact Support:\n Name: Justworks Partner Support",
+      "type": "text/plain"
+    }
+  }
+}

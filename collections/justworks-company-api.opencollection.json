@@ -1,0 +1,85 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Justworks Company API",
+    "version": "2026-05-25"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://secure.justworks.com/oauth/authorize",
+      "accessTokenUrl": "https://public-api.justworks.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Company",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Justworks Get Company",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-api.justworks.com/v1/company"
+          },
+          "docs": "Retrieve company identity, departments, offices, and country data."
+        },
+        {
+          "info": {
+            "name": "Justworks Get Company Bank Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-api.justworks.com/v1/company/bank-account"
+          },
+          "docs": "Retrieve the company bank account on file (masked)."
+        },
+        {
+          "info": {
+            "name": "Justworks Get Company Business Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-api.justworks.com/v1/company/business-info"
+          },
+          "docs": "Retrieve verified business identifiers and officer information."
+        },
+        {
+          "info": {
+            "name": "Justworks List Company Custom Fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-api.justworks.com/v1/company/custom-fields"
+          },
+          "docs": "List company-defined custom field definitions."
+        },
+        {
+          "info": {
+            "name": "Justworks List Company Jurisdictions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-api.justworks.com/v1/company/jurisdictions"
+          },
+          "docs": "List jurisdictions in which the company operates."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

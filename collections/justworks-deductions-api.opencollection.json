@@ -1,0 +1,137 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Justworks Deductions API",
+    "version": "2026-05-25"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://secure.justworks.com/oauth/authorize",
+      "accessTokenUrl": "https://public-api.justworks.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Deduction Types",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Justworks List Deduction Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-api.justworks.com/v1/deduction-types"
+          },
+          "docs": "List Justworks-defined deduction type codes and descriptions."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Deductions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Justworks List Deductions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-api.justworks.com/v1/deductions",
+            "params": [
+              {
+                "name": "deduction_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "frequency",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "description",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "member_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List deductions, optionally filtered by member, type, frequency, or description."
+        },
+        {
+          "info": {
+            "name": "Justworks Create Deductions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://public-api.justworks.com/v1/deductions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create one or more deductions in a single request. Each item carries a partner-supplied operation_id for idempotency."
+        },
+        {
+          "info": {
+            "name": "Justworks Update Deductions",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://public-api.justworks.com/v1/deductions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update one or more existing deductions by deduction_id."
+        },
+        {
+          "info": {
+            "name": "Justworks Cancel Deductions",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://public-api.justworks.com/v1/deductions/cancel",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Cancel one or more deductions by id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

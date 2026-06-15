@@ -1,0 +1,465 @@
+{
+  "item": [
+    {
+      "id": "c340bd45-8e8c-4972-93bb-239c4b816676",
+      "name": "Company",
+      "description": {
+        "content": "Read access to company-level Justworks data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "db304dd6-164d-4284-a66b-ee2f772f4559",
+          "name": "Justworks Get Company",
+          "request": {
+            "name": "Justworks Get Company",
+            "description": {
+              "content": "Retrieve company identity, departments, offices, and country data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "company"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0341f5fd-4ee4-4ce4-b603-3c3db31e8eb3",
+              "name": "Company record",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"tax_id\": \"string\",\n  \"display_name\": \"string\",\n  \"legal_name\": \"string\",\n  \"country_data\": {},\n  \"created_at\": \"1953-04-10T16:35:19.043Z\",\n  \"updated_at\": \"1974-03-24T08:29:07.828Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "84784c3a-4ab3-4f91-90a6-4627dac94aa6",
+          "name": "Justworks Get Company Bank Account",
+          "request": {
+            "name": "Justworks Get Company Bank Account",
+            "description": {
+              "content": "Retrieve the company bank account on file (masked).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "company",
+                "bank-account"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "33bdf28d-bf91-41fc-840a-79d58b66fd2f",
+              "name": "Bank account on file",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    "bank-account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bank_name\": \"string\",\n  \"account_type\": \"string\",\n  \"account_number_tail\": \"string\",\n  \"routing_number\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2e96a04-7322-4036-99e9-7ef505f3c46c",
+          "name": "Justworks Get Company Business Info",
+          "request": {
+            "name": "Justworks Get Company Business Info",
+            "description": {
+              "content": "Retrieve verified business identifiers and officer information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "company",
+                "business-info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f38f560c-0bea-4d24-9a23-5ed8715b88cc",
+              "name": "Business info",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    "business-info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entity_identifiers\": [\n    {\n      \"file_number\": \"string\",\n      \"issue_date\": \"2022-06-27\",\n      \"state\": \"string\"\n    },\n    {\n      \"file_number\": \"string\",\n      \"issue_date\": \"1969-03-22\",\n      \"state\": \"string\"\n    }\n  ],\n  \"officers\": [\n    {\n      \"name\": \"string\",\n      \"titles\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"titles\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8710c0f1-a76e-44b9-ad41-2fc93622eba5",
+          "name": "Justworks List Company Custom Fields",
+          "request": {
+            "name": "Justworks List Company Custom Fields",
+            "description": {
+              "content": "List company-defined custom field definitions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "company",
+                "custom-fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "116a2479-b4eb-4272-9db2-446ed41a415c",
+              "name": "Custom field definitions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    "custom-fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"label\": \"string\",\n      \"type\": \"string\",\n      \"options\": [\n        \"string\",\n        \"string\"\n      ],\n      \"cardinality\": \"string\",\n      \"category\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"label\": \"string\",\n      \"type\": \"string\",\n      \"options\": [\n        \"string\",\n        \"string\"\n      ],\n      \"cardinality\": \"string\",\n      \"category\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "80c27a73-8ce3-4bc1-a99a-0745737345e4",
+          "name": "Justworks List Company Jurisdictions",
+          "request": {
+            "name": "Justworks List Company Jurisdictions",
+            "description": {
+              "content": "List jurisdictions in which the company operates.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "company",
+                "jurisdictions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fe9e84df-4e02-4af0-abb2-657df20de01c",
+              "name": "Jurisdictions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    "jurisdictions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"zone_code\": \"string\"\n    },\n    {\n      \"zone_code\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://public-api.justworks.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "company.basic:read company.detail:read company.bank_account:read"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://public-api.justworks.com/oauth/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://public-api.justworks.com/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://secure.justworks.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3602a39a-7f39-4f87-bb6d-ca2dc40f9e8f",
+    "name": "Justworks Company API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Read company-level data from the Justworks Partner API including\ncompany identity, bank account on file, verified business information,\ncustom field definitions, and operating jurisdictions.\n\n\nContact Support:\n Name: Justworks Partner Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,589 @@
+{
+  "item": [
+    {
+      "id": "f06e7ecc-6435-42cf-8c3a-ef690521aed6",
+      "name": "Deductions",
+      "description": {
+        "content": "List, create, update, and cancel employee deductions",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "88f26620-6886-47c9-b42f-504f87f96ea6",
+          "name": "Justworks List Deductions",
+          "request": {
+            "name": "Justworks List Deductions",
+            "description": {
+              "content": "List deductions, optionally filtered by member, type, frequency, or description.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "deductions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "deduction_type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "frequency",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "member_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "687c996c-2eea-4898-bcd6-d158f0a3450b",
+              "name": "A paginated list of deductions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "deductions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "deduction_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "frequency",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "member_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"member_id\": \"string\",\n      \"amount_type\": \"string\",\n      \"amount\": 7516,\n      \"currency\": \"string\",\n      \"deduction_type_code\": \"string\",\n      \"description\": \"string\",\n      \"end_date\": \"1967-11-24\",\n      \"frequency\": \"every_paycheck\",\n      \"start_date\": \"1965-08-29\"\n    },\n    {\n      \"id\": \"string\",\n      \"member_id\": \"string\",\n      \"amount_type\": \"string\",\n      \"amount\": 9209,\n      \"currency\": \"string\",\n      \"deduction_type_code\": \"string\",\n      \"description\": \"string\",\n      \"end_date\": \"1999-12-05\",\n      \"frequency\": \"every_paycheck\",\n      \"start_date\": \"2010-01-27\"\n    }\n  ],\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16d73d41-e7e8-4ebb-8d22-7db0e36bd375",
+          "name": "Justworks Create Deductions",
+          "request": {
+            "name": "Justworks Create Deductions",
+            "description": {
+              "content": "Create one or more deductions in a single request. Each item carries a partner-supplied operation_id for idempotency.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "deductions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"items\": [\n    {\n      \"member_id\": \"<string>\",\n      \"operation_id\": \"<string>\",\n      \"amount_type\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"deduction_type_code\": \"<string>\",\n      \"frequency\": \"<string>\",\n      \"start_date\": \"<date>\",\n      \"description\": \"<string>\",\n      \"end_date\": \"<date>\"\n    },\n    {\n      \"member_id\": \"<string>\",\n      \"operation_id\": \"<string>\",\n      \"amount_type\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"deduction_type_code\": \"<string>\",\n      \"frequency\": \"<string>\",\n      \"start_date\": \"<date>\",\n      \"description\": \"<string>\",\n      \"end_date\": \"<date>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6c5d7c12-0185-4699-9894-852d0e6e2ea5",
+              "name": "Per-item create result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "deductions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"items\": [\n    {\n      \"member_id\": \"string\",\n      \"operation_id\": \"string\",\n      \"amount_type\": \"string\",\n      \"amount\": 6181,\n      \"currency\": \"string\",\n      \"deduction_type_code\": \"string\",\n      \"frequency\": \"one_time\",\n      \"start_date\": \"1986-12-31\",\n      \"description\": \"string\",\n      \"end_date\": \"1990-06-26\"\n    },\n    {\n      \"member_id\": \"string\",\n      \"operation_id\": \"string\",\n      \"amount_type\": \"string\",\n      \"amount\": 351,\n      \"currency\": \"string\",\n      \"deduction_type_code\": \"string\",\n      \"frequency\": \"one_time\",\n      \"start_date\": \"1986-01-09\",\n      \"description\": \"string\",\n      \"end_date\": \"1994-11-28\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"deduction_id\": \"string\",\n      \"member_id\": \"string\",\n      \"operation_id\": \"string\",\n      \"error_message\": \"string\",\n      \"success\": false\n    },\n    {\n      \"deduction_id\": \"string\",\n      \"member_id\": \"string\",\n      \"operation_id\": \"string\",\n      \"error_message\": \"string\",\n      \"success\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "916d35db-ef50-48b3-a0b1-7192fabc5a88",
+          "name": "Justworks Update Deductions",
+          "request": {
+            "name": "Justworks Update Deductions",
+            "description": {
+              "content": "Update one or more existing deductions by deduction_id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "deductions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"items\": [\n    {\n      \"deduction_id\": \"<string>\",\n      \"amount_type\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"deduction_type_code\": \"<string>\",\n      \"description\": \"<string>\",\n      \"end_date\": \"<date>\",\n      \"frequency\": \"<string>\",\n      \"start_date\": \"<date>\"\n    },\n    {\n      \"deduction_id\": \"<string>\",\n      \"amount_type\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"deduction_type_code\": \"<string>\",\n      \"description\": \"<string>\",\n      \"end_date\": \"<date>\",\n      \"frequency\": \"<string>\",\n      \"start_date\": \"<date>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ef2dd138-8613-470a-83d5-a57fa84b76de",
+              "name": "Per-item update result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "deductions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"items\": [\n    {\n      \"deduction_id\": \"string\",\n      \"amount_type\": \"string\",\n      \"amount\": 4369,\n      \"currency\": \"string\",\n      \"deduction_type_code\": \"string\",\n      \"description\": \"string\",\n      \"end_date\": \"1953-12-25\",\n      \"frequency\": \"every_paycheck\",\n      \"start_date\": \"1989-10-02\"\n    },\n    {\n      \"deduction_id\": \"string\",\n      \"amount_type\": \"string\",\n      \"amount\": 4722,\n      \"currency\": \"string\",\n      \"deduction_type_code\": \"string\",\n      \"description\": \"string\",\n      \"end_date\": \"2007-07-11\",\n      \"frequency\": \"one_time\",\n      \"start_date\": \"1965-07-01\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"deduction_id\": \"string\",\n      \"member_id\": \"string\",\n      \"operation_id\": \"string\",\n      \"error_message\": \"string\",\n      \"success\": false\n    },\n    {\n      \"deduction_id\": \"string\",\n      \"member_id\": \"string\",\n      \"operation_id\": \"string\",\n      \"error_message\": \"string\",\n      \"success\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a237013-462f-40b3-a84b-c60df72621e1",
+          "name": "Justworks Cancel Deductions",
+          "request": {
+            "name": "Justworks Cancel Deductions",
+            "description": {
+              "content": "Cancel one or more deductions by id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "deductions",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deduction_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8e84a0e0-1b2e-40e8-9ba0-41d294d04362",
+              "name": "Per-item cancel result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "deductions",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deduction_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"deduction_id\": \"string\",\n      \"member_id\": \"string\",\n      \"operation_id\": \"string\",\n      \"error_message\": \"string\",\n      \"success\": false\n    },\n    {\n      \"deduction_id\": \"string\",\n      \"member_id\": \"string\",\n      \"operation_id\": \"string\",\n      \"error_message\": \"string\",\n      \"success\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "3621e8f9-6d0c-4839-b7d3-b6562a4eafdd",
+      "name": "Deduction Types",
+      "description": {
+        "content": "Read access to Justworks deduction type catalog",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9508180f-7733-402d-ac61-0401378007bc",
+          "name": "Justworks List Deduction Types",
+          "request": {
+            "name": "Justworks List Deduction Types",
+            "description": {
+              "content": "List Justworks-defined deduction type codes and descriptions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "deduction-types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "63001635-ad7d-4358-8ab3-027cd06e0943",
+              "name": "List of deduction types",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "deduction-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"code\": \"string\",\n    \"description\": \"string\"\n  },\n  {\n    \"code\": \"string\",\n    \"description\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://public-api.justworks.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "deductions:read deductions:write"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://public-api.justworks.com/oauth/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://public-api.justworks.com/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://secure.justworks.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6082cb95-0529-4fad-8a64-aad40dcea50f",
+    "name": "Justworks Deductions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Manage employee deductions in the Justworks Partner API. Supports\nlisting deduction types, creating one-time and recurring deductions,\nupdating deductions, and cancelling deductions in bulk. This is the\nprimary write surface of the Justworks Partner API.\n\n\nContact Support:\n Name: Justworks Partner Support",
+      "type": "text/plain"
+    }
+  }
+}

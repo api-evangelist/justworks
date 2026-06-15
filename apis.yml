@@ -1,224 +1,214 @@
 aid: justworks
 url: https://raw.githubusercontent.com/api-evangelist/justworks/refs/heads/main/apis.yml
 apis:
-- aid: justworks:justworks-members-api
-  name: Justworks Members API
-  tags:
-  - HR
-  - PEO
-  - Members
-  - Employees
-  humanURL: https://public-api.justworks.com/v1/docs
-  properties:
-  - url: https://public-api.justworks.com/v1/docs
-    type: Documentation
-  - url: openapi/justworks-members-api-openapi.yml
-    type: OpenAPI
-  - url: json-schema/justworks-member-schema.json
-    type: JSONSchema
-  - url: json-ld/justworks-context.jsonld
-    type: JSONLD
-  - type: NaftikoCapability
-    url: capabilities/members.yaml
-  description: |
-    Read employee, contractor, and member information from the Justworks Partner API. Provides access to
-    member profiles, employment history, pay history, custom-field values, and U.S. tax identifiers
-    (SSN) for domestic members. This is the canonical workforce-truth surface a partner integrates
-    against. Uses cursor pagination with a hard cap of 100 items per page.
-
-- aid: justworks:justworks-company-api
-  name: Justworks Company API
-  tags:
-  - HR
-  - PEO
-  - Company
-  humanURL: https://public-api.justworks.com/v1/docs
-  properties:
-  - url: https://public-api.justworks.com/v1/docs
-    type: Documentation
-  - url: openapi/justworks-company-api-openapi.yml
-    type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/company.yaml
-  description: |
-    Read company-level data from the Justworks Partner API including company identity, departments,
-    offices, bank account on file (masked), verified business information, custom-field definitions,
-    and the jurisdictions in which the company operates.
-
-- aid: justworks:justworks-payroll-api
-  name: Justworks Payroll API
-  tags:
-  - Payroll
-  - PEO
-  - Paystubs
-  humanURL: https://public-api.justworks.com/v1/docs
-  properties:
-  - url: https://public-api.justworks.com/v1/docs
-    type: Documentation
-  - url: openapi/justworks-payroll-api-openapi.yml
-    type: OpenAPI
-  - url: json-schema/justworks-payroll-schema.json
-    type: JSONSchema
-  - url: json-schema/justworks-paystub-schema.json
-    type: JSONSchema
-  - type: NaftikoCapability
-    url: capabilities/payroll.yaml
-  description: |
-    Read payroll runs, fees, and paystubs. Each payroll record summarizes gross pay, net pay, employee
-    and employer taxes, and debit information; paystubs break down per-member earnings, employee
-    deductions, and employer contributions. Monetary fields are zero-decimal integers.
-
-- aid: justworks:justworks-deductions-api
-  name: Justworks Deductions API
-  tags:
-  - Deductions
-  - Payroll
-  - PEO
-  humanURL: https://public-api.justworks.com/v1/docs
-  properties:
-  - url: https://public-api.justworks.com/v1/docs
-    type: Documentation
-  - url: openapi/justworks-deductions-api-openapi.yml
-    type: OpenAPI
-  - url: json-schema/justworks-deduction-schema.json
-    type: JSONSchema
-  - type: NaftikoCapability
-    url: capabilities/deductions.yaml
-  description: |
-    Manage employee deductions — list deduction types, create one-time and recurring deductions,
-    update existing deductions, and cancel deductions in bulk. The primary write surface of the
-    Justworks Partner API. Each item carries a partner-supplied operation_id for idempotency.
-
-- aid: justworks:justworks-time-off-api
-  name: Justworks Time Off API
-  tags:
-  - Time Off
-  - PTO
-  - Leave
-  - HR
-  humanURL: https://public-api.justworks.com/v1/docs
-  properties:
-  - url: https://public-api.justworks.com/v1/docs
-    type: Documentation
-  - url: openapi/justworks-time-off-api-openapi.yml
-    type: OpenAPI
-  - url: json-schema/justworks-time-off-request-schema.json
-    type: JSONSchema
-  - type: NaftikoCapability
-    url: capabilities/time-off.yaml
-  description: |
-    Manage time-off balances, policies, and requests. Balance reports are asynchronous — submit a
-    POST, then poll the report endpoint until ready. Policies and requests are paginated reads with
-    standard cursor semantics.
-
-- aid: justworks:justworks-webhooks-api
-  name: Justworks Webhooks API
-  tags:
-  - Webhooks
-  - Events
-  - HR
-  humanURL: https://public-api.justworks.com/v1/docs
-  properties:
-  - url: https://public-api.justworks.com/v1/docs
-    type: Documentation
-  - url: openapi/justworks-webhooks-api-openapi.yml
-    type: OpenAPI
-  - url: json-schema/justworks-webhook-event-schema.json
-    type: JSONSchema
-  - type: NaftikoCapability
-    url: capabilities/webhooks.yaml
-  description: |
-    Manage Justworks Partner API webhooks. Justworks signs every request, delivers events at-least-once
-    with automatic retries, and closes a webhook on sustained failures (resumable via API). Event types
-    cover member.profile.*, member.employment_state.termination_*, and department.* lifecycle changes.
-    A Tour-environment simulate endpoint allows partners to validate their listener without real data.
-
-- aid: justworks:justworks-oauth-api
-  name: Justworks OAuth API
-  tags:
-  - OAuth
-  - Authentication
-  humanURL: https://public-api.justworks.com/v1/docs
-  properties:
-  - url: https://public-api.justworks.com/v1/docs
-    type: Documentation
-  - url: openapi/justworks-oauth-api-openapi.yml
-    type: OpenAPI
-  description: |
-    OAuth 2.0 token endpoints for the Justworks Partner API. Authorization code is the only supported
-    grant for initial token acquisition; refresh token grant is supported for renewal. Access tokens are
-    valid for 24 hours; refresh tokens are valid for 30 days. A revoke endpoint is provided for both
-    access and refresh tokens.
-
+  - aid: justworks:justworks-members-api
+    name: Justworks Members API
+    tags:
+      - HR
+      - PEO
+      - Members
+      - Employees
+    humanURL: https://public-api.justworks.com/v1/docs
+    properties:
+      - url: https://public-api.justworks.com/v1/docs
+        type: Documentation
+      - url: openapi/justworks-members-api-openapi.yml
+        type: OpenAPI
+      - url: json-schema/justworks-member-schema.json
+        type: JSONSchema
+      - url: json-ld/justworks-context.jsonld
+        type: JSONLD
+    description: |
+      Read employee, contractor, and member information from the Justworks Partner API. Provides access to
+      member profiles, employment history, pay history, custom-field values, and U.S. tax identifiers
+      (SSN) for domestic members. This is the canonical workforce-truth surface a partner integrates
+      against. Uses cursor pagination with a hard cap of 100 items per page.
+  - aid: justworks:justworks-company-api
+    name: Justworks Company API
+    tags:
+      - HR
+      - PEO
+      - Company
+    humanURL: https://public-api.justworks.com/v1/docs
+    properties:
+      - url: https://public-api.justworks.com/v1/docs
+        type: Documentation
+      - url: openapi/justworks-company-api-openapi.yml
+        type: OpenAPI
+    description: |
+      Read company-level data from the Justworks Partner API including company identity, departments,
+      offices, bank account on file (masked), verified business information, custom-field definitions,
+      and the jurisdictions in which the company operates.
+  - aid: justworks:justworks-payroll-api
+    name: Justworks Payroll API
+    tags:
+      - Payroll
+      - PEO
+      - Paystubs
+    humanURL: https://public-api.justworks.com/v1/docs
+    properties:
+      - url: https://public-api.justworks.com/v1/docs
+        type: Documentation
+      - url: openapi/justworks-payroll-api-openapi.yml
+        type: OpenAPI
+      - url: json-schema/justworks-payroll-schema.json
+        type: JSONSchema
+      - url: json-schema/justworks-paystub-schema.json
+        type: JSONSchema
+    description: |
+      Read payroll runs, fees, and paystubs. Each payroll record summarizes gross pay, net pay, employee
+      and employer taxes, and debit information; paystubs break down per-member earnings, employee
+      deductions, and employer contributions. Monetary fields are zero-decimal integers.
+  - aid: justworks:justworks-deductions-api
+    name: Justworks Deductions API
+    tags:
+      - Deductions
+      - Payroll
+      - PEO
+    humanURL: https://public-api.justworks.com/v1/docs
+    properties:
+      - url: https://public-api.justworks.com/v1/docs
+        type: Documentation
+      - url: openapi/justworks-deductions-api-openapi.yml
+        type: OpenAPI
+      - url: json-schema/justworks-deduction-schema.json
+        type: JSONSchema
+    description: |
+      Manage employee deductions — list deduction types, create one-time and recurring deductions,
+      update existing deductions, and cancel deductions in bulk. The primary write surface of the
+      Justworks Partner API. Each item carries a partner-supplied operation_id for idempotency.
+  - aid: justworks:justworks-time-off-api
+    name: Justworks Time Off API
+    tags:
+      - Time Off
+      - PTO
+      - Leave
+      - HR
+    humanURL: https://public-api.justworks.com/v1/docs
+    properties:
+      - url: https://public-api.justworks.com/v1/docs
+        type: Documentation
+      - url: openapi/justworks-time-off-api-openapi.yml
+        type: OpenAPI
+      - url: json-schema/justworks-time-off-request-schema.json
+        type: JSONSchema
+    description: |
+      Manage time-off balances, policies, and requests. Balance reports are asynchronous — submit a
+      POST, then poll the report endpoint until ready. Policies and requests are paginated reads with
+      standard cursor semantics.
+  - aid: justworks:justworks-webhooks-api
+    name: Justworks Webhooks API
+    tags:
+      - Webhooks
+      - Events
+      - HR
+    humanURL: https://public-api.justworks.com/v1/docs
+    properties:
+      - url: https://public-api.justworks.com/v1/docs
+        type: Documentation
+      - url: openapi/justworks-webhooks-api-openapi.yml
+        type: OpenAPI
+      - url: json-schema/justworks-webhook-event-schema.json
+        type: JSONSchema
+    description: |
+      Manage Justworks Partner API webhooks. Justworks signs every request, delivers events at-least-once
+      with automatic retries, and closes a webhook on sustained failures (resumable via API). Event types
+      cover member.profile.*, member.employment_state.termination_*, and department.* lifecycle changes.
+      A Tour-environment simulate endpoint allows partners to validate their listener without real data.
+  - aid: justworks:justworks-oauth-api
+    name: Justworks OAuth API
+    tags:
+      - OAuth
+      - Authentication
+    humanURL: https://public-api.justworks.com/v1/docs
+    properties:
+      - url: https://public-api.justworks.com/v1/docs
+        type: Documentation
+      - url: openapi/justworks-oauth-api-openapi.yml
+        type: OpenAPI
+    description: |
+      OAuth 2.0 token endpoints for the Justworks Partner API. Authorization code is the only supported
+      grant for initial token acquisition; refresh token grant is supported for renewal. Access tokens are
+      valid for 24 hours; refresh tokens are valid for 30 days. A revoke endpoint is provided for both
+      access and refresh tokens.
 common:
-- type: Website
-  url: https://www.justworks.com
-- type: Documentation
-  url: https://public-api.justworks.com/v1/docs
-- type: Portal
-  url: https://www.justworks.com/partners
-- type: GettingStarted
-  url: https://public-api.justworks.com/v1/docs
-- type: Pricing
-  url: https://www.justworks.com/pricing
-- type: Products
-  url: https://www.justworks.com/products
-- type: Integrations
-  url: https://www.justworks.com/integrations
-- type: PartnerProgram
-  url: https://www.justworks.com/partners
-- type: PartnerIntegrations
-  url: https://www.justworks.com/partners/integrations
-- type: PartnerBlog
-  url: https://www.justworks.com/partners/blog
-- type: HelpCenter
-  url: https://help.justworks.com
-- type: TrustCenter
-  url: https://trust.justworks.com
-- type: Blog
-  url: https://www.justworks.com/blog
-- type: Careers
-  url: https://www.justworks.com/careers
-- type: GitHubOrganization
-  url: https://github.com/justworkshr
-- type: LinkedIn
-  url: https://www.linkedin.com/company/justworks
-- type: Twitter
-  url: https://twitter.com/JustworksHR
-- type: YouTube
-  url: https://www.youtube.com/c/Justworks
-- type: Plans
-  url: plans/justworks-plans-pricing.yml
-- type: RateLimits
-  url: rate-limits/justworks-rate-limits.yml
-- type: FinOps
-  url: finops/justworks-finops.yml
-- type: Features
-  data:
-  - Justworks PEO Basic — co-employment PEO with payroll, HR support, and access to large-group benefits
-  - Justworks PEO Plus — PEO Basic plus medical, dental, vision, life, AD&D, disability, and 401(k) administration
-  - Justworks Payroll — standalone small-business payroll, time tracking, and HR tooling for companies that source their own benefits
-  - Justworks EOR International — employer-of-record service for hiring full-time employees abroad without a local entity
-  - Justworks Partner API at public-api.justworks.com with OAuth 2.0 authorization-code flow
-  - Members endpoints (list, get, custom field values, tax-id/SSN) with cursor pagination and updated_at filtering
-  - Company endpoints (identity, bank account, business info, custom fields, jurisdictions)
-  - Payroll endpoints (list runs by date range, list fees, list paystubs, get paystub with earnings + deductions + employer contributions)
-  - Deductions endpoints (list types, list, create, update, cancel) with per-row operation_id idempotency
-  - Time Off endpoints (asynchronous balance reports, policies, requests)
-  - Signed webhooks for member.profile.created/updated, member.employment_state.termination_scheduled/canceled, and department.created/updated/deleted
-  - Webhook simulator endpoint for partner-listener validation in the Tour environment
-  - 24-hour access tokens and 30-day refresh tokens
-  - Hierarchical OAuth scopes (e.g., member.detail:read implies member.basic:read implies member.dob/sex:read)
-  - Zero-decimal currency representation for all monetary fields
-  - Partner program with revenue share, co-marketing, dedicated relationship managers
-  - Integrations marketplace covering Greenhouse, Lever, JazzHR, CultureAmp, 15Five, QuickBooks, NetSuite, Xero, Sage Intacct, Brex, Ramp
-  - Available via aggregator platforms Finch, Merge, and Apideck for cross-HRIS access
-  sources:
-  - https://public-api.justworks.com/v1/docs
-  - https://www.justworks.com/pricing
-  - https://www.justworks.com/integrations
-  - https://www.justworks.com/partners/integrations
-
+  - type: Website
+    url: https://www.justworks.com
+  - type: Documentation
+    url: https://public-api.justworks.com/v1/docs
+  - type: Portal
+    url: https://www.justworks.com/partners
+  - type: GettingStarted
+    url: https://public-api.justworks.com/v1/docs
+  - type: Pricing
+    url: https://www.justworks.com/pricing
+  - type: Products
+    url: https://www.justworks.com/products
+  - type: Integrations
+    url: https://www.justworks.com/integrations
+  - type: PartnerProgram
+    url: https://www.justworks.com/partners
+  - type: PartnerIntegrations
+    url: https://www.justworks.com/partners/integrations
+  - type: PartnerBlog
+    url: https://www.justworks.com/partners/blog
+  - type: HelpCenter
+    url: https://help.justworks.com
+  - type: TrustCenter
+    url: https://trust.justworks.com
+  - type: Blog
+    url: https://www.justworks.com/blog
+  - type: Careers
+    url: https://www.justworks.com/careers
+  - type: GitHubOrganization
+    url: https://github.com/justworkshr
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/justworks
+  - type: Twitter
+    url: https://twitter.com/JustworksHR
+  - type: YouTube
+    url: https://www.youtube.com/c/Justworks
+  - type: Plans
+    url: plans/justworks-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/justworks-rate-limits.yml
+  - type: FinOps
+    url: finops/justworks-finops.yml
+  - type: Features
+    data:
+      - Justworks PEO Basic — co-employment PEO with payroll, HR support, and access to large-group benefits
+      - Justworks PEO Plus — PEO Basic plus medical, dental, vision, life, AD&D, disability, and 401(k) administration
+      - >-
+        Justworks Payroll — standalone small-business payroll, time tracking, and HR tooling for companies that source
+        their own benefits
+      - >-
+        Justworks EOR International — employer-of-record service for hiring full-time employees abroad without a local
+        entity
+      - Justworks Partner API at public-api.justworks.com with OAuth 2.0 authorization-code flow
+      - Members endpoints (list, get, custom field values, tax-id/SSN) with cursor pagination and updated_at filtering
+      - Company endpoints (identity, bank account, business info, custom fields, jurisdictions)
+      - >-
+        Payroll endpoints (list runs by date range, list fees, list paystubs, get paystub with earnings + deductions +
+        employer contributions)
+      - Deductions endpoints (list types, list, create, update, cancel) with per-row operation_id idempotency
+      - Time Off endpoints (asynchronous balance reports, policies, requests)
+      - >-
+        Signed webhooks for member.profile.created/updated, member.employment_state.termination_scheduled/canceled, and
+        department.created/updated/deleted
+      - Webhook simulator endpoint for partner-listener validation in the Tour environment
+      - 24-hour access tokens and 30-day refresh tokens
+      - Hierarchical OAuth scopes (e.g., member.detail:read implies member.basic:read implies member.dob/sex:read)
+      - Zero-decimal currency representation for all monetary fields
+      - Partner program with revenue share, co-marketing, dedicated relationship managers
+      - >-
+        Integrations marketplace covering Greenhouse, Lever, JazzHR, CultureAmp, 15Five, QuickBooks, NetSuite, Xero,
+        Sage Intacct, Brex, Ramp
+      - Available via aggregator platforms Finch, Merge, and Apideck for cross-HRIS access
+    sources:
+      - https://public-api.justworks.com/v1/docs
+      - https://www.justworks.com/pricing
+      - https://www.justworks.com/integrations
+      - https://www.justworks.com/partners/integrations
 name: Justworks
 description: |
   Justworks is a New York City-based Professional Employer Organization (PEO) and small-business HR
@@ -237,23 +227,23 @@ position: Provider
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-- PEO
-- Payroll
-- HR
-- Human Resources
-- Benefits
-- Health Insurance
-- 401(k)
-- Time Off
-- Compliance
-- Small Business
-- Employer of Record
-- HRIS
+  - PEO
+  - Payroll
+  - HR
+  - Human Resources
+  - Benefits
+  - Health Insurance
+  - 401(k)
+  - Time Off
+  - Compliance
+  - Small Business
+  - Employer of Record
+  - HRIS
 maintainers:
-- FN: Kin Lane
-  email: info@apievangelist.com
-  X: apievangelist
-  url: https://apievangelist.com
+  - FN: Kin Lane
+    email: info@apievangelist.com
+    X: apievangelist
+    url: https://apievangelist.com
 created: '2026-05-25'
 modified: '2026-05-25'
 specificationVersion: '0.20'

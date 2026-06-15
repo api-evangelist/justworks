@@ -1,0 +1,740 @@
+{
+  "item": [
+    {
+      "id": "094cd0af-8ac6-4666-afb5-c4f2713797d9",
+      "name": "Members",
+      "description": {
+        "content": "Read access to Justworks member records, custom fields, and tax IDs",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2b4d5622-ec31-4b5b-94ef-13a08950a4f0",
+          "name": "Justworks List Members",
+          "request": {
+            "name": "Justworks List Members",
+            "description": {
+              "content": "List members of the company. Supports cursor pagination, status\nfiltering (active or terminated), and updated_at filtering with\ncomparison operators.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "members"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Opaque pagination cursor returned by the previous response"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Page size between 1 and 100"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by employment status"
+                },
+                {
+                  "disabled": false,
+                  "key": "updated_at",
+                  "value": "<dateTime>",
+                  "description": "ISO-8601 timestamp filter. Append an operator suffix to compare:\n_gt, _gte, _lt, _lte, _ne.\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7e010d93-dc13-4eba-9269-0562f2422d9b",
+              "name": "A paginated list of members",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updated_at",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"company_id\": \"string\",\n      \"work_id\": \"string\",\n      \"name\": {\n        \"family_name\": \"string\",\n        \"given_name\": \"string\",\n        \"full_preferred_name\": \"string\",\n        \"preferred_name\": \"string\",\n        \"additional_names\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"active\": false,\n      \"employment_location_type\": \"string\",\n      \"type\": \"string\",\n      \"addresses\": [\n        {\n          \"line1\": \"string\",\n          \"line2\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"postal_code\": \"string\",\n          \"country\": \"string\"\n        },\n        {\n          \"line1\": \"string\",\n          \"line2\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"postal_code\": \"string\",\n          \"country\": \"string\"\n        }\n      ],\n      \"current_employment\": {},\n      \"current_pay\": {},\n      \"current_pay_frequency\": \"string\",\n      \"date_added_to_justworks\": \"1975-12-15\",\n      \"date_of_birth\": \"2008-10-28\",\n      \"department\": {},\n      \"employment_start_date\": \"1961-10-23\",\n      \"employment_termination_date\": \"1974-01-20\",\n      \"job_title\": \"string\",\n      \"manager\": {},\n      \"office\": {},\n      \"partner_settings\": {},\n      \"sex_assigned_at_birth\": \"string\",\n      \"created_at\": \"2003-08-02T13:12:30.168Z\",\n      \"updated_at\": \"1960-06-11T02:26:57.505Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"company_id\": \"string\",\n      \"work_id\": \"string\",\n      \"name\": {\n        \"family_name\": \"string\",\n        \"given_name\": \"string\",\n        \"full_preferred_name\": \"string\",\n        \"preferred_name\": \"string\",\n        \"additional_names\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"active\": false,\n      \"employment_location_type\": \"string\",\n      \"type\": \"string\",\n      \"addresses\": [\n        {\n          \"line1\": \"string\",\n          \"line2\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"postal_code\": \"string\",\n          \"country\": \"string\"\n        },\n        {\n          \"line1\": \"string\",\n          \"line2\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"postal_code\": \"string\",\n          \"country\": \"string\"\n        }\n      ],\n      \"current_employment\": {},\n      \"current_pay\": {},\n      \"current_pay_frequency\": \"string\",\n      \"date_added_to_justworks\": \"1965-08-31\",\n      \"date_of_birth\": \"1963-09-22\",\n      \"department\": {},\n      \"employment_start_date\": \"1995-01-18\",\n      \"employment_termination_date\": \"1994-04-25\",\n      \"job_title\": \"string\",\n      \"manager\": {},\n      \"office\": {},\n      \"partner_settings\": {},\n      \"sex_assigned_at_birth\": \"string\",\n      \"created_at\": \"1997-04-15T05:26:48.442Z\",\n      \"updated_at\": \"1966-08-28T12:08:50.058Z\"\n    }\n  ],\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bed0b7fc-e7d0-4da0-aae1-08032c94a809",
+              "name": "Missing or invalid OAuth token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updated_at",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b79b1dfd-b62b-4e53-8d02-c8664fe3f171",
+              "name": "Token lacks the required scope",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updated_at",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "87a83331-0a97-4efa-887a-cda8c9e5f32a",
+          "name": "Justworks Get Member",
+          "request": {
+            "name": "Justworks Get Member",
+            "description": {
+              "content": "Retrieve a single Justworks member by id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "members",
+                ":member_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "member_id",
+                  "description": "(Required) Justworks member identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "683dc128-70dc-4e3d-b56c-d9ee9afe3aa8",
+              "name": "A single Justworks member",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "members",
+                    ":member_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "member_id",
+                      "description": "(Required) Justworks member identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"company_id\": \"string\",\n  \"work_id\": \"string\",\n  \"name\": {\n    \"family_name\": \"string\",\n    \"given_name\": \"string\",\n    \"full_preferred_name\": \"string\",\n    \"preferred_name\": \"string\",\n    \"additional_names\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"active\": false,\n  \"employment_location_type\": \"string\",\n  \"type\": \"string\",\n  \"addresses\": [\n    {\n      \"line1\": \"string\",\n      \"line2\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"postal_code\": \"string\",\n      \"country\": \"string\"\n    },\n    {\n      \"line1\": \"string\",\n      \"line2\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"postal_code\": \"string\",\n      \"country\": \"string\"\n    }\n  ],\n  \"current_employment\": {},\n  \"current_pay\": {},\n  \"current_pay_frequency\": \"string\",\n  \"date_added_to_justworks\": \"1965-02-26\",\n  \"date_of_birth\": \"1961-02-12\",\n  \"department\": {},\n  \"employment_start_date\": \"2002-08-26\",\n  \"employment_termination_date\": \"2017-10-18\",\n  \"job_title\": \"string\",\n  \"manager\": {},\n  \"office\": {},\n  \"partner_settings\": {},\n  \"sex_assigned_at_birth\": \"string\",\n  \"created_at\": \"1971-05-03T06:44:53.885Z\",\n  \"updated_at\": \"1977-11-21T21:46:13.999Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fda60418-bc5e-484e-8783-a2654f94fd58",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "members",
+                    ":member_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "member_id",
+                      "description": "(Required) Justworks member identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f9ea5a56-b6f6-4059-93a9-6632e576a83c",
+          "name": "Justworks List Member Custom Field Values",
+          "request": {
+            "name": "Justworks List Member Custom Field Values",
+            "description": {
+              "content": "List custom field values associated with a member.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "members",
+                ":member_id",
+                "custom-field-values"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "member_id",
+                  "description": "(Required) Justworks member identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5b0744c5-727c-4f63-8ae3-9131d0edbe3d",
+              "name": "Member custom field values",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "members",
+                    ":member_id",
+                    "custom-field-values"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "member_id",
+                      "description": "(Required) Justworks member identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"values\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"values\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9749234f-2f5c-463d-8510-0b2d421a735e",
+          "name": "Justworks Get Member Tax ID",
+          "request": {
+            "name": "Justworks Get Member Tax ID",
+            "description": {
+              "content": "Retrieve a member's U.S. Social Security Number. Restricted to\ndomestic members; returns 400 for international contractors and\n404 for employer-of-record and international employees.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "members",
+                ":member_id",
+                "tax-id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "member_id",
+                  "description": "(Required) Justworks member identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4502cb55-693b-4022-90ac-78faabed11de",
+              "name": "Tax identifier wrapped by jurisdiction",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "members",
+                    ":member_id",
+                    "tax-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "member_id",
+                      "description": "(Required) Justworks member identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"US\": {\n    \"ssn\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e0b0b705-9e93-4799-9e54-f6a943fedaae",
+              "name": "Member is an international contractor",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "members",
+                    ":member_id",
+                    "tax-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "member_id",
+                      "description": "(Required) Justworks member identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c08b1eff-80c2-4c0a-b5c4-2c6caaadade4",
+              "name": "Member is an EOR or international employee",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "members",
+                    ":member_id",
+                    "tax-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "member_id",
+                      "description": "(Required) Justworks member identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://public-api.justworks.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "member.basic:read member.detail:read member.employment:read member.pay:read member.tax_id:read member.dob:read member.sex:read"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://public-api.justworks.com/oauth/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://public-api.justworks.com/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://secure.justworks.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "07e76914-5169-415c-b26d-f92f96ddd2b1",
+    "name": "Justworks Members API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Read employee, contractor, and member information from the Justworks\nPartner API. Provides access to member profiles, employment history,\npay history, custom field values, and U.S. tax identifiers.\n\nJustworks operates a Professional Employer Organization (PEO) and HR\nplatform; the Members API is the canonical source of truth for the\nworkforce a partner is integrating against.\n\n\nContact Support:\n Name: Justworks Partner Support",
+      "type": "text/plain"
+    }
+  }
+}

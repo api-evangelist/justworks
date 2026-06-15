@@ -1,0 +1,88 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Justworks Webhooks API",
+    "version": "2026-05-25"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://secure.justworks.com/oauth/authorize",
+      "accessTokenUrl": "https://public-api.justworks.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Webhooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Justworks List Webhooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://public-api.justworks.com/v1/webhooks/get",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List webhooks registered on the installation, optionally filtered by open or closed status."
+        },
+        {
+          "info": {
+            "name": "Justworks Resume Webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://public-api.justworks.com/v1/webhooks/:webhook_id/resume",
+            "params": [
+              {
+                "name": "webhook_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Resume delivery on a webhook that was previously closed due to repeated failures."
+        },
+        {
+          "info": {
+            "name": "Justworks Simulate Webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://public-api.justworks.com/v1/webhooks/:webhook_id/simulate",
+            "params": [
+              {
+                "name": "webhook_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Simulate webhook delivery in the Tour environment to validate the partner listener."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,155 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Justworks Time Off API",
+    "version": "2026-05-25"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://secure.justworks.com/oauth/authorize",
+      "accessTokenUrl": "https://public-api.justworks.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Time Off Balances",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Justworks Create Time Off Balances Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://public-api.justworks.com/v1/time-off/balances",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Request an asynchronous time-off balance report for a member, policy, and as-of date."
+        },
+        {
+          "info": {
+            "name": "Justworks Get Time Off Balances Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-api.justworks.com/v1/time-off/balances/:report_id",
+            "params": [
+              {
+                "name": "report_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a time-off balance report by id. Poll until status indicates the report is ready."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Time Off Policies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Justworks List Time Off Policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-api.justworks.com/v1/time-off/policies",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List time-off policies configured for the company."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Time Off Requests",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Justworks List Time Off Requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-api.justworks.com/v1/time-off/requests",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "member_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "policy_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List time-off requests within a date range, optionally filtered by member, policy, or status."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
