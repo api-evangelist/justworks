@@ -3,13 +3,15 @@
   "feeds": [
     {
       "source": "https://www.justworks.com/blog",
-      "error": "HTTPError"
+      "saved": 0,
+      "error": "HTTP 403 Forbidden"
     },
     {
-      "source": "https://trust.justworks.com",
-      "error": "URLError"
+      "source": "https://www.justworks.com/partners/blog",
+      "saved": 0,
+      "error": "HTTP 403 Forbidden"
     }
   ],
-  "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "fetched": "2026-06-27T12:48:58Z",
+  "post_count": 0
 }

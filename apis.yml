@@ -148,7 +148,7 @@ common:
     url: https://www.justworks.com/integrations
   - type: PartnerProgram
     url: https://www.justworks.com/partners
-  - type: PartnerIntegrations
+  - type: Integrations
     url: https://www.justworks.com/partners/integrations
   - type: PartnerBlog
     url: https://www.justworks.com/partners/blog
