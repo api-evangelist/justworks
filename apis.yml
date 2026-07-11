@@ -132,6 +132,12 @@ apis:
       valid for 24 hours; refresh tokens are valid for 30 days. A revoke endpoint is provided for both
       access and refresh tokens.
 common:
+  - type: VulnerabilityDisclosure
+    url: security/justworks-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/justworks-domain-security.yml
+  - type: Authentication
+    url: authentication/justworks-authentication.yml
   - type: OAuthScopes
     url: scopes/justworks-scopes.yml
   - type: Website
