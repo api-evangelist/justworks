@@ -132,6 +132,8 @@ apis:
       valid for 24 hours; refresh tokens are valid for 30 days. A revoke endpoint is provided for both
       access and refresh tokens.
 common:
+  - type: OAuthScopes
+    url: scopes/justworks-scopes.yml
   - type: Website
     url: https://www.justworks.com
   - type: Documentation

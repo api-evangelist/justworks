@@ -1,0 +1,133 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/justworks-company-api-openapi.yml, openapi/justworks-deductions-api-openapi.yml,
+  openapi/justworks-members-api-openapi.yml, openapi/justworks-payroll-api-openapi.yml, openapi/justworks-time-off-api-openapi.yml,
+  openapi/justworks-webhooks-api-openapi.yml
+schemes:
+- name: OAuth2
+  source: openapi/justworks-company-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://secure.justworks.com/oauth/authorize
+    tokenUrl: https://public-api.justworks.com/oauth/token
+- name: OAuth2
+  source: openapi/justworks-deductions-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://secure.justworks.com/oauth/authorize
+    tokenUrl: https://public-api.justworks.com/oauth/token
+- name: OAuth2
+  source: openapi/justworks-members-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://secure.justworks.com/oauth/authorize
+    tokenUrl: https://public-api.justworks.com/oauth/token
+- name: OAuth2
+  source: openapi/justworks-payroll-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://secure.justworks.com/oauth/authorize
+    tokenUrl: https://public-api.justworks.com/oauth/token
+- name: OAuth2
+  source: openapi/justworks-time-off-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://secure.justworks.com/oauth/authorize
+    tokenUrl: https://public-api.justworks.com/oauth/token
+- name: OAuth2
+  source: openapi/justworks-webhooks-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://secure.justworks.com/oauth/authorize
+    tokenUrl: https://public-api.justworks.com/oauth/token
+scopes:
+- scope: company.bank_account:read
+  description: Read company bank account on file
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/justworks-company-api-openapi.yml
+- scope: company.basic:read
+  description: Read basic company data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/justworks-company-api-openapi.yml
+- scope: company.detail:read
+  description: Read detailed company data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/justworks-company-api-openapi.yml
+- scope: deductions:read
+  description: Read deductions
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/justworks-deductions-api-openapi.yml
+- scope: deductions:write
+  description: Create, update, and cancel deductions
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/justworks-deductions-api-openapi.yml
+- scope: member.basic:read
+  description: Read basic member profile fields
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/justworks-members-api-openapi.yml
+- scope: member.detail:read
+  description: Read detailed member profile including history
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/justworks-members-api-openapi.yml
+- scope: member.dob:read
+  description: Read date of birth
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/justworks-members-api-openapi.yml
+- scope: member.employment:read
+  description: Read employment records
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/justworks-members-api-openapi.yml
+- scope: member.pay:read
+  description: Read pay history
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/justworks-members-api-openapi.yml
+- scope: member.sex:read
+  description: Read sex assigned at birth
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/justworks-members-api-openapi.yml
+- scope: member.tax_id:read
+  description: Read U.S. tax identifier (SSN)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/justworks-members-api-openapi.yml
+- scope: payroll:read
+  description: Read payroll runs and fees
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/justworks-payroll-api-openapi.yml
+- scope: paystub:read
+  description: Read paystub detail
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/justworks-payroll-api-openapi.yml
+- scope: time_off:read
+  description: Read time-off policies, balances, and requests
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/justworks-time-off-api-openapi.yml
