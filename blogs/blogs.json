@@ -2,16 +2,10 @@
   "repo": "justworks",
   "feeds": [
     {
-      "source": "https://www.justworks.com/blog",
-      "saved": 0,
-      "error": "HTTP 403 Forbidden"
-    },
-    {
-      "source": "https://www.justworks.com/partners/blog",
-      "saved": 0,
-      "error": "HTTP 403 Forbidden"
+      "source": "https://trust.justworks.com",
+      "error": "URLError"
     }
   ],
-  "fetched": "2026-06-27T12:48:58Z",
+  "fetched": "2026-07-11T11:50:51Z",
   "post_count": 0
 }
