@@ -1,0 +1,111 @@
+openapi: 3.1.0
+info:
+  title: Justworks Company Time Off Balances API
+  description: 'Read company-level data from the Justworks Partner API including
+
+    company identity, bank account on file, verified business information,
+
+    custom field definitions, and operating jurisdictions.
+
+    '
+  version: '2026-05-25'
+  contact:
+    name: Justworks Partner Support
+    url: https://public-api.justworks.com/v1/docs
+servers:
+- url: https://public-api.justworks.com
+  description: Production Server
+security:
+- OAuth2: []
+tags:
+- name: Time Off Balances
+  description: Asynchronous balance reports for time-off policies
+paths:
+  /v1/time-off/balances:
+    post:
+      summary: Justworks Create Time Off Balances Report
+      description: Request an asynchronous time-off balance report for a member, policy, and as-of date.
+      operationId: createTimeOffBalancesReport
+      tags:
+      - Time Off Balances
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - member_id
+              - policy_id
+              - as_of_date
+              properties:
+                member_id:
+                  type: string
+                policy_id:
+                  type: string
+                as_of_date:
+                  type: string
+                  format: date
+      responses:
+        '202':
+          description: Report accepted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  report_id:
+                    type: string
+  /v1/time-off/balances/{report_id}:
+    get:
+      summary: Justworks Get Time Off Balances Report
+      description: Retrieve a time-off balance report by id. Poll until status indicates the report is ready.
+      operationId: getTimeOffBalancesReport
+      tags:
+      - Time Off Balances
+      parameters:
+      - name: report_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Time-off balance report
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        member_id:
+                          type: string
+                        policy_id:
+                          type: string
+                        unit_type:
+                          type: string
+                        available:
+                          type: number
+                        used:
+                          type: number
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://secure.justworks.com/oauth/authorize
+          tokenUrl: https://public-api.justworks.com/oauth/token
+          refreshUrl: https://public-api.justworks.com/oauth/token
+          scopes:
+            company.basic:read: Read basic company data
+            company.detail:read: Read detailed company data
+            company.bank_account:read: Read company bank account on file

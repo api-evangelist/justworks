@@ -1,26 +1,25 @@
 openapi: 3.1.0
 info:
   title: Justworks Company API
-  description: |
-    Read company-level data from the Justworks Partner API including
+  description: 'Read company-level data from the Justworks Partner API including
+
     company identity, bank account on file, verified business information,
+
     custom field definitions, and operating jurisdictions.
+
+    '
   version: '2026-05-25'
   contact:
     name: Justworks Partner Support
     url: https://public-api.justworks.com/v1/docs
-
 servers:
-  - url: https://public-api.justworks.com
-    description: Production Server
-
+- url: https://public-api.justworks.com
+  description: Production Server
 security:
-  - OAuth2: []
-
+- OAuth2: []
 tags:
-  - name: Company
-    description: Read access to company-level Justworks data
-
+- name: Company
+  description: Read access to company-level Justworks data
 paths:
   /v1/company:
     get:
@@ -28,7 +27,7 @@ paths:
       description: Retrieve company identity, departments, offices, and country data.
       operationId: getCompany
       tags:
-        - Company
+      - Company
       responses:
         '200':
           description: Company record
@@ -36,14 +35,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Company'
-
   /v1/company/bank-account:
     get:
       summary: Justworks Get Company Bank Account
       description: Retrieve the company bank account on file (masked).
       operationId: getCompanyBankAccount
       tags:
-        - Company
+      - Company
       responses:
         '200':
           description: Bank account on file
@@ -60,14 +58,13 @@ paths:
                     type: string
                   routing_number:
                     type: string
-
   /v1/company/business-info:
     get:
       summary: Justworks Get Company Business Info
       description: Retrieve verified business identifiers and officer information.
       operationId: getCompanyBusinessInfo
       tags:
-        - Company
+      - Company
       responses:
         '200':
           description: Business info
@@ -99,14 +96,13 @@ paths:
                           type: array
                           items:
                             type: string
-
   /v1/company/custom-fields:
     get:
       summary: Justworks List Company Custom Fields
       description: List company-defined custom field definitions.
       operationId: listCompanyCustomFields
       tags:
-        - Company
+      - Company
       responses:
         '200':
           description: Custom field definitions
@@ -119,14 +115,13 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/CustomFieldDefinition'
-
   /v1/company/jurisdictions:
     get:
       summary: Justworks List Company Jurisdictions
       description: List jurisdictions in which the company operates.
       operationId: listCompanyJurisdictions
       tags:
-        - Company
+      - Company
       responses:
         '200':
           description: Jurisdictions
@@ -142,21 +137,7 @@ paths:
                       properties:
                         zone_code:
                           type: string
-
 components:
-  securitySchemes:
-    OAuth2:
-      type: oauth2
-      flows:
-        authorizationCode:
-          authorizationUrl: https://secure.justworks.com/oauth/authorize
-          tokenUrl: https://public-api.justworks.com/oauth/token
-          refreshUrl: https://public-api.justworks.com/oauth/token
-          scopes:
-            company.basic:read: Read basic company data
-            company.detail:read: Read detailed company data
-            company.bank_account:read: Read company bank account on file
-
   schemas:
     Company:
       type: object
@@ -193,7 +174,6 @@ components:
         updated_at:
           type: string
           format: date-time
-
     CustomFieldDefinition:
       type: object
       properties:
@@ -211,3 +191,15 @@ components:
           type: string
         category:
           type: string
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://secure.justworks.com/oauth/authorize
+          tokenUrl: https://public-api.justworks.com/oauth/token
+          refreshUrl: https://public-api.justworks.com/oauth/token
+          scopes:
+            company.basic:read: Read basic company data
+            company.detail:read: Read detailed company data
+            company.bank_account:read: Read company bank account on file

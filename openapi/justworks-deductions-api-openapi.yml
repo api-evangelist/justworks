@@ -1,85 +1,64 @@
 openapi: 3.1.0
 info:
-  title: Justworks Deductions API
-  description: |
-    Manage employee deductions in the Justworks Partner API. Supports
-    listing deduction types, creating one-time and recurring deductions,
-    updating deductions, and cancelling deductions in bulk. This is the
-    primary write surface of the Justworks Partner API.
+  title: Justworks Company Deductions API
+  description: 'Read company-level data from the Justworks Partner API including
+
+    company identity, bank account on file, verified business information,
+
+    custom field definitions, and operating jurisdictions.
+
+    '
   version: '2026-05-25'
   contact:
     name: Justworks Partner Support
     url: https://public-api.justworks.com/v1/docs
-
 servers:
-  - url: https://public-api.justworks.com
-    description: Production Server
-
+- url: https://public-api.justworks.com
+  description: Production Server
 security:
-  - OAuth2: []
-
+- OAuth2: []
 tags:
-  - name: Deductions
-    description: List, create, update, and cancel employee deductions
-  - name: Deduction Types
-    description: Read access to Justworks deduction type catalog
-
+- name: Deductions
+  description: List, create, update, and cancel employee deductions
 paths:
-  /v1/deduction-types:
-    get:
-      summary: Justworks List Deduction Types
-      description: List Justworks-defined deduction type codes and descriptions.
-      operationId: listDeductionTypes
-      tags:
-        - Deduction Types
-      responses:
-        '200':
-          description: List of deduction types
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/DeductionType'
-
   /v1/deductions:
     get:
       summary: Justworks List Deductions
       description: List deductions, optionally filtered by member, type, frequency, or description.
       operationId: listDeductions
       tags:
-        - Deductions
+      - Deductions
       parameters:
-        - name: deduction_type
-          in: query
-          schema:
-            type: string
-        - name: frequency
-          in: query
-          schema:
-            type: string
-            enum:
-              - one_time
-              - every_paycheck
-        - name: description
-          in: query
-          schema:
-            type: string
-        - name: member_id
-          in: query
-          schema:
-            type: string
-        - name: cursor
-          in: query
-          schema:
-            type: string
-        - name: limit
-          in: query
-          schema:
-            type: integer
-            minimum: 1
-            maximum: 100
-            default: 100
+      - name: deduction_type
+        in: query
+        schema:
+          type: string
+      - name: frequency
+        in: query
+        schema:
+          type: string
+          enum:
+          - one_time
+          - every_paycheck
+      - name: description
+        in: query
+        schema:
+          type: string
+      - name: member_id
+        in: query
+        schema:
+          type: string
+      - name: cursor
+        in: query
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 100
       responses:
         '200':
           description: A paginated list of deductions
@@ -95,13 +74,12 @@ paths:
                   next_cursor:
                     type: string
                     nullable: true
-
     post:
       summary: Justworks Create Deductions
       description: Create one or more deductions in a single request. Each item carries a partner-supplied operation_id for idempotency.
       operationId: createDeductions
       tags:
-        - Deductions
+      - Deductions
       requestBody:
         required: true
         content:
@@ -120,13 +98,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeductionWriteResult'
-
     put:
       summary: Justworks Update Deductions
       description: Update one or more existing deductions by deduction_id.
       operationId: updateDeductions
       tags:
-        - Deductions
+      - Deductions
       requestBody:
         required: true
         content:
@@ -145,14 +122,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeductionWriteResult'
-
   /v1/deductions/cancel:
     patch:
       summary: Justworks Cancel Deductions
       description: Cancel one or more deductions by id.
       operationId: cancelDeductions
       tags:
-        - Deductions
+      - Deductions
       requestBody:
         required: true
         content:
@@ -171,29 +147,95 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeductionWriteResult'
-
 components:
-  securitySchemes:
-    OAuth2:
-      type: oauth2
-      flows:
-        authorizationCode:
-          authorizationUrl: https://secure.justworks.com/oauth/authorize
-          tokenUrl: https://public-api.justworks.com/oauth/token
-          refreshUrl: https://public-api.justworks.com/oauth/token
-          scopes:
-            deductions:read: Read deductions
-            deductions:write: Create, update, and cancel deductions
-
   schemas:
-    DeductionType:
+    DeductionWriteResult:
       type: object
       properties:
-        code:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              deduction_id:
+                type: string
+              member_id:
+                type: string
+              operation_id:
+                type: string
+              error_message:
+                type: string
+                nullable: true
+              success:
+                type: boolean
+    DeductionUpdate:
+      type: object
+      required:
+      - deduction_id
+      properties:
+        deduction_id:
+          type: string
+        amount_type:
+          type: string
+        amount:
+          type: integer
+        currency:
+          type: string
+        deduction_type_code:
           type: string
         description:
           type: string
-
+        end_date:
+          type: string
+          format: date
+          nullable: true
+        frequency:
+          type: string
+          enum:
+          - one_time
+          - every_paycheck
+        start_date:
+          type: string
+          format: date
+    DeductionCreate:
+      type: object
+      required:
+      - member_id
+      - operation_id
+      - amount_type
+      - amount
+      - currency
+      - deduction_type_code
+      - frequency
+      - start_date
+      properties:
+        member_id:
+          type: string
+        operation_id:
+          type: string
+          description: Partner-supplied idempotency key for this row
+        amount_type:
+          type: string
+        amount:
+          type: integer
+        currency:
+          type: string
+        deduction_type_code:
+          type: string
+        description:
+          type: string
+        end_date:
+          type: string
+          format: date
+          nullable: true
+        frequency:
+          type: string
+          enum:
+          - one_time
+          - every_paycheck
+        start_date:
+          type: string
+          format: date
     Deduction:
       type: object
       properties:
@@ -218,98 +260,20 @@ components:
         frequency:
           type: string
           enum:
-            - one_time
-            - every_paycheck
+          - one_time
+          - every_paycheck
         start_date:
           type: string
           format: date
-
-    DeductionCreate:
-      type: object
-      required:
-        - member_id
-        - operation_id
-        - amount_type
-        - amount
-        - currency
-        - deduction_type_code
-        - frequency
-        - start_date
-      properties:
-        member_id:
-          type: string
-        operation_id:
-          type: string
-          description: Partner-supplied idempotency key for this row
-        amount_type:
-          type: string
-        amount:
-          type: integer
-        currency:
-          type: string
-        deduction_type_code:
-          type: string
-        description:
-          type: string
-        end_date:
-          type: string
-          format: date
-          nullable: true
-        frequency:
-          type: string
-          enum:
-            - one_time
-            - every_paycheck
-        start_date:
-          type: string
-          format: date
-
-    DeductionUpdate:
-      type: object
-      required:
-        - deduction_id
-      properties:
-        deduction_id:
-          type: string
-        amount_type:
-          type: string
-        amount:
-          type: integer
-        currency:
-          type: string
-        deduction_type_code:
-          type: string
-        description:
-          type: string
-        end_date:
-          type: string
-          format: date
-          nullable: true
-        frequency:
-          type: string
-          enum:
-            - one_time
-            - every_paycheck
-        start_date:
-          type: string
-          format: date
-
-    DeductionWriteResult:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              deduction_id:
-                type: string
-              member_id:
-                type: string
-              operation_id:
-                type: string
-              error_message:
-                type: string
-                nullable: true
-              success:
-                type: boolean
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://secure.justworks.com/oauth/authorize
+          tokenUrl: https://public-api.justworks.com/oauth/token
+          refreshUrl: https://public-api.justworks.com/oauth/token
+          scopes:
+            company.basic:read: Read basic company data
+            company.detail:read: Read detailed company data
+            company.bank_account:read: Read company bank account on file

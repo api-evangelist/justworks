@@ -1,71 +1,71 @@
 openapi: 3.1.0
 info:
-  title: Justworks Members API
-  description: |
-    Read employee, contractor, and member information from the Justworks
-    Partner API. Provides access to member profiles, employment history,
-    pay history, custom field values, and U.S. tax identifiers.
+  title: Justworks Company Members API
+  description: 'Read company-level data from the Justworks Partner API including
 
-    Justworks operates a Professional Employer Organization (PEO) and HR
-    platform; the Members API is the canonical source of truth for the
-    workforce a partner is integrating against.
+    company identity, bank account on file, verified business information,
+
+    custom field definitions, and operating jurisdictions.
+
+    '
   version: '2026-05-25'
   contact:
     name: Justworks Partner Support
     url: https://public-api.justworks.com/v1/docs
-
 servers:
-  - url: https://public-api.justworks.com
-    description: Production Server
-
+- url: https://public-api.justworks.com
+  description: Production Server
 security:
-  - OAuth2: []
-
+- OAuth2: []
 tags:
-  - name: Members
-    description: Read access to Justworks member records, custom fields, and tax IDs
-
+- name: Members
+  description: Read access to Justworks member records, custom fields, and tax IDs
 paths:
   /v1/members:
     get:
       summary: Justworks List Members
-      description: |
-        List members of the company. Supports cursor pagination, status
+      description: 'List members of the company. Supports cursor pagination, status
+
         filtering (active or terminated), and updated_at filtering with
+
         comparison operators.
+
+        '
       operationId: listMembers
       tags:
-        - Members
+      - Members
       parameters:
-        - name: cursor
-          in: query
-          description: Opaque pagination cursor returned by the previous response
-          schema:
-            type: string
-        - name: limit
-          in: query
-          description: Page size between 1 and 100
-          schema:
-            type: integer
-            minimum: 1
-            maximum: 100
-            default: 100
-        - name: status
-          in: query
-          description: Filter by employment status
-          schema:
-            type: string
-            enum:
-              - active
-              - terminated
-        - name: updated_at
-          in: query
-          description: |
-            ISO-8601 timestamp filter. Append an operator suffix to compare:
-            _gt, _gte, _lt, _lte, _ne.
-          schema:
-            type: string
-            format: date-time
+      - name: cursor
+        in: query
+        description: Opaque pagination cursor returned by the previous response
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Page size between 1 and 100
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 100
+      - name: status
+        in: query
+        description: Filter by employment status
+        schema:
+          type: string
+          enum:
+          - active
+          - terminated
+      - name: updated_at
+        in: query
+        description: 'ISO-8601 timestamp filter. Append an operator suffix to compare:
+
+          _gt, _gte, _lt, _lte, _ne.
+
+          '
+        schema:
+          type: string
+          format: date-time
       responses:
         '200':
           description: A paginated list of members
@@ -77,16 +77,15 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '403':
           $ref: '#/components/responses/Forbidden'
-
   /v1/members/{member_id}:
     get:
       summary: Justworks Get Member
       description: Retrieve a single Justworks member by id.
       operationId: getMember
       tags:
-        - Members
+      - Members
       parameters:
-        - $ref: '#/components/parameters/MemberId'
+      - $ref: '#/components/parameters/MemberId'
       responses:
         '200':
           description: A single Justworks member
@@ -96,16 +95,15 @@ paths:
                 $ref: '#/components/schemas/Member'
         '404':
           $ref: '#/components/responses/NotFound'
-
   /v1/members/{member_id}/custom-field-values:
     get:
       summary: Justworks List Member Custom Field Values
       description: List custom field values associated with a member.
       operationId: listMemberCustomFieldValues
       tags:
-        - Members
+      - Members
       parameters:
-        - $ref: '#/components/parameters/MemberId'
+      - $ref: '#/components/parameters/MemberId'
       responses:
         '200':
           description: Member custom field values
@@ -118,19 +116,21 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/CustomFieldValue'
-
   /v1/members/{member_id}/tax-id:
     get:
       summary: Justworks Get Member Tax ID
-      description: |
-        Retrieve a member's U.S. Social Security Number. Restricted to
+      description: 'Retrieve a member''s U.S. Social Security Number. Restricted to
+
         domestic members; returns 400 for international contractors and
+
         404 for employer-of-record and international employees.
+
+        '
       operationId: getMemberTaxId
       tags:
-        - Members
+      - Members
       parameters:
-        - $ref: '#/components/parameters/MemberId'
+      - $ref: '#/components/parameters/MemberId'
       responses:
         '200':
           description: Tax identifier wrapped by jurisdiction
@@ -148,54 +148,15 @@ paths:
           description: Member is an international contractor
         '404':
           description: Member is an EOR or international employee
-
 components:
-  securitySchemes:
-    OAuth2:
-      type: oauth2
-      flows:
-        authorizationCode:
-          authorizationUrl: https://secure.justworks.com/oauth/authorize
-          tokenUrl: https://public-api.justworks.com/oauth/token
-          refreshUrl: https://public-api.justworks.com/oauth/token
-          scopes:
-            member.basic:read: Read basic member profile fields
-            member.detail:read: Read detailed member profile including history
-            member.employment:read: Read employment records
-            member.pay:read: Read pay history
-            member.tax_id:read: Read U.S. tax identifier (SSN)
-            member.dob:read: Read date of birth
-            member.sex:read: Read sex assigned at birth
-
-  parameters:
-    MemberId:
-      name: member_id
-      in: path
-      required: true
-      description: Justworks member identifier
-      schema:
-        type: string
-
   responses:
-    Unauthorized:
-      description: Missing or invalid OAuth token
     Forbidden:
       description: Token lacks the required scope
     NotFound:
       description: Resource not found
-
+    Unauthorized:
+      description: Missing or invalid OAuth token
   schemas:
-    MemberList:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Member'
-        next_cursor:
-          type: string
-          nullable: true
-
     Member:
       type: object
       properties:
@@ -270,7 +231,15 @@ components:
         updated_at:
           type: string
           format: date-time
-
+    CustomFieldValue:
+      type: object
+      properties:
+        id:
+          type: string
+        values:
+          type: array
+          items:
+            type: string
     MemberName:
       type: object
       properties:
@@ -286,7 +255,6 @@ components:
           type: array
           items:
             type: string
-
     Address:
       type: object
       properties:
@@ -302,13 +270,33 @@ components:
           type: string
         country:
           type: string
-
-    CustomFieldValue:
+    MemberList:
       type: object
       properties:
-        id:
-          type: string
-        values:
+        items:
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/Member'
+        next_cursor:
+          type: string
+          nullable: true
+  parameters:
+    MemberId:
+      name: member_id
+      in: path
+      required: true
+      description: Justworks member identifier
+      schema:
+        type: string
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://secure.justworks.com/oauth/authorize
+          tokenUrl: https://public-api.justworks.com/oauth/token
+          refreshUrl: https://public-api.justworks.com/oauth/token
+          scopes:
+            company.basic:read: Read basic company data
+            company.detail:read: Read detailed company data
+            company.bank_account:read: Read company bank account on file

@@ -1,0 +1,60 @@
+openapi: 3.1.0
+info:
+  title: Justworks Company Deduction Types API
+  description: 'Read company-level data from the Justworks Partner API including
+
+    company identity, bank account on file, verified business information,
+
+    custom field definitions, and operating jurisdictions.
+
+    '
+  version: '2026-05-25'
+  contact:
+    name: Justworks Partner Support
+    url: https://public-api.justworks.com/v1/docs
+servers:
+- url: https://public-api.justworks.com
+  description: Production Server
+security:
+- OAuth2: []
+tags:
+- name: Deduction Types
+  description: Read access to Justworks deduction type catalog
+paths:
+  /v1/deduction-types:
+    get:
+      summary: Justworks List Deduction Types
+      description: List Justworks-defined deduction type codes and descriptions.
+      operationId: listDeductionTypes
+      tags:
+      - Deduction Types
+      responses:
+        '200':
+          description: List of deduction types
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DeductionType'
+components:
+  schemas:
+    DeductionType:
+      type: object
+      properties:
+        code:
+          type: string
+        description:
+          type: string
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://secure.justworks.com/oauth/authorize
+          tokenUrl: https://public-api.justworks.com/oauth/token
+          refreshUrl: https://public-api.justworks.com/oauth/token
+          scopes:
+            company.basic:read: Read basic company data
+            company.detail:read: Read detailed company data
+            company.bank_account:read: Read company bank account on file

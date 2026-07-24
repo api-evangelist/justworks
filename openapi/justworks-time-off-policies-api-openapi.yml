@@ -1,0 +1,93 @@
+openapi: 3.1.0
+info:
+  title: Justworks Company Time Off Policies API
+  description: 'Read company-level data from the Justworks Partner API including
+
+    company identity, bank account on file, verified business information,
+
+    custom field definitions, and operating jurisdictions.
+
+    '
+  version: '2026-05-25'
+  contact:
+    name: Justworks Partner Support
+    url: https://public-api.justworks.com/v1/docs
+servers:
+- url: https://public-api.justworks.com
+  description: Production Server
+security:
+- OAuth2: []
+tags:
+- name: Time Off Policies
+  description: Read access to time-off policy catalog
+paths:
+  /v1/time-off/policies:
+    get:
+      summary: Justworks List Time Off Policies
+      description: List time-off policies configured for the company.
+      operationId: listTimeOffPolicies
+      tags:
+      - Time Off Policies
+      parameters:
+      - name: status
+        in: query
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 100
+      - name: cursor
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A paginated list of policies
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TimeOffPolicy'
+                  next_cursor:
+                    type: string
+                    nullable: true
+components:
+  schemas:
+    TimeOffPolicy:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        status:
+          type: string
+        type:
+          type: string
+        deactivation_date:
+          type: string
+          format: date
+          nullable: true
+        effective_date:
+          type: string
+          format: date
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://secure.justworks.com/oauth/authorize
+          tokenUrl: https://public-api.justworks.com/oauth/token
+          refreshUrl: https://public-api.justworks.com/oauth/token
+          scopes:
+            company.basic:read: Read basic company data
+            company.detail:read: Read detailed company data
+            company.bank_account:read: Read company bank account on file

@@ -1,0 +1,124 @@
+openapi: 3.1.0
+info:
+  title: Justworks Company Time Off Requests API
+  description: 'Read company-level data from the Justworks Partner API including
+
+    company identity, bank account on file, verified business information,
+
+    custom field definitions, and operating jurisdictions.
+
+    '
+  version: '2026-05-25'
+  contact:
+    name: Justworks Partner Support
+    url: https://public-api.justworks.com/v1/docs
+servers:
+- url: https://public-api.justworks.com
+  description: Production Server
+security:
+- OAuth2: []
+tags:
+- name: Time Off Requests
+  description: Read access to time-off requests submitted by members
+paths:
+  /v1/time-off/requests:
+    get:
+      summary: Justworks List Time Off Requests
+      description: List time-off requests within a date range, optionally filtered by member, policy, or status.
+      operationId: listTimeOffRequests
+      tags:
+      - Time Off Requests
+      parameters:
+      - name: start_date
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date
+      - name: end_date
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date
+      - name: member_id
+        in: query
+        schema:
+          type: string
+      - name: policy_id
+        in: query
+        schema:
+          type: string
+      - name: status
+        in: query
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 100
+      - name: cursor
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A paginated list of time-off requests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TimeOffRequest'
+                  next_cursor:
+                    type: string
+                    nullable: true
+components:
+  schemas:
+    TimeOffRequest:
+      type: object
+      properties:
+        id:
+          type: string
+        member_id:
+          type: string
+        policy_id:
+          type: string
+        status:
+          type: string
+        unit_type:
+          type: string
+        amount:
+          type: number
+        end_date:
+          type: string
+          format: date
+        notes:
+          type: string
+        start_date:
+          type: string
+          format: date
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://secure.justworks.com/oauth/authorize
+          tokenUrl: https://public-api.justworks.com/oauth/token
+          refreshUrl: https://public-api.justworks.com/oauth/token
+          scopes:
+            company.basic:read: Read basic company data
+            company.detail:read: Read detailed company data
+            company.bank_account:read: Read company bank account on file
