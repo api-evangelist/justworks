@@ -1,136 +1,213 @@
 aid: justworks
 url: https://raw.githubusercontent.com/api-evangelist/justworks/refs/heads/main/apis.yml
 apis:
-  - aid: justworks:justworks-members-api
-    name: Justworks Members API
-    tags:
-      - HR
-      - PEO
-      - Members
-      - Employees
-    humanURL: https://public-api.justworks.com/v1/docs
-    properties:
-      - url: https://public-api.justworks.com/v1/docs
-        type: Documentation
-      - url: openapi/justworks-members-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/justworks-member-schema.json
-        type: JSONSchema
-      - url: json-ld/justworks-context.jsonld
-        type: JSONLD
-    description: |
-      Read employee, contractor, and member information from the Justworks Partner API. Provides access to
-      member profiles, employment history, pay history, custom-field values, and U.S. tax identifiers
-      (SSN) for domestic members. This is the canonical workforce-truth surface a partner integrates
-      against. Uses cursor pagination with a hard cap of 100 items per page.
-  - aid: justworks:justworks-company-api
-    name: Justworks Company API
-    tags:
-      - HR
-      - PEO
-      - Company
-    humanURL: https://public-api.justworks.com/v1/docs
-    properties:
-      - url: https://public-api.justworks.com/v1/docs
-        type: Documentation
-      - url: openapi/justworks-company-api-openapi.yml
-        type: OpenAPI
-    description: |
-      Read company-level data from the Justworks Partner API including company identity, departments,
-      offices, bank account on file (masked), verified business information, custom-field definitions,
-      and the jurisdictions in which the company operates.
-  - aid: justworks:justworks-payroll-api
-    name: Justworks Payroll API
-    tags:
-      - Payroll
-      - PEO
-      - Paystubs
-    humanURL: https://public-api.justworks.com/v1/docs
-    properties:
-      - url: https://public-api.justworks.com/v1/docs
-        type: Documentation
-      - url: openapi/justworks-payroll-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/justworks-payroll-schema.json
-        type: JSONSchema
-      - url: json-schema/justworks-paystub-schema.json
-        type: JSONSchema
-    description: |
-      Read payroll runs, fees, and paystubs. Each payroll record summarizes gross pay, net pay, employee
-      and employer taxes, and debit information; paystubs break down per-member earnings, employee
-      deductions, and employer contributions. Monetary fields are zero-decimal integers.
-  - aid: justworks:justworks-deductions-api
-    name: Justworks Deductions API
-    tags:
-      - Deductions
-      - Payroll
-      - PEO
-    humanURL: https://public-api.justworks.com/v1/docs
-    properties:
-      - url: https://public-api.justworks.com/v1/docs
-        type: Documentation
-      - url: openapi/justworks-deductions-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/justworks-deduction-schema.json
-        type: JSONSchema
-    description: |
-      Manage employee deductions — list deduction types, create one-time and recurring deductions,
-      update existing deductions, and cancel deductions in bulk. The primary write surface of the
-      Justworks Partner API. Each item carries a partner-supplied operation_id for idempotency.
-  - aid: justworks:justworks-time-off-api
-    name: Justworks Time Off API
-    tags:
-      - Time Off
-      - PTO
-      - Leave
-      - HR
-    humanURL: https://public-api.justworks.com/v1/docs
-    properties:
-      - url: https://public-api.justworks.com/v1/docs
-        type: Documentation
-      - url: openapi/justworks-time-off-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/justworks-time-off-request-schema.json
-        type: JSONSchema
-    description: |
-      Manage time-off balances, policies, and requests. Balance reports are asynchronous — submit a
-      POST, then poll the report endpoint until ready. Policies and requests are paginated reads with
-      standard cursor semantics.
-  - aid: justworks:justworks-webhooks-api
-    name: Justworks Webhooks API
-    tags:
-      - Webhooks
-      - Events
-      - HR
-    humanURL: https://public-api.justworks.com/v1/docs
-    properties:
-      - url: https://public-api.justworks.com/v1/docs
-        type: Documentation
-      - url: openapi/justworks-webhooks-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/justworks-webhook-event-schema.json
-        type: JSONSchema
-    description: |
-      Manage Justworks Partner API webhooks. Justworks signs every request, delivers events at-least-once
-      with automatic retries, and closes a webhook on sustained failures (resumable via API). Event types
-      cover member.profile.*, member.employment_state.termination_*, and department.* lifecycle changes.
-      A Tour-environment simulate endpoint allows partners to validate their listener without real data.
-  - aid: justworks:justworks-oauth-api
-    name: Justworks OAuth API
-    tags:
-      - OAuth
-      - Authentication
-    humanURL: https://public-api.justworks.com/v1/docs
-    properties:
-      - url: https://public-api.justworks.com/v1/docs
-        type: Documentation
-      - url: openapi/justworks-oauth-api-openapi.yml
-        type: OpenAPI
-    description: |
-      OAuth 2.0 token endpoints for the Justworks Partner API. Authorization code is the only supported
-      grant for initial token acquisition; refresh token grant is supported for renewal. Access tokens are
-      valid for 24 hours; refresh tokens are valid for 30 days. A revoke endpoint is provided for both
-      access and refresh tokens.
+- aid: justworks:justworks-members-api
+  name: Justworks Members API
+  tags:
+  - HR
+  - PEO
+  - Members
+  - Employees
+  humanURL: https://public-api.justworks.com/v1/docs
+  properties:
+  - url: https://public-api.justworks.com/v1/docs
+    type: Documentation
+  - url: openapi/justworks-members-api-openapi.yml
+    type: OpenAPI
+  - url: json-schema/justworks-member-schema.json
+    type: JSONSchema
+  - url: json-ld/justworks-context.jsonld
+    type: JSONLD
+  description: >
+    Read employee, contractor, and member information from the Justworks Partner API. Provides access
+    to
+
+    member profiles, employment history, pay history, custom-field values, and U.S. tax identifiers
+
+    (SSN) for domestic members. This is the canonical workforce-truth surface a partner integrates
+
+    against. Uses cursor pagination with a hard cap of 100 items per page.
+- aid: justworks:justworks-company-api
+  name: Justworks Company API
+  tags:
+  - HR
+  - PEO
+  - Company
+  humanURL: https://public-api.justworks.com/v1/docs
+  properties:
+  - url: https://public-api.justworks.com/v1/docs
+    type: Documentation
+  - url: openapi/justworks-company-api-openapi.yml
+    type: OpenAPI
+  description: >
+    Read company-level data from the Justworks Partner API including company identity, departments,
+
+    offices, bank account on file (masked), verified business information, custom-field definitions,
+
+    and the jurisdictions in which the company operates.
+- aid: justworks:justworks-deductions-api
+  name: Justworks Deductions API
+  tags:
+  - Deductions
+  - Payroll
+  - PEO
+  humanURL: https://public-api.justworks.com/v1/docs
+  properties:
+  - url: https://public-api.justworks.com/v1/docs
+    type: Documentation
+  - url: openapi/justworks-deductions-api-openapi.yml
+    type: OpenAPI
+  - url: json-schema/justworks-deduction-schema.json
+    type: JSONSchema
+  description: >
+    Manage employee deductions — list deduction types, create one-time and recurring deductions,
+
+    update existing deductions, and cancel deductions in bulk. The primary write surface of the
+
+    Justworks Partner API. Each item carries a partner-supplied operation_id for idempotency.
+- aid: justworks:justworks-webhooks-api
+  name: Justworks Webhooks API
+  tags:
+  - Webhooks
+  - Events
+  - HR
+  humanURL: https://public-api.justworks.com/v1/docs
+  properties:
+  - url: https://public-api.justworks.com/v1/docs
+    type: Documentation
+  - url: openapi/justworks-webhooks-api-openapi.yml
+    type: OpenAPI
+  - url: json-schema/justworks-webhook-event-schema.json
+    type: JSONSchema
+  description: >
+    Manage Justworks Partner API webhooks. Justworks signs every request, delivers events at-least-once
+
+    with automatic retries, and closes a webhook on sustained failures (resumable via API). Event types
+
+    cover member.profile.*, member.employment_state.termination_*, and department.* lifecycle changes.
+
+    A Tour-environment simulate endpoint allows partners to validate their listener without real data.
+- aid: justworks:justworks-oauth-api
+  name: Justworks OAuth API
+  tags:
+  - OAuth
+  - Authentication
+  humanURL: https://public-api.justworks.com/v1/docs
+  properties:
+  - url: https://public-api.justworks.com/v1/docs
+    type: Documentation
+  - url: openapi/justworks-oauth-api-openapi.yml
+    type: OpenAPI
+  description: >
+    OAuth 2.0 token endpoints for the Justworks Partner API. Authorization code is the only supported
+
+    grant for initial token acquisition; refresh token grant is supported for renewal. Access tokens are
+
+    valid for 24 hours; refresh tokens are valid for 30 days. A revoke endpoint is provided for both
+
+    access and refresh tokens.
+- aid: justworks:justworks-deduction-types-api
+  name: Justworks Deduction Types API
+  description: Read access to Justworks deduction type catalog
+  humanURL: https://public-api.justworks.com/v1/docs
+  tags:
+  - Deduction Types
+  properties:
+  - type: OpenAPI
+    url: openapi/justworks-deduction-types-api-openapi.yml
+  - type: Documentation
+    url: https://public-api.justworks.com/v1/docs
+  - type: JSONSchema
+    url: json-schema/justworks-payroll-schema.json
+  - type: JSONSchema
+    url: json-schema/justworks-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/justworks-time-off-request-schema.json
+- aid: justworks:justworks-payrolls-api
+  name: Justworks Payrolls API
+  description: Read access to payroll runs and per-payroll fees
+  humanURL: https://public-api.justworks.com/v1/docs
+  tags:
+  - Payrolls
+  properties:
+  - type: OpenAPI
+    url: openapi/justworks-payrolls-api-openapi.yml
+  - type: Documentation
+    url: https://public-api.justworks.com/v1/docs
+  - type: JSONSchema
+    url: json-schema/justworks-payroll-schema.json
+  - type: JSONSchema
+    url: json-schema/justworks-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/justworks-time-off-request-schema.json
+- aid: justworks:justworks-paystubs-api
+  name: Justworks Paystubs API
+  description: Read access to per-member paystubs
+  humanURL: https://public-api.justworks.com/v1/docs
+  tags:
+  - Paystubs
+  properties:
+  - type: OpenAPI
+    url: openapi/justworks-paystubs-api-openapi.yml
+  - type: Documentation
+    url: https://public-api.justworks.com/v1/docs
+  - type: JSONSchema
+    url: json-schema/justworks-payroll-schema.json
+  - type: JSONSchema
+    url: json-schema/justworks-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/justworks-time-off-request-schema.json
+- aid: justworks:justworks-time-off-balances-api
+  name: Justworks Time Off Balances API
+  description: Asynchronous balance reports for time-off policies
+  humanURL: https://public-api.justworks.com/v1/docs
+  tags:
+  - Time Off Balances
+  properties:
+  - type: OpenAPI
+    url: openapi/justworks-time-off-balances-api-openapi.yml
+  - type: Documentation
+    url: https://public-api.justworks.com/v1/docs
+  - type: JSONSchema
+    url: json-schema/justworks-payroll-schema.json
+  - type: JSONSchema
+    url: json-schema/justworks-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/justworks-time-off-request-schema.json
+- aid: justworks:justworks-time-off-policies-api
+  name: Justworks Time Off Policies API
+  description: Read access to time-off policy catalog
+  humanURL: https://public-api.justworks.com/v1/docs
+  tags:
+  - Time Off Policies
+  properties:
+  - type: OpenAPI
+    url: openapi/justworks-time-off-policies-api-openapi.yml
+  - type: Documentation
+    url: https://public-api.justworks.com/v1/docs
+  - type: JSONSchema
+    url: json-schema/justworks-payroll-schema.json
+  - type: JSONSchema
+    url: json-schema/justworks-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/justworks-time-off-request-schema.json
+- aid: justworks:justworks-time-off-requests-api
+  name: Justworks Time Off Requests API
+  description: Read access to time-off requests submitted by members
+  humanURL: https://public-api.justworks.com/v1/docs
+  tags:
+  - Time Off Requests
+  properties:
+  - type: OpenAPI
+    url: openapi/justworks-time-off-requests-api-openapi.yml
+  - type: Documentation
+    url: https://public-api.justworks.com/v1/docs
+  - type: JSONSchema
+    url: json-schema/justworks-payroll-schema.json
+  - type: JSONSchema
+    url: json-schema/justworks-paystub-schema.json
+  - type: JSONSchema
+    url: json-schema/justworks-time-off-request-schema.json
 common:
   - type: AgenticAccess
     url: agentic-access/justworks-agentic-access.yml
@@ -233,9 +310,22 @@ description: |
   2.0 authorization-code grant, cursor pagination, signed at-least-once webhooks, and zero-decimal
   currency representation. Deductions is the primary write surface; everything else is read-only.
 type: Index
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Provider
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/justworks.png
 tags:
   - PEO
   - Payroll
