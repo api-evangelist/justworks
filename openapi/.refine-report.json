@@ -1,0 +1,34 @@
+{
+  "provider": "justworks",
+  "sources": [
+    "justworks-company-api-openapi.yml",
+    "justworks-deduction-types-api-openapi.yml",
+    "justworks-deductions-api-openapi.yml",
+    "justworks-members-api-openapi.yml",
+    "justworks-oauth-api-openapi.yml",
+    "justworks-payrolls-api-openapi.yml",
+    "justworks-paystubs-api-openapi.yml",
+    "justworks-time-off-balances-api-openapi.yml",
+    "justworks-time-off-policies-api-openapi.yml",
+    "justworks-time-off-requests-api-openapi.yml",
+    "justworks-webhooks-api-openapi.yml"
+  ],
+  "outputs": [
+    "justworks-company-api-openapi.yml",
+    "justworks-deduction-types-api-openapi.yml",
+    "justworks-deductions-api-openapi.yml",
+    "justworks-members-api-openapi.yml",
+    "justworks-oauth-api-openapi.yml",
+    "justworks-payrolls-api-openapi.yml",
+    "justworks-paystubs-api-openapi.yml",
+    "justworks-time-off-balances-api-openapi.yml",
+    "justworks-time-off-policies-api-openapi.yml",
+    "justworks-time-off-requests-api-openapi.yml",
+    "justworks-webhooks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
