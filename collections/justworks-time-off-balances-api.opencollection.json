@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Justworks Company Time Off Balances API",
+    "version": "2026-05-25"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://secure.justworks.com/oauth/authorize",
+      "accessTokenUrl": "https://public-api.justworks.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Time Off Balances",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Justworks Create Time Off Balances Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://public-api.justworks.com/v1/time-off/balances",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Request an asynchronous time-off balance report for a member, policy, and as-of date."
+        },
+        {
+          "info": {
+            "name": "Justworks Get Time Off Balances Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-api.justworks.com/v1/time-off/balances/:report_id",
+            "params": [
+              {
+                "name": "report_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a time-off balance report by id. Poll until status indicates the report is ready."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

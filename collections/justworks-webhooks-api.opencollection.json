@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Justworks Webhooks API",
+    "name": "Justworks Company Webhooks API",
     "version": "2026-05-25"
   },
   "request": {

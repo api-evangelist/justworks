@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Justworks Members API",
+    "name": "Justworks Company Members API",
     "version": "2026-05-25"
   },
   "request": {

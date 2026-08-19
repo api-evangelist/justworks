@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "094cd0af-8ac6-4666-afb5-c4f2713797d9",
+      "id": "1856c6b1-f427-469c-8c2d-b9317885cd66",
       "name": "Members",
       "description": {
         "content": "Read access to Justworks member records, custom fields, and tax IDs",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "2b4d5622-ec31-4b5b-94ef-13a08950a4f0",
+          "id": "5f306d61-de5b-4f30-8e8e-de6a45199d78",
           "name": "Justworks List Members",
           "request": {
             "name": "Justworks List Members",
@@ -64,7 +64,7 @@
           },
           "response": [
             {
-              "id": "7e010d93-dc13-4eba-9269-0562f2422d9b",
+              "id": "8c8783af-b1a8-405b-bb28-775bdddc0531",
               "name": "A paginated list of members",
               "originalRequest": {
                 "url": {
@@ -120,12 +120,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"company_id\": \"string\",\n      \"work_id\": \"string\",\n      \"name\": {\n        \"family_name\": \"string\",\n        \"given_name\": \"string\",\n        \"full_preferred_name\": \"string\",\n        \"preferred_name\": \"string\",\n        \"additional_names\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"active\": false,\n      \"employment_location_type\": \"string\",\n      \"type\": \"string\",\n      \"addresses\": [\n        {\n          \"line1\": \"string\",\n          \"line2\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"postal_code\": \"string\",\n          \"country\": \"string\"\n        },\n        {\n          \"line1\": \"string\",\n          \"line2\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"postal_code\": \"string\",\n          \"country\": \"string\"\n        }\n      ],\n      \"current_employment\": {},\n      \"current_pay\": {},\n      \"current_pay_frequency\": \"string\",\n      \"date_added_to_justworks\": \"1975-12-15\",\n      \"date_of_birth\": \"2008-10-28\",\n      \"department\": {},\n      \"employment_start_date\": \"1961-10-23\",\n      \"employment_termination_date\": \"1974-01-20\",\n      \"job_title\": \"string\",\n      \"manager\": {},\n      \"office\": {},\n      \"partner_settings\": {},\n      \"sex_assigned_at_birth\": \"string\",\n      \"created_at\": \"2003-08-02T13:12:30.168Z\",\n      \"updated_at\": \"1960-06-11T02:26:57.505Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"company_id\": \"string\",\n      \"work_id\": \"string\",\n      \"name\": {\n        \"family_name\": \"string\",\n        \"given_name\": \"string\",\n        \"full_preferred_name\": \"string\",\n        \"preferred_name\": \"string\",\n        \"additional_names\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"active\": false,\n      \"employment_location_type\": \"string\",\n      \"type\": \"string\",\n      \"addresses\": [\n        {\n          \"line1\": \"string\",\n          \"line2\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"postal_code\": \"string\",\n          \"country\": \"string\"\n        },\n        {\n          \"line1\": \"string\",\n          \"line2\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"postal_code\": \"string\",\n          \"country\": \"string\"\n        }\n      ],\n      \"current_employment\": {},\n      \"current_pay\": {},\n      \"current_pay_frequency\": \"string\",\n      \"date_added_to_justworks\": \"1965-08-31\",\n      \"date_of_birth\": \"1963-09-22\",\n      \"department\": {},\n      \"employment_start_date\": \"1995-01-18\",\n      \"employment_termination_date\": \"1994-04-25\",\n      \"job_title\": \"string\",\n      \"manager\": {},\n      \"office\": {},\n      \"partner_settings\": {},\n      \"sex_assigned_at_birth\": \"string\",\n      \"created_at\": \"1997-04-15T05:26:48.442Z\",\n      \"updated_at\": \"1966-08-28T12:08:50.058Z\"\n    }\n  ],\n  \"next_cursor\": \"string\"\n}",
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"company_id\": \"string\",\n      \"work_id\": \"string\",\n      \"name\": {\n        \"family_name\": \"string\",\n        \"given_name\": \"string\",\n        \"full_preferred_name\": \"string\",\n        \"preferred_name\": \"string\",\n        \"additional_names\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"active\": true,\n      \"employment_location_type\": \"string\",\n      \"type\": \"string\",\n      \"addresses\": [\n        {\n          \"line1\": \"string\",\n          \"line2\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"postal_code\": \"string\",\n          \"country\": \"string\"\n        },\n        {\n          \"line1\": \"string\",\n          \"line2\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"postal_code\": \"string\",\n          \"country\": \"string\"\n        }\n      ],\n      \"current_employment\": {},\n      \"current_pay\": {},\n      \"current_pay_frequency\": \"string\",\n      \"date_added_to_justworks\": \"1952-11-16\",\n      \"date_of_birth\": \"1981-06-05\",\n      \"department\": {},\n      \"employment_start_date\": \"1992-01-15\",\n      \"employment_termination_date\": \"1958-06-29\",\n      \"job_title\": \"string\",\n      \"manager\": {},\n      \"office\": {},\n      \"partner_settings\": {},\n      \"sex_assigned_at_birth\": \"string\",\n      \"created_at\": \"2012-07-08T04:55:06.708Z\",\n      \"updated_at\": \"1970-08-20T18:29:58.895Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"company_id\": \"string\",\n      \"work_id\": \"string\",\n      \"name\": {\n        \"family_name\": \"string\",\n        \"given_name\": \"string\",\n        \"full_preferred_name\": \"string\",\n        \"preferred_name\": \"string\",\n        \"additional_names\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"active\": false,\n      \"employment_location_type\": \"string\",\n      \"type\": \"string\",\n      \"addresses\": [\n        {\n          \"line1\": \"string\",\n          \"line2\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"postal_code\": \"string\",\n          \"country\": \"string\"\n        },\n        {\n          \"line1\": \"string\",\n          \"line2\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"postal_code\": \"string\",\n          \"country\": \"string\"\n        }\n      ],\n      \"current_employment\": {},\n      \"current_pay\": {},\n      \"current_pay_frequency\": \"string\",\n      \"date_added_to_justworks\": \"2018-01-30\",\n      \"date_of_birth\": \"1975-01-29\",\n      \"department\": {},\n      \"employment_start_date\": \"1965-06-27\",\n      \"employment_termination_date\": \"1961-03-05\",\n      \"job_title\": \"string\",\n      \"manager\": {},\n      \"office\": {},\n      \"partner_settings\": {},\n      \"sex_assigned_at_birth\": \"string\",\n      \"created_at\": \"1986-08-07T15:52:30.889Z\",\n      \"updated_at\": \"1966-06-14T00:14:09.392Z\"\n    }\n  ],\n  \"next_cursor\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "bed0b7fc-e7d0-4da0-aae1-08032c94a809",
+              "id": "37a07c12-20ee-4164-870a-28d05d6ee9be",
               "name": "Missing or invalid OAuth token",
               "originalRequest": {
                 "url": {
@@ -182,7 +182,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "b79b1dfd-b62b-4e53-8d02-c8664fe3f171",
+              "id": "334660b4-6d02-4fdd-98f0-66438f18cdd0",
               "name": "Token lacks the required scope",
               "originalRequest": {
                 "url": {
@@ -245,7 +245,7 @@
           }
         },
         {
-          "id": "87a83331-0a97-4efa-887a-cda8c9e5f32a",
+          "id": "7ab0f5c2-5987-4b99-88d6-716790c52236",
           "name": "Justworks Get Member",
           "request": {
             "name": "Justworks Get Member",
@@ -284,7 +284,7 @@
           },
           "response": [
             {
-              "id": "683dc128-70dc-4e3d-b56c-d9ee9afe3aa8",
+              "id": "8667fc5f-7d43-4fe0-aef5-c057e534cf82",
               "name": "A single Justworks member",
               "originalRequest": {
                 "url": {
@@ -332,12 +332,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"company_id\": \"string\",\n  \"work_id\": \"string\",\n  \"name\": {\n    \"family_name\": \"string\",\n    \"given_name\": \"string\",\n    \"full_preferred_name\": \"string\",\n    \"preferred_name\": \"string\",\n    \"additional_names\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"active\": false,\n  \"employment_location_type\": \"string\",\n  \"type\": \"string\",\n  \"addresses\": [\n    {\n      \"line1\": \"string\",\n      \"line2\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"postal_code\": \"string\",\n      \"country\": \"string\"\n    },\n    {\n      \"line1\": \"string\",\n      \"line2\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"postal_code\": \"string\",\n      \"country\": \"string\"\n    }\n  ],\n  \"current_employment\": {},\n  \"current_pay\": {},\n  \"current_pay_frequency\": \"string\",\n  \"date_added_to_justworks\": \"1965-02-26\",\n  \"date_of_birth\": \"1961-02-12\",\n  \"department\": {},\n  \"employment_start_date\": \"2002-08-26\",\n  \"employment_termination_date\": \"2017-10-18\",\n  \"job_title\": \"string\",\n  \"manager\": {},\n  \"office\": {},\n  \"partner_settings\": {},\n  \"sex_assigned_at_birth\": \"string\",\n  \"created_at\": \"1971-05-03T06:44:53.885Z\",\n  \"updated_at\": \"1977-11-21T21:46:13.999Z\"\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"company_id\": \"string\",\n  \"work_id\": \"string\",\n  \"name\": {\n    \"family_name\": \"string\",\n    \"given_name\": \"string\",\n    \"full_preferred_name\": \"string\",\n    \"preferred_name\": \"string\",\n    \"additional_names\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"active\": true,\n  \"employment_location_type\": \"string\",\n  \"type\": \"string\",\n  \"addresses\": [\n    {\n      \"line1\": \"string\",\n      \"line2\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"postal_code\": \"string\",\n      \"country\": \"string\"\n    },\n    {\n      \"line1\": \"string\",\n      \"line2\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"postal_code\": \"string\",\n      \"country\": \"string\"\n    }\n  ],\n  \"current_employment\": {},\n  \"current_pay\": {},\n  \"current_pay_frequency\": \"string\",\n  \"date_added_to_justworks\": \"1961-05-11\",\n  \"date_of_birth\": \"2018-06-20\",\n  \"department\": {},\n  \"employment_start_date\": \"1959-10-29\",\n  \"employment_termination_date\": \"2018-04-24\",\n  \"job_title\": \"string\",\n  \"manager\": {},\n  \"office\": {},\n  \"partner_settings\": {},\n  \"sex_assigned_at_birth\": \"string\",\n  \"created_at\": \"1993-11-21T18:05:40.333Z\",\n  \"updated_at\": \"1948-07-13T01:20:06.284Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "fda60418-bc5e-484e-8783-a2654f94fd58",
+              "id": "ba051589-1d9e-4f40-85f4-fcabae2f0699",
               "name": "Resource not found",
               "originalRequest": {
                 "url": {
@@ -392,7 +392,7 @@
           }
         },
         {
-          "id": "f9ea5a56-b6f6-4059-93a9-6632e576a83c",
+          "id": "0977003f-d3b1-407f-8fae-9903f4693e6e",
           "name": "Justworks List Member Custom Field Values",
           "request": {
             "name": "Justworks List Member Custom Field Values",
@@ -432,7 +432,7 @@
           },
           "response": [
             {
-              "id": "5b0744c5-727c-4f63-8ae3-9131d0edbe3d",
+              "id": "bc669294-55a1-4acf-92d4-5b4fde8a86f0",
               "name": "Member custom field values",
               "originalRequest": {
                 "url": {
@@ -492,7 +492,7 @@
           }
         },
         {
-          "id": "9749234f-2f5c-463d-8510-0b2d421a735e",
+          "id": "e2447357-87b1-458c-a69f-aafcb855e048",
           "name": "Justworks Get Member Tax ID",
           "request": {
             "name": "Justworks Get Member Tax ID",
@@ -532,7 +532,7 @@
           },
           "response": [
             {
-              "id": "4502cb55-693b-4022-90ac-78faabed11de",
+              "id": "b1f21693-8b63-444f-b09f-953d1f3a174a",
               "name": "Tax identifier wrapped by jurisdiction",
               "originalRequest": {
                 "url": {
@@ -586,7 +586,7 @@
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "e0b0b705-9e93-4799-9e54-f6a943fedaae",
+              "id": "57767be0-f899-4644-ba50-ee421db954e1",
               "name": "Member is an international contractor",
               "originalRequest": {
                 "url": {
@@ -636,7 +636,7 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "c08b1eff-80c2-4c0a-b5c4-2c6caaadade4",
+              "id": "569b26d0-fd52-46b9-8913-d3078e9a8f72",
               "name": "Member is an EOR or international employee",
               "originalRequest": {
                 "url": {
@@ -708,7 +708,7 @@
     "oauth2": [
       {
         "key": "scope",
-        "value": "member.basic:read member.detail:read member.employment:read member.pay:read member.tax_id:read member.dob:read member.sex:read"
+        "value": "company.basic:read company.detail:read company.bank_account:read"
       },
       {
         "key": "redirect_uri",
@@ -729,11 +729,11 @@
     ]
   },
   "info": {
-    "_postman_id": "07e76914-5169-415c-b26d-f92f96ddd2b1",
-    "name": "Justworks Members API",
+    "_postman_id": "9a9e2550-9736-4906-ba10-f1b0c32a7396",
+    "name": "Justworks Company Members API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
-      "content": "Read employee, contractor, and member information from the Justworks\nPartner API. Provides access to member profiles, employment history,\npay history, custom field values, and U.S. tax identifiers.\n\nJustworks operates a Professional Employer Organization (PEO) and HR\nplatform; the Members API is the canonical source of truth for the\nworkforce a partner is integrating against.\n\n\nContact Support:\n Name: Justworks Partner Support",
+      "content": "Read company-level data from the Justworks Partner API including\ncompany identity, bank account on file, verified business information,\ncustom field definitions, and operating jurisdictions.\n\n\nContact Support:\n Name: Justworks Partner Support",
       "type": "text/plain"
     }
   }

@@ -1,0 +1,206 @@
+{
+  "item": [
+    {
+      "id": "da1f3459-e835-43aa-aee5-75e801d734e6",
+      "name": "Time Off Requests",
+      "description": {
+        "content": "Read access to time-off requests submitted by members",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8e732b26-9049-4570-a70e-5de8ae8491fa",
+          "name": "Justworks List Time Off Requests",
+          "request": {
+            "name": "Justworks List Time Off Requests",
+            "description": {
+              "content": "List time-off requests within a date range, optionally filtered by member, policy, or status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "time-off",
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "member_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "policy_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ec12e901-f70f-402c-94e8-dd276c6f55a8",
+              "name": "A paginated list of time-off requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "time-off",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "member_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "policy_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"member_id\": \"string\",\n      \"policy_id\": \"string\",\n      \"status\": \"string\",\n      \"unit_type\": \"string\",\n      \"amount\": 884.9700037563879,\n      \"end_date\": \"2016-09-27\",\n      \"notes\": \"string\",\n      \"start_date\": \"2019-06-04\",\n      \"created_at\": \"1972-10-23T01:54:17.200Z\",\n      \"updated_at\": \"1963-05-05T08:01:29.782Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"member_id\": \"string\",\n      \"policy_id\": \"string\",\n      \"status\": \"string\",\n      \"unit_type\": \"string\",\n      \"amount\": 2808.3577891703226,\n      \"end_date\": \"1948-04-23\",\n      \"notes\": \"string\",\n      \"start_date\": \"2010-01-17\",\n      \"created_at\": \"1992-12-24T16:22:35.383Z\",\n      \"updated_at\": \"1956-12-20T05:07:42.570Z\"\n    }\n  ],\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://public-api.justworks.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "company.basic:read company.detail:read company.bank_account:read"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://public-api.justworks.com/oauth/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://public-api.justworks.com/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://secure.justworks.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fcdf97d1-dac0-4ddf-b051-d7c3adc2e54f",
+    "name": "Justworks Company Time Off Requests API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Read company-level data from the Justworks Partner API including\ncompany identity, bank account on file, verified business information,\ncustom field definitions, and operating jurisdictions.\n\n\nContact Support:\n Name: Justworks Partner Support",
+      "type": "text/plain"
+    }
+  }
+}

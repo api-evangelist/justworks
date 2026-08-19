@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "7fe49305-85fd-45b3-9ca0-9b572734a94a",
+      "id": "5cff87dc-4134-4508-96dd-3abe7fc7a31b",
       "name": "Webhooks",
       "description": {
         "content": "List, resume, and simulate Justworks webhooks",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "4e5e2088-880a-46c1-a87a-dd7c926327fc",
+          "id": "82e7442b-b142-4768-8089-36a315806a49",
           "name": "Justworks List Webhooks",
           "request": {
             "name": "Justworks List Webhooks",
@@ -46,7 +46,7 @@
           },
           "response": [
             {
-              "id": "32746c85-c79f-44e3-a106-e8cd4c4c6683",
+              "id": "e065db23-965d-43f1-be75-77731c21e00e",
               "name": "List of webhooks",
               "originalRequest": {
                 "url": {
@@ -91,7 +91,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"url\": \"https://HlAdCvFkRiIHdBnTEAqYqQOZMxc.igsFzF-R4aMqEvppj+TubWUK46Gob3LRWurF8+riToQ+2GkTWXLQSlugk0\",\n      \"status\": \"closed\",\n      \"event_types\": [\n        \"department.created\",\n        \"member.profile.updated\"\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"url\": \"http://UmA.jwwSWaRBuu53ZInkkvtMcH.zW9ZcmbT1a1Ga++Q2sppTOVKuhvhum\",\n      \"status\": \"opened\",\n      \"event_types\": [\n        \"member.profile.created\",\n        \"department.created\"\n      ]\n    }\n  ]\n}",
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"url\": \"http://VtmlrknOb.atkkNVKy\",\n      \"status\": \"opened\",\n      \"event_types\": [\n        \"member.profile.created\",\n        \"member.employment_state.termination_scheduled\"\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"url\": \"http://aGROXyG.ujxPTZ4K0oJgq,AHU4LLTPFHp\",\n      \"status\": \"closed\",\n      \"event_types\": [\n        \"member.employment_state.termination_canceled\",\n        \"department.updated\"\n      ]\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -102,7 +102,7 @@
           }
         },
         {
-          "id": "92f5eefe-8b14-4ddc-832d-e072417bc0ca",
+          "id": "47a6864d-c2de-40e6-b2b0-7f5744328b07",
           "name": "Justworks Resume Webhook",
           "request": {
             "name": "Justworks Resume Webhook",
@@ -136,7 +136,7 @@
           },
           "response": [
             {
-              "id": "99f7fc3e-4d5e-40d9-bc24-8e8e0a4051d2",
+              "id": "e1041376-d3fe-45cd-979d-cdc2f9e0bc44",
               "name": "Webhook resumed",
               "originalRequest": {
                 "url": {
@@ -192,7 +192,7 @@
           }
         },
         {
-          "id": "157155b2-04ae-48b5-b923-71f5033f0f43",
+          "id": "c4e60b43-1327-4750-b07f-bef301e0cb22",
           "name": "Justworks Simulate Webhook",
           "request": {
             "name": "Justworks Simulate Webhook",
@@ -241,7 +241,7 @@
           },
           "response": [
             {
-              "id": "f56be4a5-bbc4-4a41-b30d-6fbcb4110439",
+              "id": "0abedc15-039f-4f25-b947-77fee7ac11ff",
               "name": "Simulation accepted",
               "originalRequest": {
                 "url": {
@@ -320,6 +320,10 @@
     "type": "oauth2",
     "oauth2": [
       {
+        "key": "scope",
+        "value": "company.basic:read company.detail:read company.bank_account:read"
+      },
+      {
         "key": "redirect_uri",
         "value": "https://public-api.justworks.com/oauth/token"
       },
@@ -338,11 +342,11 @@
     ]
   },
   "info": {
-    "_postman_id": "31e33d9a-4bb6-458d-bd91-3c4a57b960a5",
-    "name": "Justworks Webhooks API",
+    "_postman_id": "0b2238ce-ab0a-42f1-9c28-e49217b67fa4",
+    "name": "Justworks Company Webhooks API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
-      "content": "Manage Justworks Partner API webhooks. Justworks delivers signed events\nover HTTPS to a partner-controlled URL with at-least-once semantics\nand automatic retries on failure. This API allows listing the\nwebhooks registered on an installation, resuming delivery on a\npreviously closed webhook, and simulating event delivery in the\nTour environment.\n\nWebhook event payloads carry a top-level id, event_type,\nevent_created_at, event_delivered_at, and a data object that mirrors\nthe affected resource. Requests include `X-Justworks-Webhook-Signature`\nand `X-Justworks-Webhook-Signature-Timestamp` headers that must be\nverified before any payload is processed.\n\n\nContact Support:\n Name: Justworks Partner Support",
+      "content": "Read company-level data from the Justworks Partner API including\ncompany identity, bank account on file, verified business information,\ncustom field definitions, and operating jurisdictions.\n\n\nContact Support:\n Name: Justworks Partner Support",
       "type": "text/plain"
     }
   }

@@ -1,0 +1,275 @@
+{
+  "item": [
+    {
+      "id": "1b2e4a8a-6edf-413b-b596-eb7b6881a7ad",
+      "name": "Paystubs",
+      "description": {
+        "content": "Read access to per-member paystubs",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "802d34b7-1912-49f5-af72-015b80fc9d95",
+          "name": "Justworks List Paystubs For Payroll",
+          "request": {
+            "name": "Justworks List Paystubs For Payroll",
+            "description": {
+              "content": "List per-member paystub summaries for a payroll run.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "payrolls",
+                ":payroll_id",
+                "paystubs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "payroll_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e154a746-9fed-428f-aa14-61fd79ee7816",
+              "name": "A paginated list of paystub summaries",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "payrolls",
+                    ":payroll_id",
+                    "paystubs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payroll_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"member_id\": \"string\",\n      \"paystub_id\": \"string\",\n      \"gross_pay\": 771,\n      \"net_pay\": 3574,\n      \"currency\": \"string\",\n      \"pay_date\": \"1954-04-17\",\n      \"pay_group\": \"string\",\n      \"pay_period_end\": \"1980-12-20\",\n      \"pay_period_start\": \"1951-06-22\"\n    },\n    {\n      \"member_id\": \"string\",\n      \"paystub_id\": \"string\",\n      \"gross_pay\": 5709,\n      \"net_pay\": 7489,\n      \"currency\": \"string\",\n      \"pay_date\": \"2010-11-21\",\n      \"pay_group\": \"string\",\n      \"pay_period_end\": \"2002-09-13\",\n      \"pay_period_start\": \"2017-09-23\"\n    }\n  ],\n  \"next_cursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e23c01e-4548-4845-9314-c86e173f0d8f",
+          "name": "Justworks Get Paystub",
+          "request": {
+            "name": "Justworks Get Paystub",
+            "description": {
+              "content": "Retrieve a single paystub including earnings, employee deductions, and employer contributions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "paystubs",
+                ":paystub_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "paystub_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b14aca40-651c-4742-8749-da9655902745",
+              "name": "A paystub with detail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "paystubs",
+                    ":paystub_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paystub_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"member_id\": \"string\",\n  \"paystub_id\": \"string\",\n  \"gross_pay\": 4172,\n  \"net_pay\": 6787,\n  \"currency\": \"string\",\n  \"pay_date\": \"1949-12-02\",\n  \"pay_group\": \"string\",\n  \"pay_period_end\": \"1991-06-29\",\n  \"pay_period_start\": \"1983-07-07\",\n  \"earnings\": [\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"amount\": 2947,\n      \"category\": \"string\",\n      \"currency\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"amount\": 6313,\n      \"category\": \"string\",\n      \"currency\": \"string\"\n    }\n  ],\n  \"employee_deductions\": [\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"amount\": 5065,\n      \"category\": \"string\",\n      \"currency\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"amount\": 2096,\n      \"category\": \"string\",\n      \"currency\": \"string\"\n    }\n  ],\n  \"employer_contributions\": [\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"amount\": 8694,\n      \"category\": \"string\",\n      \"currency\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"amount\": 269,\n      \"category\": \"string\",\n      \"currency\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://public-api.justworks.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "company.basic:read company.detail:read company.bank_account:read"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://public-api.justworks.com/oauth/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://public-api.justworks.com/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://secure.justworks.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "116a02aa-26d9-4b5f-8a48-08298d80965b",
+    "name": "Justworks Company Paystubs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Read company-level data from the Justworks Partner API including\ncompany identity, bank account on file, verified business information,\ncustom field definitions, and operating jurisdictions.\n\n\nContact Support:\n Name: Justworks Partner Support",
+      "type": "text/plain"
+    }
+  }
+}

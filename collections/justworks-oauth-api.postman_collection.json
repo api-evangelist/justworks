@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "41263c92-e9ac-466c-810a-d2e27a3c428d",
+      "id": "0d9c41df-75c9-41a2-b0d3-a118e98fe5f5",
       "name": "OAuth",
       "description": {
         "content": "OAuth 2.0 token endpoints",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "559218c4-46fe-46a8-bec7-4a113eaada3c",
+          "id": "bdcdf293-edff-4e60-81d1-e2287adb00ff",
           "name": "Justworks Obtain OAuth Token",
           "request": {
             "name": "Justworks Obtain OAuth Token",
@@ -86,7 +86,7 @@
           },
           "response": [
             {
-              "id": "cb65098f-5201-4122-90ae-6f7bd7e89465",
+              "id": "f86b9db6-04a6-4f99-9279-2743615b8fce",
               "name": "Token response",
               "originalRequest": {
                 "url": {
@@ -101,6 +101,14 @@
                   "variable": []
                 },
                 "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
@@ -168,7 +176,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"token_type\": \"string\",\n  \"access_token\": \"string\",\n  \"expires_at\": \"1948-11-24T01:23:41.190Z\",\n  \"refresh_token\": \"string\",\n  \"scope\": \"string\"\n}",
+              "body": "{\n  \"token_type\": \"string\",\n  \"access_token\": \"string\",\n  \"expires_at\": \"2026-04-08T02:03:51.890Z\",\n  \"refresh_token\": \"string\",\n  \"scope\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -179,7 +187,7 @@
           }
         },
         {
-          "id": "ca848c8c-8d70-4dcd-80db-e4d8f47b9f62",
+          "id": "deaa09cd-0c06-495f-92a5-7bb2d565fc01",
           "name": "Justworks Revoke OAuth Token",
           "request": {
             "name": "Justworks Revoke OAuth Token",
@@ -238,7 +246,7 @@
           },
           "response": [
             {
-              "id": "b2dcc014-64be-4265-a2ec-d0f5a2612960",
+              "id": "10fa45b3-34f5-4b75-8953-0fd61674acc3",
               "name": "Token revoked",
               "originalRequest": {
                 "url": {
@@ -253,6 +261,16 @@
                   "query": [],
                   "variable": []
                 },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
                 "method": "POST",
                 "body": {
                   "mode": "urlencoded",
@@ -322,12 +340,37 @@
       "key": "baseUrl"
     }
   ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "company.basic:read company.detail:read company.bank_account:read"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://public-api.justworks.com/oauth/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://public-api.justworks.com/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://secure.justworks.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
   "info": {
-    "_postman_id": "614d123f-0522-430c-8b7e-5a49f6862606",
-    "name": "Justworks OAuth API",
+    "_postman_id": "3387880b-cb83-4b55-aca3-e36ea4901d4a",
+    "name": "Justworks Company OAuth API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
-      "content": "Obtain and revoke OAuth 2.0 tokens for the Justworks Partner API.\nAccess tokens are valid for 24 hours; refresh tokens are valid for\n30 days. The authorization code flow is the only supported grant for\ninitial token acquisition.\n\n\nContact Support:\n Name: Justworks Partner Support",
+      "content": "Read company-level data from the Justworks Partner API including\ncompany identity, bank account on file, verified business information,\ncustom field definitions, and operating jurisdictions.\n\n\nContact Support:\n Name: Justworks Partner Support",
       "type": "text/plain"
     }
   }

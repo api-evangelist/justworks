@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "f06e7ecc-6435-42cf-8c3a-ef690521aed6",
+      "id": "84fe0b2d-22cf-4255-a849-7707f060563e",
       "name": "Deductions",
       "description": {
         "content": "List, create, update, and cancel employee deductions",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "88f26620-6886-47c9-b42f-504f87f96ea6",
+          "id": "55ff5699-5d03-4482-8867-e50adfbb8a21",
           "name": "Justworks List Deductions",
           "request": {
             "name": "Justworks List Deductions",
@@ -70,7 +70,7 @@
           },
           "response": [
             {
-              "id": "687c996c-2eea-4898-bcd6-d158f0a3450b",
+              "id": "378f90e3-095f-4057-ba89-d89a799a2e9b",
               "name": "A paginated list of deductions",
               "originalRequest": {
                 "url": {
@@ -134,7 +134,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"member_id\": \"string\",\n      \"amount_type\": \"string\",\n      \"amount\": 7516,\n      \"currency\": \"string\",\n      \"deduction_type_code\": \"string\",\n      \"description\": \"string\",\n      \"end_date\": \"1967-11-24\",\n      \"frequency\": \"every_paycheck\",\n      \"start_date\": \"1965-08-29\"\n    },\n    {\n      \"id\": \"string\",\n      \"member_id\": \"string\",\n      \"amount_type\": \"string\",\n      \"amount\": 9209,\n      \"currency\": \"string\",\n      \"deduction_type_code\": \"string\",\n      \"description\": \"string\",\n      \"end_date\": \"1999-12-05\",\n      \"frequency\": \"every_paycheck\",\n      \"start_date\": \"2010-01-27\"\n    }\n  ],\n  \"next_cursor\": \"string\"\n}",
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"member_id\": \"string\",\n      \"amount_type\": \"string\",\n      \"amount\": 8024,\n      \"currency\": \"string\",\n      \"deduction_type_code\": \"string\",\n      \"description\": \"string\",\n      \"end_date\": \"2023-05-28\",\n      \"frequency\": \"one_time\",\n      \"start_date\": \"1969-08-30\"\n    },\n    {\n      \"id\": \"string\",\n      \"member_id\": \"string\",\n      \"amount_type\": \"string\",\n      \"amount\": 958,\n      \"currency\": \"string\",\n      \"deduction_type_code\": \"string\",\n      \"description\": \"string\",\n      \"end_date\": \"2007-06-28\",\n      \"frequency\": \"one_time\",\n      \"start_date\": \"2004-04-05\"\n    }\n  ],\n  \"next_cursor\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -145,7 +145,7 @@
           }
         },
         {
-          "id": "16d73d41-e7e8-4ebb-8d22-7db0e36bd375",
+          "id": "659c80bb-56aa-4c45-adc7-45813cdfb76b",
           "name": "Justworks Create Deductions",
           "request": {
             "name": "Justworks Create Deductions",
@@ -188,7 +188,7 @@
           },
           "response": [
             {
-              "id": "6c5d7c12-0185-4699-9894-852d0e6e2ea5",
+              "id": "bdaa78ab-bbee-4906-a15b-711d5a1d7a6f",
               "name": "Per-item create result",
               "originalRequest": {
                 "url": {
@@ -219,7 +219,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"items\": [\n    {\n      \"member_id\": \"string\",\n      \"operation_id\": \"string\",\n      \"amount_type\": \"string\",\n      \"amount\": 6181,\n      \"currency\": \"string\",\n      \"deduction_type_code\": \"string\",\n      \"frequency\": \"one_time\",\n      \"start_date\": \"1986-12-31\",\n      \"description\": \"string\",\n      \"end_date\": \"1990-06-26\"\n    },\n    {\n      \"member_id\": \"string\",\n      \"operation_id\": \"string\",\n      \"amount_type\": \"string\",\n      \"amount\": 351,\n      \"currency\": \"string\",\n      \"deduction_type_code\": \"string\",\n      \"frequency\": \"one_time\",\n      \"start_date\": \"1986-01-09\",\n      \"description\": \"string\",\n      \"end_date\": \"1994-11-28\"\n    }\n  ]\n}",
+                  "raw": "{\n  \"items\": [\n    {\n      \"member_id\": \"string\",\n      \"operation_id\": \"string\",\n      \"amount_type\": \"string\",\n      \"amount\": 6183,\n      \"currency\": \"string\",\n      \"deduction_type_code\": \"string\",\n      \"frequency\": \"every_paycheck\",\n      \"start_date\": \"1958-07-22\",\n      \"description\": \"string\",\n      \"end_date\": \"2005-04-11\"\n    },\n    {\n      \"member_id\": \"string\",\n      \"operation_id\": \"string\",\n      \"amount_type\": \"string\",\n      \"amount\": 2445,\n      \"currency\": \"string\",\n      \"deduction_type_code\": \"string\",\n      \"frequency\": \"every_paycheck\",\n      \"start_date\": \"2006-07-13\",\n      \"description\": \"string\",\n      \"end_date\": \"2013-02-28\"\n    }\n  ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -235,7 +235,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"items\": [\n    {\n      \"deduction_id\": \"string\",\n      \"member_id\": \"string\",\n      \"operation_id\": \"string\",\n      \"error_message\": \"string\",\n      \"success\": false\n    },\n    {\n      \"deduction_id\": \"string\",\n      \"member_id\": \"string\",\n      \"operation_id\": \"string\",\n      \"error_message\": \"string\",\n      \"success\": false\n    }\n  ]\n}",
+              "body": "{\n  \"items\": [\n    {\n      \"deduction_id\": \"string\",\n      \"member_id\": \"string\",\n      \"operation_id\": \"string\",\n      \"error_message\": \"string\",\n      \"success\": true\n    },\n    {\n      \"deduction_id\": \"string\",\n      \"member_id\": \"string\",\n      \"operation_id\": \"string\",\n      \"error_message\": \"string\",\n      \"success\": false\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -246,7 +246,7 @@
           }
         },
         {
-          "id": "916d35db-ef50-48b3-a0b1-7192fabc5a88",
+          "id": "d891b809-4a71-4c9d-b85f-510aa3a109fa",
           "name": "Justworks Update Deductions",
           "request": {
             "name": "Justworks Update Deductions",
@@ -289,7 +289,7 @@
           },
           "response": [
             {
-              "id": "ef2dd138-8613-470a-83d5-a57fa84b76de",
+              "id": "da81f4ce-a06e-4ce6-b450-b072fae27994",
               "name": "Per-item update result",
               "originalRequest": {
                 "url": {
@@ -320,7 +320,7 @@
                 "method": "PUT",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"items\": [\n    {\n      \"deduction_id\": \"string\",\n      \"amount_type\": \"string\",\n      \"amount\": 4369,\n      \"currency\": \"string\",\n      \"deduction_type_code\": \"string\",\n      \"description\": \"string\",\n      \"end_date\": \"1953-12-25\",\n      \"frequency\": \"every_paycheck\",\n      \"start_date\": \"1989-10-02\"\n    },\n    {\n      \"deduction_id\": \"string\",\n      \"amount_type\": \"string\",\n      \"amount\": 4722,\n      \"currency\": \"string\",\n      \"deduction_type_code\": \"string\",\n      \"description\": \"string\",\n      \"end_date\": \"2007-07-11\",\n      \"frequency\": \"one_time\",\n      \"start_date\": \"1965-07-01\"\n    }\n  ]\n}",
+                  "raw": "{\n  \"items\": [\n    {\n      \"deduction_id\": \"string\",\n      \"amount_type\": \"string\",\n      \"amount\": 1079,\n      \"currency\": \"string\",\n      \"deduction_type_code\": \"string\",\n      \"description\": \"string\",\n      \"end_date\": \"1965-04-22\",\n      \"frequency\": \"one_time\",\n      \"start_date\": \"2018-11-23\"\n    },\n    {\n      \"deduction_id\": \"string\",\n      \"amount_type\": \"string\",\n      \"amount\": 6975,\n      \"currency\": \"string\",\n      \"deduction_type_code\": \"string\",\n      \"description\": \"string\",\n      \"end_date\": \"1959-08-18\",\n      \"frequency\": \"every_paycheck\",\n      \"start_date\": \"2005-11-22\"\n    }\n  ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -336,7 +336,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"items\": [\n    {\n      \"deduction_id\": \"string\",\n      \"member_id\": \"string\",\n      \"operation_id\": \"string\",\n      \"error_message\": \"string\",\n      \"success\": false\n    },\n    {\n      \"deduction_id\": \"string\",\n      \"member_id\": \"string\",\n      \"operation_id\": \"string\",\n      \"error_message\": \"string\",\n      \"success\": false\n    }\n  ]\n}",
+              "body": "{\n  \"items\": [\n    {\n      \"deduction_id\": \"string\",\n      \"member_id\": \"string\",\n      \"operation_id\": \"string\",\n      \"error_message\": \"string\",\n      \"success\": true\n    },\n    {\n      \"deduction_id\": \"string\",\n      \"member_id\": \"string\",\n      \"operation_id\": \"string\",\n      \"error_message\": \"string\",\n      \"success\": false\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -347,7 +347,7 @@
           }
         },
         {
-          "id": "8a237013-462f-40b3-a84b-c60df72621e1",
+          "id": "e63c6127-3598-4912-a896-5dfc83b4c9ab",
           "name": "Justworks Cancel Deductions",
           "request": {
             "name": "Justworks Cancel Deductions",
@@ -391,7 +391,7 @@
           },
           "response": [
             {
-              "id": "8e84a0e0-1b2e-40e8-9ba0-41d294d04362",
+              "id": "a0057cc4-2305-4bda-9812-6bdf8efeef07",
               "name": "Per-item cancel result",
               "originalRequest": {
                 "url": {
@@ -439,98 +439,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"items\": [\n    {\n      \"deduction_id\": \"string\",\n      \"member_id\": \"string\",\n      \"operation_id\": \"string\",\n      \"error_message\": \"string\",\n      \"success\": false\n    },\n    {\n      \"deduction_id\": \"string\",\n      \"member_id\": \"string\",\n      \"operation_id\": \"string\",\n      \"error_message\": \"string\",\n      \"success\": false\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        }
-      ],
-      "event": []
-    },
-    {
-      "id": "3621e8f9-6d0c-4839-b7d3-b6562a4eafdd",
-      "name": "Deduction Types",
-      "description": {
-        "content": "Read access to Justworks deduction type catalog",
-        "type": "text/plain"
-      },
-      "item": [
-        {
-          "id": "9508180f-7733-402d-ac61-0401378007bc",
-          "name": "Justworks List Deduction Types",
-          "request": {
-            "name": "Justworks List Deduction Types",
-            "description": {
-              "content": "List Justworks-defined deduction type codes and descriptions.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v1",
-                "deduction-types"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "63001635-ad7d-4358-8ab3-027cd06e0943",
-              "name": "List of deduction types",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v1",
-                    "deduction-types"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"code\": \"string\",\n    \"description\": \"string\"\n  },\n  {\n    \"code\": \"string\",\n    \"description\": \"string\"\n  }\n]",
+              "body": "{\n  \"items\": [\n    {\n      \"deduction_id\": \"string\",\n      \"member_id\": \"string\",\n      \"operation_id\": \"string\",\n      \"error_message\": \"string\",\n      \"success\": true\n    },\n    {\n      \"deduction_id\": \"string\",\n      \"member_id\": \"string\",\n      \"operation_id\": \"string\",\n      \"error_message\": \"string\",\n      \"success\": false\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -557,7 +466,7 @@
     "oauth2": [
       {
         "key": "scope",
-        "value": "deductions:read deductions:write"
+        "value": "company.basic:read company.detail:read company.bank_account:read"
       },
       {
         "key": "redirect_uri",
@@ -578,11 +487,11 @@
     ]
   },
   "info": {
-    "_postman_id": "6082cb95-0529-4fad-8a64-aad40dcea50f",
-    "name": "Justworks Deductions API",
+    "_postman_id": "ff3269db-9b8c-4ecb-af16-7ce8bd0a3137",
+    "name": "Justworks Company Deductions API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
-      "content": "Manage employee deductions in the Justworks Partner API. Supports\nlisting deduction types, creating one-time and recurring deductions,\nupdating deductions, and cancelling deductions in bulk. This is the\nprimary write surface of the Justworks Partner API.\n\n\nContact Support:\n Name: Justworks Partner Support",
+      "content": "Read company-level data from the Justworks Partner API including\ncompany identity, bank account on file, verified business information,\ncustom field definitions, and operating jurisdictions.\n\n\nContact Support:\n Name: Justworks Partner Support",
       "type": "text/plain"
     }
   }

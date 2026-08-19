@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "c340bd45-8e8c-4972-93bb-239c4b816676",
+      "id": "bdcf7e37-ea5b-483f-8030-a4b1171d841e",
       "name": "Company",
       "description": {
         "content": "Read access to company-level Justworks data",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "db304dd6-164d-4284-a66b-ee2f772f4559",
+          "id": "c13327e7-038a-416a-88bf-2c0fc4a5e09e",
           "name": "Justworks Get Company",
           "request": {
             "name": "Justworks Get Company",
@@ -39,7 +39,7 @@
           },
           "response": [
             {
-              "id": "0341f5fd-4ee4-4ce4-b603-3c3db31e8eb3",
+              "id": "31281839-b3e3-4cc7-9790-f4e24dd5fc75",
               "name": "Company record",
               "originalRequest": {
                 "url": {
@@ -78,7 +78,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"tax_id\": \"string\",\n  \"display_name\": \"string\",\n  \"legal_name\": \"string\",\n  \"country_data\": {},\n  \"created_at\": \"1953-04-10T16:35:19.043Z\",\n  \"updated_at\": \"1974-03-24T08:29:07.828Z\"\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"tax_id\": \"string\",\n  \"display_name\": \"string\",\n  \"legal_name\": \"string\",\n  \"country_data\": {},\n  \"created_at\": \"2004-04-21T00:32:51.928Z\",\n  \"updated_at\": \"1975-09-29T10:26:06.535Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -89,7 +89,7 @@
           }
         },
         {
-          "id": "84784c3a-4ab3-4f91-90a6-4627dac94aa6",
+          "id": "d45f1bc1-fcf2-48fc-8cc0-df2258c18b55",
           "name": "Justworks Get Company Bank Account",
           "request": {
             "name": "Justworks Get Company Bank Account",
@@ -120,7 +120,7 @@
           },
           "response": [
             {
-              "id": "33bdf28d-bf91-41fc-840a-79d58b66fd2f",
+              "id": "e6cab252-98cd-494e-8b81-bacc061abf33",
               "name": "Bank account on file",
               "originalRequest": {
                 "url": {
@@ -171,7 +171,7 @@
           }
         },
         {
-          "id": "a2e96a04-7322-4036-99e9-7ef505f3c46c",
+          "id": "9e92904e-c710-4b62-9b9d-66a75bfdbb12",
           "name": "Justworks Get Company Business Info",
           "request": {
             "name": "Justworks Get Company Business Info",
@@ -202,7 +202,7 @@
           },
           "response": [
             {
-              "id": "f38f560c-0bea-4d24-9a23-5ed8715b88cc",
+              "id": "5b334545-a122-4785-a140-7d64dbc91a83",
               "name": "Business info",
               "originalRequest": {
                 "url": {
@@ -242,7 +242,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"entity_identifiers\": [\n    {\n      \"file_number\": \"string\",\n      \"issue_date\": \"2022-06-27\",\n      \"state\": \"string\"\n    },\n    {\n      \"file_number\": \"string\",\n      \"issue_date\": \"1969-03-22\",\n      \"state\": \"string\"\n    }\n  ],\n  \"officers\": [\n    {\n      \"name\": \"string\",\n      \"titles\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"titles\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "body": "{\n  \"entity_identifiers\": [\n    {\n      \"file_number\": \"string\",\n      \"issue_date\": \"1947-01-18\",\n      \"state\": \"string\"\n    },\n    {\n      \"file_number\": \"string\",\n      \"issue_date\": \"1972-06-09\",\n      \"state\": \"string\"\n    }\n  ],\n  \"officers\": [\n    {\n      \"name\": \"string\",\n      \"titles\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"titles\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -253,7 +253,7 @@
           }
         },
         {
-          "id": "8710c0f1-a76e-44b9-ad41-2fc93622eba5",
+          "id": "30391ef9-72ee-4921-9355-a235ce9fead9",
           "name": "Justworks List Company Custom Fields",
           "request": {
             "name": "Justworks List Company Custom Fields",
@@ -284,7 +284,7 @@
           },
           "response": [
             {
-              "id": "116a2479-b4eb-4272-9db2-446ed41a415c",
+              "id": "d3552681-8500-41aa-b09a-0e5a0b563eb0",
               "name": "Custom field definitions",
               "originalRequest": {
                 "url": {
@@ -335,7 +335,7 @@
           }
         },
         {
-          "id": "80c27a73-8ce3-4bc1-a99a-0745737345e4",
+          "id": "0d5be9c6-097e-4cce-9e83-ce0a45da9cfb",
           "name": "Justworks List Company Jurisdictions",
           "request": {
             "name": "Justworks List Company Jurisdictions",
@@ -366,7 +366,7 @@
           },
           "response": [
             {
-              "id": "fe9e84df-4e02-4af0-abb2-657df20de01c",
+              "id": "09e3b88b-9c9e-4c6f-9652-135a548805b3",
               "name": "Jurisdictions",
               "originalRequest": {
                 "url": {
@@ -454,7 +454,7 @@
     ]
   },
   "info": {
-    "_postman_id": "3602a39a-7f39-4f87-bb6d-ca2dc40f9e8f",
+    "_postman_id": "ddb69e05-4a8c-4535-ad7a-b1334dd80386",
     "name": "Justworks Company API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {

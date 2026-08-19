@@ -1,0 +1,260 @@
+{
+  "item": [
+    {
+      "id": "09dcc689-763d-4eeb-a08b-3b373a3783d0",
+      "name": "Time Off Balances",
+      "description": {
+        "content": "Asynchronous balance reports for time-off policies",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8c68f823-fe37-4aa0-a4c0-3308983988f8",
+          "name": "Justworks Create Time Off Balances Report",
+          "request": {
+            "name": "Justworks Create Time Off Balances Report",
+            "description": {
+              "content": "Request an asynchronous time-off balance report for a member, policy, and as-of date.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "time-off",
+                "balances"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"member_id\": \"<string>\",\n  \"policy_id\": \"<string>\",\n  \"as_of_date\": \"<date>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bb89e307-a480-4109-bcdd-c8c66e7c9972",
+              "name": "Report accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "time-off",
+                    "balances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"member_id\": \"<string>\",\n  \"policy_id\": \"<string>\",\n  \"as_of_date\": \"<date>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"report_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e97caa1d-85d5-4bc1-85ee-a5502c273cdb",
+          "name": "Justworks Get Time Off Balances Report",
+          "request": {
+            "name": "Justworks Get Time Off Balances Report",
+            "description": {
+              "content": "Retrieve a time-off balance report by id. Poll until status indicates the report is ready.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "time-off",
+                "balances",
+                ":report_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "report_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "34d74479-b976-4b67-9b9d-446b28a699df",
+              "name": "Time-off balance report",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "time-off",
+                    "balances",
+                    ":report_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "report_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"message\": \"string\",\n  \"items\": [\n    {\n      \"member_id\": \"string\",\n      \"policy_id\": \"string\",\n      \"unit_type\": \"string\",\n      \"available\": 2716.16954498325,\n      \"used\": 9631.919783853893\n    },\n    {\n      \"member_id\": \"string\",\n      \"policy_id\": \"string\",\n      \"unit_type\": \"string\",\n      \"available\": 7316.113712064674,\n      \"used\": 8900.256385653842\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://public-api.justworks.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "company.basic:read company.detail:read company.bank_account:read"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://public-api.justworks.com/oauth/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://public-api.justworks.com/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://secure.justworks.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b28e71da-ffba-4bce-ac24-683de68fab3e",
+    "name": "Justworks Company Time Off Balances API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Read company-level data from the Justworks Partner API including\ncompany identity, bank account on file, verified business information,\ncustom field definitions, and operating jurisdictions.\n\n\nContact Support:\n Name: Justworks Partner Support",
+      "type": "text/plain"
+    }
+  }
+}
