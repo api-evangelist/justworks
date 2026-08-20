@@ -68,6 +68,10 @@ apis:
 - aid: justworks:justworks-webhooks-api
   name: Justworks Webhooks API
   tags:
+  - Webhook
+  - Event
+  - HR
+  tags_raw:
   - Webhooks
   - Events
   - HR
@@ -90,6 +94,8 @@ apis:
 - aid: justworks:justworks-oauth-api
   name: Justworks OAuth API
   tags:
+  - Authentication
+  tags_raw:
   - OAuth
   - Authentication
   humanURL: https://public-api.justworks.com/v1/docs
@@ -327,6 +333,19 @@ position: Provider
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/justworks.png
 tags:
+  - PEO
+  - Payroll
+  - HR
+  - Human Resources
+  - Benefits
+  - Health Insurance
+  - 401k
+  - Time Off
+  - Compliance
+  - Small Business
+  - Employer of Record
+  - HRIS
+tags_raw:
   - PEO
   - Payroll
   - HR
