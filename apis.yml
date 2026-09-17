@@ -91,27 +91,6 @@ apis:
     cover member.profile.*, member.employment_state.termination_*, and department.* lifecycle changes.
 
     A Tour-environment simulate endpoint allows partners to validate their listener without real data.
-- aid: justworks:justworks-oauth-api
-  name: Justworks OAuth API
-  tags:
-  - Authentication
-  tags_raw:
-  - OAuth
-  - Authentication
-  humanURL: https://public-api.justworks.com/v1/docs
-  properties:
-  - url: https://public-api.justworks.com/v1/docs
-    type: Documentation
-  - url: openapi/justworks-oauth-api-openapi.yml
-    type: OpenAPI
-  description: >
-    OAuth 2.0 token endpoints for the Justworks Partner API. Authorization code is the only supported
-
-    grant for initial token acquisition; refresh token grant is supported for renewal. Access tokens are
-
-    valid for 24 hours; refresh tokens are valid for 30 days. A revoke endpoint is provided for both
-
-    access and refresh tokens.
 - aid: justworks:justworks-deduction-types-api
   name: Justworks Deduction Types API
   description: Read access to Justworks deduction type catalog
@@ -214,6 +193,17 @@ apis:
     url: json-schema/justworks-paystub-schema.json
   - type: JSONSchema
     url: json-schema/justworks-time-off-request-schema.json
+- aid: justworks:justworks-oauth-api
+  name: Justworks O Auth API
+  description: OAuth 2.0 token endpoints
+  humanURL: https://public-api.justworks.com/v1/docs
+  tags:
+  - OAuth
+  properties:
+  - type: OpenAPI
+    url: openapi/justworks-oauth-api-openapi.yml
+  - type: Documentation
+    url: https://public-api.justworks.com/v1/docs
 common:
   - type: AgenticAccess
     url: agentic-access/justworks-agentic-access.yml
