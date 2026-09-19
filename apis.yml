@@ -4,6 +4,11 @@ apis:
 - aid: justworks:justworks-members-api
   name: Justworks Members API
   tags:
+  - Human Resources
+  - PEO
+  - Members
+  - Employees
+  tags_raw:
   - HR
   - PEO
   - Members
@@ -30,6 +35,10 @@ apis:
 - aid: justworks:justworks-company-api
   name: Justworks Company API
   tags:
+  - Human Resources
+  - PEO
+  - Company
+  tags_raw:
   - HR
   - PEO
   - Company
@@ -70,7 +79,7 @@ apis:
   tags:
   - Webhook
   - Event
-  - HR
+  - Human Resources
   tags_raw:
   - Webhooks
   - Events
@@ -198,6 +207,8 @@ apis:
   description: OAuth 2.0 token endpoints
   humanURL: https://public-api.justworks.com/v1/docs
   tags:
+  - Authentication
+  tags_raw:
   - OAuth
   properties:
   - type: OpenAPI
@@ -337,7 +348,6 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/justworks.
 tags:
   - PEO
   - Payroll
-  - HR
   - Human Resources
   - Benefits
   - Health Insurance
