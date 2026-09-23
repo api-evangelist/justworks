@@ -1,13 +1,13 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Justworks Company Payrolls API
-  description: 'Read company-level data from the Justworks Partner API including
+  title: Justworks Payroll Payrolls API
+  description: 'Read payroll runs, fees, and paystubs from the Justworks Partner API.
 
-    company identity, bank account on file, verified business information,
+    Each payroll record summarizes a run''s gross pay, net pay, taxes, and
 
-    custom field definitions, and operating jurisdictions.
+    debit information; paystubs break down per-member earnings, employee
 
-    '
+    deductions, and employer contributions.'
   version: '2026-05-25'
   contact:
     name: Justworks Partner Support
@@ -84,11 +84,6 @@ components:
       required: true
       schema:
         type: string
-    Cursor:
-      name: cursor
-      in: query
-      schema:
-        type: string
     Limit:
       name: limit
       in: query
@@ -97,24 +92,12 @@ components:
         minimum: 1
         maximum: 100
         default: 100
+    Cursor:
+      name: cursor
+      in: query
+      schema:
+        type: string
   schemas:
-    PayrollFee:
-      type: object
-      properties:
-        member_id:
-          type: string
-        reference_id:
-          type: string
-        name:
-          type: string
-        reference_type:
-          type: string
-        type:
-          type: string
-        amount:
-          type: integer
-        currency:
-          type: string
     Payroll:
       type: object
       description: 'A payroll run. Monetary amounts use zero-decimal currency units —
@@ -155,6 +138,23 @@ components:
         next_cursor:
           type: string
           nullable: true
+    PayrollFee:
+      type: object
+      properties:
+        member_id:
+          type: string
+        reference_id:
+          type: string
+        name:
+          type: string
+        reference_type:
+          type: string
+        type:
+          type: string
+        amount:
+          type: integer
+        currency:
+          type: string
   securitySchemes:
     OAuth2:
       type: oauth2
@@ -164,6 +164,5 @@ components:
           tokenUrl: https://public-api.justworks.com/oauth/token
           refreshUrl: https://public-api.justworks.com/oauth/token
           scopes:
-            company.basic:read: Read basic company data
-            company.detail:read: Read detailed company data
-            company.bank_account:read: Read company bank account on file
+            payroll:read: Read payroll runs and fees
+            paystub:read: Read paystub detail

@@ -1,34 +1,49 @@
 {
   "provider": "justworks",
   "sources": [
+    "_original/justworks-payroll-api-openapi.yml",
+    "_original/justworks-time-off-api-openapi.yml",
     "justworks-company-api-openapi.yml",
     "justworks-deduction-types-api-openapi.yml",
     "justworks-deductions-api-openapi.yml",
     "justworks-members-api-openapi.yml",
-    "justworks-oauth-api-openapi.yml",
-    "justworks-payrolls-api-openapi.yml",
-    "justworks-paystubs-api-openapi.yml",
-    "justworks-time-off-balances-api-openapi.yml",
-    "justworks-time-off-policies-api-openapi.yml",
-    "justworks-time-off-requests-api-openapi.yml",
+    "justworks-o-auth-api-openapi.yml",
     "justworks-webhooks-api-openapi.yml"
   ],
   "outputs": [
-    "justworks-company-api-openapi.yml",
-    "justworks-deduction-types-api-openapi.yml",
-    "justworks-deductions-api-openapi.yml",
-    "justworks-members-api-openapi.yml",
-    "justworks-oauth-api-openapi.yml",
     "justworks-payrolls-api-openapi.yml",
     "justworks-paystubs-api-openapi.yml",
     "justworks-time-off-balances-api-openapi.yml",
     "justworks-time-off-policies-api-openapi.yml",
     "justworks-time-off-requests-api-openapi.yml",
+    "justworks-company-api-openapi.yml",
+    "justworks-deduction-types-api-openapi.yml",
+    "justworks-deductions-api-openapi.yml",
+    "justworks-members-api-openapi.yml",
+    "justworks-o-auth-api-openapi.yml",
     "justworks-webhooks-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
-  "warnings": [],
-  "notes": [],
-  "skipped": []
+  "warnings": [
+    "justworks-company-api-openapi.yml: previously refined output kept for 5 operation(s) no archived document covers (e.g. /v1/company get, /v1/company/bank-account get, /v1/company/business-info get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "justworks-deduction-types-api-openapi.yml: previously refined output kept for 1 operation(s) no archived document covers (e.g. /v1/deduction-types get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "justworks-deductions-api-openapi.yml: previously refined output kept for 4 operation(s) no archived document covers (e.g. /v1/deductions get, /v1/deductions post, /v1/deductions put); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "justworks-members-api-openapi.yml: previously refined output kept for 4 operation(s) no archived document covers (e.g. /v1/members get, /v1/members/{member_id} get, /v1/members/{member_id}/custom-field-values get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "justworks-o-auth-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /oauth/token post, /v1/oauth/revoke post); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "justworks-webhooks-api-openapi.yml: previously refined output kept for 3 operation(s) no archived document covers (e.g. /v1/webhooks/get post, /v1/webhooks/{webhook_id}/resume post, /v1/webhooks/{webhook_id}/simulate post); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth."
+  ],
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "justworks-payroll-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "justworks-time-off-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "justworks-payrolls-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "justworks-paystubs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "justworks-time-off-balances-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "justworks-time-off-policies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "justworks-time-off-requests-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

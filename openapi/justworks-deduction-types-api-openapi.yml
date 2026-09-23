@@ -1,13 +1,11 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Justworks Company Deduction Types API
   description: 'Read company-level data from the Justworks Partner API including
 
     company identity, bank account on file, verified business information,
 
-    custom field definitions, and operating jurisdictions.
-
-    '
+    custom field definitions, and operating jurisdictions.'
   version: '2026-05-25'
   contact:
     name: Justworks Partner Support

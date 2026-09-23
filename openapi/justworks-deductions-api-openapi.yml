@@ -1,13 +1,11 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Justworks Company Deductions API
   description: 'Read company-level data from the Justworks Partner API including
 
     company identity, bank account on file, verified business information,
 
-    custom field definitions, and operating jurisdictions.
-
-    '
+    custom field definitions, and operating jurisdictions.'
   version: '2026-05-25'
   contact:
     name: Justworks Partner Support
@@ -149,54 +147,6 @@ paths:
                 $ref: '#/components/schemas/DeductionWriteResult'
 components:
   schemas:
-    DeductionWriteResult:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              deduction_id:
-                type: string
-              member_id:
-                type: string
-              operation_id:
-                type: string
-              error_message:
-                type: string
-                nullable: true
-              success:
-                type: boolean
-    DeductionUpdate:
-      type: object
-      required:
-      - deduction_id
-      properties:
-        deduction_id:
-          type: string
-        amount_type:
-          type: string
-        amount:
-          type: integer
-        currency:
-          type: string
-        deduction_type_code:
-          type: string
-        description:
-          type: string
-        end_date:
-          type: string
-          format: date
-          nullable: true
-        frequency:
-          type: string
-          enum:
-          - one_time
-          - every_paycheck
-        start_date:
-          type: string
-          format: date
     DeductionCreate:
       type: object
       required:
@@ -236,6 +186,54 @@ components:
         start_date:
           type: string
           format: date
+    DeductionUpdate:
+      type: object
+      required:
+      - deduction_id
+      properties:
+        deduction_id:
+          type: string
+        amount_type:
+          type: string
+        amount:
+          type: integer
+        currency:
+          type: string
+        deduction_type_code:
+          type: string
+        description:
+          type: string
+        end_date:
+          type: string
+          format: date
+          nullable: true
+        frequency:
+          type: string
+          enum:
+          - one_time
+          - every_paycheck
+        start_date:
+          type: string
+          format: date
+    DeductionWriteResult:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              deduction_id:
+                type: string
+              member_id:
+                type: string
+              operation_id:
+                type: string
+              error_message:
+                type: string
+                nullable: true
+              success:
+                type: boolean
     Deduction:
       type: object
       properties:
