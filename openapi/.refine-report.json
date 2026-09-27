@@ -7,7 +7,7 @@
     "justworks-deduction-types-api-openapi.yml",
     "justworks-deductions-api-openapi.yml",
     "justworks-members-api-openapi.yml",
-    "justworks-o-auth-api-openapi.yml",
+    "justworks-oauth-api-openapi.yml",
     "justworks-webhooks-api-openapi.yml"
   ],
   "outputs": [
@@ -20,7 +20,7 @@
     "justworks-deduction-types-api-openapi.yml",
     "justworks-deductions-api-openapi.yml",
     "justworks-members-api-openapi.yml",
-    "justworks-o-auth-api-openapi.yml",
+    "justworks-oauth-api-openapi.yml",
     "justworks-webhooks-api-openapi.yml"
   ],
   "archived": [],
@@ -30,7 +30,7 @@
     "justworks-deduction-types-api-openapi.yml: previously refined output kept for 1 operation(s) no archived document covers (e.g. /v1/deduction-types get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
     "justworks-deductions-api-openapi.yml: previously refined output kept for 4 operation(s) no archived document covers (e.g. /v1/deductions get, /v1/deductions post, /v1/deductions put); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
     "justworks-members-api-openapi.yml: previously refined output kept for 4 operation(s) no archived document covers (e.g. /v1/members get, /v1/members/{member_id} get, /v1/members/{member_id}/custom-field-values get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
-    "justworks-o-auth-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /oauth/token post, /v1/oauth/revoke post); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "justworks-oauth-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /oauth/token post, /v1/oauth/revoke post); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
     "justworks-webhooks-api-openapi.yml: previously refined output kept for 3 operation(s) no archived document covers (e.g. /v1/webhooks/get post, /v1/webhooks/{webhook_id}/resume post, /v1/webhooks/{webhook_id}/simulate post); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth."
   ],
   "notes": [

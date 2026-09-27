@@ -143,6 +143,13 @@ paths:
         '404':
           description: Member is an EOR or international employee
 components:
+  responses:
+    NotFound:
+      description: Resource not found
+    Unauthorized:
+      description: Missing or invalid OAuth token
+    Forbidden:
+      description: Token lacks the required scope
   parameters:
     MemberId:
       name: member_id
@@ -151,54 +158,7 @@ components:
       description: Justworks member identifier
       schema:
         type: string
-  responses:
-    NotFound:
-      description: Resource not found
-    Unauthorized:
-      description: Missing or invalid OAuth token
-    Forbidden:
-      description: Token lacks the required scope
   schemas:
-    Address:
-      type: object
-      properties:
-        line1:
-          type: string
-        line2:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        postal_code:
-          type: string
-        country:
-          type: string
-    MemberList:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Member'
-        next_cursor:
-          type: string
-          nullable: true
-    MemberName:
-      type: object
-      properties:
-        family_name:
-          type: string
-        given_name:
-          type: string
-        full_preferred_name:
-          type: string
-        preferred_name:
-          type: string
-        additional_names:
-          type: array
-          items:
-            type: string
     Member:
       type: object
       properties:
@@ -273,6 +233,36 @@ components:
         updated_at:
           type: string
           format: date-time
+    Address:
+      type: object
+      properties:
+        line1:
+          type: string
+        line2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        postal_code:
+          type: string
+        country:
+          type: string
+    MemberName:
+      type: object
+      properties:
+        family_name:
+          type: string
+        given_name:
+          type: string
+        full_preferred_name:
+          type: string
+        preferred_name:
+          type: string
+        additional_names:
+          type: array
+          items:
+            type: string
     CustomFieldValue:
       type: object
       properties:
@@ -282,6 +272,16 @@ components:
           type: array
           items:
             type: string
+    MemberList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Member'
+        next_cursor:
+          type: string
+          nullable: true
   securitySchemes:
     OAuth2:
       type: oauth2

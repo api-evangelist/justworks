@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Justworks Company O Auth API
+  title: Justworks Company O Auth OAuth API
   description: 'Read company-level data from the Justworks Partner API including
 
     company identity, bank account on file, verified business information,
