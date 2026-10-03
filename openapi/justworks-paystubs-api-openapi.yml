@@ -69,42 +69,6 @@ paths:
                 $ref: '#/components/schemas/Paystub'
 components:
   schemas:
-    Paystub:
-      type: object
-      properties:
-        member_id:
-          type: string
-        paystub_id:
-          type: string
-        gross_pay:
-          type: integer
-        net_pay:
-          type: integer
-        currency:
-          type: string
-        pay_date:
-          type: string
-          format: date
-        pay_group:
-          type: string
-        pay_period_end:
-          type: string
-          format: date
-        pay_period_start:
-          type: string
-          format: date
-        earnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/LineItem'
-        employee_deductions:
-          type: array
-          items:
-            $ref: '#/components/schemas/LineItem'
-        employer_contributions:
-          type: array
-          items:
-            $ref: '#/components/schemas/LineItem'
     LineItem:
       type: object
       properties:
@@ -142,7 +106,54 @@ components:
         pay_period_start:
           type: string
           format: date
+    Paystub:
+      type: object
+      properties:
+        member_id:
+          type: string
+        paystub_id:
+          type: string
+        gross_pay:
+          type: integer
+        net_pay:
+          type: integer
+        currency:
+          type: string
+        pay_date:
+          type: string
+          format: date
+        pay_group:
+          type: string
+        pay_period_end:
+          type: string
+          format: date
+        pay_period_start:
+          type: string
+          format: date
+        earnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineItem'
+        employee_deductions:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineItem'
+        employer_contributions:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineItem'
   parameters:
+    PayrollId:
+      name: payroll_id
+      in: path
+      required: true
+      schema:
+        type: string
+    Cursor:
+      name: cursor
+      in: query
+      schema:
+        type: string
     Limit:
       name: limit
       in: query
@@ -151,17 +162,6 @@ components:
         minimum: 1
         maximum: 100
         default: 100
-    Cursor:
-      name: cursor
-      in: query
-      schema:
-        type: string
-    PayrollId:
-      name: payroll_id
-      in: path
-      required: true
-      schema:
-        type: string
   securitySchemes:
     OAuth2:
       type: oauth2

@@ -166,6 +166,35 @@ components:
                 nullable: true
               success:
                 type: boolean
+    DeductionUpdate:
+      type: object
+      required:
+      - deduction_id
+      properties:
+        deduction_id:
+          type: string
+        amount_type:
+          type: string
+        amount:
+          type: integer
+        currency:
+          type: string
+        deduction_type_code:
+          type: string
+        description:
+          type: string
+        end_date:
+          type: string
+          format: date
+          nullable: true
+        frequency:
+          type: string
+          enum:
+          - one_time
+          - every_paycheck
+        start_date:
+          type: string
+          format: date
     DeductionCreate:
       type: object
       required:
@@ -211,35 +240,6 @@ components:
         id:
           type: string
         member_id:
-          type: string
-        amount_type:
-          type: string
-        amount:
-          type: integer
-        currency:
-          type: string
-        deduction_type_code:
-          type: string
-        description:
-          type: string
-        end_date:
-          type: string
-          format: date
-          nullable: true
-        frequency:
-          type: string
-          enum:
-          - one_time
-          - every_paycheck
-        start_date:
-          type: string
-          format: date
-    DeductionUpdate:
-      type: object
-      required:
-      - deduction_id
-      properties:
-        deduction_id:
           type: string
         amount_type:
           type: string

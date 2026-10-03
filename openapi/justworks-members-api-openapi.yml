@@ -144,21 +144,38 @@ paths:
           description: Member is an EOR or international employee
 components:
   responses:
-    NotFound:
-      description: Resource not found
     Unauthorized:
       description: Missing or invalid OAuth token
+    NotFound:
+      description: Resource not found
     Forbidden:
       description: Token lacks the required scope
-  parameters:
-    MemberId:
-      name: member_id
-      in: path
-      required: true
-      description: Justworks member identifier
-      schema:
-        type: string
   schemas:
+    MemberName:
+      type: object
+      properties:
+        family_name:
+          type: string
+        given_name:
+          type: string
+        full_preferred_name:
+          type: string
+        preferred_name:
+          type: string
+        additional_names:
+          type: array
+          items:
+            type: string
+    MemberList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Member'
+        next_cursor:
+          type: string
+          nullable: true
     Member:
       type: object
       properties:
@@ -248,21 +265,6 @@ components:
           type: string
         country:
           type: string
-    MemberName:
-      type: object
-      properties:
-        family_name:
-          type: string
-        given_name:
-          type: string
-        full_preferred_name:
-          type: string
-        preferred_name:
-          type: string
-        additional_names:
-          type: array
-          items:
-            type: string
     CustomFieldValue:
       type: object
       properties:
@@ -272,16 +274,14 @@ components:
           type: array
           items:
             type: string
-    MemberList:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Member'
-        next_cursor:
-          type: string
-          nullable: true
+  parameters:
+    MemberId:
+      name: member_id
+      in: path
+      required: true
+      description: Justworks member identifier
+      schema:
+        type: string
   securitySchemes:
     OAuth2:
       type: oauth2

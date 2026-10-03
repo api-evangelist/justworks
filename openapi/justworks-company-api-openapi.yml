@@ -137,23 +137,6 @@ paths:
                           type: string
 components:
   schemas:
-    CustomFieldDefinition:
-      type: object
-      properties:
-        id:
-          type: string
-        label:
-          type: string
-        type:
-          type: string
-        options:
-          type: array
-          items:
-            type: string
-        cardinality:
-          type: string
-        category:
-          type: string
     Company:
       type: object
       properties:
@@ -189,6 +172,23 @@ components:
         updated_at:
           type: string
           format: date-time
+    CustomFieldDefinition:
+      type: object
+      properties:
+        id:
+          type: string
+        label:
+          type: string
+        type:
+          type: string
+        options:
+          type: array
+          items:
+            type: string
+        cardinality:
+          type: string
+        category:
+          type: string
   securitySchemes:
     OAuth2:
       type: oauth2

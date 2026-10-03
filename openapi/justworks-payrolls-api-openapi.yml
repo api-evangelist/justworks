@@ -78,16 +78,23 @@ paths:
                     nullable: true
 components:
   schemas:
-    PayrollList:
+    PayrollFee:
       type: object
       properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Payroll'
-        next_cursor:
+        member_id:
           type: string
-          nullable: true
+        reference_id:
+          type: string
+        name:
+          type: string
+        reference_type:
+          type: string
+        type:
+          type: string
+        amount:
+          type: integer
+        currency:
+          type: string
     Payroll:
       type: object
       description: 'A payroll run. Monetary amounts use zero-decimal currency units —
@@ -118,24 +125,28 @@ components:
           format: date
         payment_method:
           type: string
-    PayrollFee:
+    PayrollList:
       type: object
       properties:
-        member_id:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Payroll'
+        next_cursor:
           type: string
-        reference_id:
-          type: string
-        name:
-          type: string
-        reference_type:
-          type: string
-        type:
-          type: string
-        amount:
-          type: integer
-        currency:
-          type: string
+          nullable: true
   parameters:
+    PayrollId:
+      name: payroll_id
+      in: path
+      required: true
+      schema:
+        type: string
+    Cursor:
+      name: cursor
+      in: query
+      schema:
+        type: string
     Limit:
       name: limit
       in: query
@@ -144,17 +155,6 @@ components:
         minimum: 1
         maximum: 100
         default: 100
-    Cursor:
-      name: cursor
-      in: query
-      schema:
-        type: string
-    PayrollId:
-      name: payroll_id
-      in: path
-      required: true
-      schema:
-        type: string
   securitySchemes:
     OAuth2:
       type: oauth2
