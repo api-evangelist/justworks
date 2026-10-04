@@ -1,0 +1,82 @@
+slug: justworks
+provider: Justworks
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 7
+edges:
+- tag: Payrolls
+  spec_file: justworks-payrolls-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.9
+  evidence: Read payroll runs, fees, and paystubs ... Each payroll record summarizes a run's gross pay,
+    net pay, taxes, and debit information
+  reason: Operations list payroll runs and payroll fees — payroll administration, squarely HR Operations
+    Management within Human Capital Management.
+- tag: Paystubs
+  spec_file: justworks-paystubs-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.88
+  evidence: paystubs break down per-member earnings, employee deductions, and employer contributions
+  reason: Retrieval of employee paystubs with earnings/deductions is payroll administration under HR Operations
+    Management.
+- tag: Members
+  spec_file: justworks-members-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.8
+  evidence: 'GET /v1/members/{member_id}  getMember; GET /v1/members/{member_id}/tax-id  getMemberTaxId;
+    schemas: MemberName, Member, Address'
+  reason: '''Members'' here are the PEO''s enrolled employees; the operations read employee records including
+    names, addresses and tax IDs, which is employee-record keeping under HR Operations Management.'
+- tag: Deductions
+  spec_file: justworks-deductions-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.75
+  evidence: 'POST /v1/deductions  createDeductions; PATCH /v1/deductions/cancel  cancelDeductions; schemas:
+    DeductionCreate, DeductionUpdate'
+  reason: Creating, updating and cancelling employee payroll deductions is payroll administration within
+    HR Operations Management for this PEO/payroll vendor. Some ambiguity with Compensation & Benefits
+    administration keeps this below 0.8.
+- tag: Time Off Balances
+  spec_file: justworks-time-off-balances-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.72
+  evidence: Manage time-off balances, policies, and requests in the Justworks Partner API
+  reason: Leave/absence balance reporting is HR service delivery and employee record administration; L2
+    slightly ambiguous between HR Operations and Compensation & Benefits.
+- tag: Time Off Requests
+  spec_file: justworks-time-off-requests-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.72
+  evidence: GET /v1/time-off/requests listTimeOffRequests; schema TimeOffRequest
+  reason: Employee leave request records are absence administration, part of HR Operations Management
+    in the employee lifecycle.
+- tag: Time Off Policies
+  spec_file: justworks-time-off-policies-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.7
+  evidence: GET /v1/time-off/policies listTimeOffPolicies; schema TimeOffPolicy
+  reason: Time-off (leave) policy definitions administered for employees — HR operations/absence administration
+    within HCM.

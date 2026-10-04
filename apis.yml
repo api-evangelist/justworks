@@ -216,6 +216,9 @@ apis:
   - type: Documentation
     url: https://public-api.justworks.com/v1/docs
 common:
+  - type: CapabilityMap
+    url: capabilities/justworks-capability-edges.yml
+    name: Justworks Business Capability Map
   - type: AgenticAccess
     url: agentic-access/justworks-agentic-access.yml
   - type: VulnerabilityDisclosure
