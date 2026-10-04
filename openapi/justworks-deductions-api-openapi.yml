@@ -147,6 +147,45 @@ paths:
                 $ref: '#/components/schemas/DeductionWriteResult'
 components:
   schemas:
+    DeductionCreate:
+      type: object
+      required:
+      - member_id
+      - operation_id
+      - amount_type
+      - amount
+      - currency
+      - deduction_type_code
+      - frequency
+      - start_date
+      properties:
+        member_id:
+          type: string
+        operation_id:
+          type: string
+          description: Partner-supplied idempotency key for this row
+        amount_type:
+          type: string
+        amount:
+          type: integer
+        currency:
+          type: string
+        deduction_type_code:
+          type: string
+        description:
+          type: string
+        end_date:
+          type: string
+          format: date
+          nullable: true
+        frequency:
+          type: string
+          enum:
+          - one_time
+          - every_paycheck
+        start_date:
+          type: string
+          format: date
     DeductionWriteResult:
       type: object
       properties:
@@ -173,45 +212,6 @@ components:
       properties:
         deduction_id:
           type: string
-        amount_type:
-          type: string
-        amount:
-          type: integer
-        currency:
-          type: string
-        deduction_type_code:
-          type: string
-        description:
-          type: string
-        end_date:
-          type: string
-          format: date
-          nullable: true
-        frequency:
-          type: string
-          enum:
-          - one_time
-          - every_paycheck
-        start_date:
-          type: string
-          format: date
-    DeductionCreate:
-      type: object
-      required:
-      - member_id
-      - operation_id
-      - amount_type
-      - amount
-      - currency
-      - deduction_type_code
-      - frequency
-      - start_date
-      properties:
-        member_id:
-          type: string
-        operation_id:
-          type: string
-          description: Partner-supplied idempotency key for this row
         amount_type:
           type: string
         amount:

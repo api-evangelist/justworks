@@ -143,14 +143,32 @@ paths:
         '404':
           description: Member is an EOR or international employee
 components:
+  parameters:
+    MemberId:
+      name: member_id
+      in: path
+      required: true
+      description: Justworks member identifier
+      schema:
+        type: string
   responses:
     Unauthorized:
       description: Missing or invalid OAuth token
-    NotFound:
-      description: Resource not found
     Forbidden:
       description: Token lacks the required scope
+    NotFound:
+      description: Resource not found
   schemas:
+    MemberList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Member'
+        next_cursor:
+          type: string
+          nullable: true
     MemberName:
       type: object
       properties:
@@ -166,16 +184,6 @@ components:
           type: array
           items:
             type: string
-    MemberList:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Member'
-        next_cursor:
-          type: string
-          nullable: true
     Member:
       type: object
       properties:
@@ -274,14 +282,6 @@ components:
           type: array
           items:
             type: string
-  parameters:
-    MemberId:
-      name: member_id
-      in: path
-      required: true
-      description: Justworks member identifier
-      schema:
-        type: string
   securitySchemes:
     OAuth2:
       type: oauth2

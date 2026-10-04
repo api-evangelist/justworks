@@ -68,20 +68,27 @@ paths:
               schema:
                 $ref: '#/components/schemas/Paystub'
 components:
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 100
+    PayrollId:
+      name: payroll_id
+      in: path
+      required: true
+      schema:
+        type: string
+    Cursor:
+      name: cursor
+      in: query
+      schema:
+        type: string
   schemas:
-    LineItem:
-      type: object
-      properties:
-        name:
-          type: string
-        type:
-          type: string
-        amount:
-          type: integer
-        category:
-          type: string
-        currency:
-          type: string
     PaystubSummary:
       type: object
       properties:
@@ -142,26 +149,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/LineItem'
-  parameters:
-    PayrollId:
-      name: payroll_id
-      in: path
-      required: true
-      schema:
-        type: string
-    Cursor:
-      name: cursor
-      in: query
-      schema:
-        type: string
-    Limit:
-      name: limit
-      in: query
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
-        default: 100
+    LineItem:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        amount:
+          type: integer
+        category:
+          type: string
+        currency:
+          type: string
   securitySchemes:
     OAuth2:
       type: oauth2

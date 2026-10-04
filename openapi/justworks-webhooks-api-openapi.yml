@@ -82,6 +82,13 @@ paths:
         '200':
           description: Simulation accepted
 components:
+  parameters:
+    WebhookId:
+      name: webhook_id
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
     Webhook:
       type: object
@@ -108,13 +115,6 @@ components:
             - department.created
             - department.updated
             - department.deleted
-  parameters:
-    WebhookId:
-      name: webhook_id
-      in: path
-      required: true
-      schema:
-        type: string
   securitySchemes:
     OAuth2:
       type: oauth2
