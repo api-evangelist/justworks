@@ -69,6 +69,11 @@ paths:
                 $ref: '#/components/schemas/Paystub'
 components:
   parameters:
+    Cursor:
+      name: cursor
+      in: query
+      schema:
+        type: string
     Limit:
       name: limit
       in: query
@@ -83,12 +88,20 @@ components:
       required: true
       schema:
         type: string
-    Cursor:
-      name: cursor
-      in: query
-      schema:
-        type: string
   schemas:
+    LineItem:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        amount:
+          type: integer
+        category:
+          type: string
+        currency:
+          type: string
     PaystubSummary:
       type: object
       properties:
@@ -149,19 +162,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/LineItem'
-    LineItem:
-      type: object
-      properties:
-        name:
-          type: string
-        type:
-          type: string
-        amount:
-          type: integer
-        category:
-          type: string
-        currency:
-          type: string
   securitySchemes:
     OAuth2:
       type: oauth2

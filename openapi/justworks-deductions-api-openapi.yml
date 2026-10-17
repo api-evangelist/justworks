@@ -147,23 +147,13 @@ paths:
                 $ref: '#/components/schemas/DeductionWriteResult'
 components:
   schemas:
-    DeductionCreate:
+    DeductionUpdate:
       type: object
       required:
-      - member_id
-      - operation_id
-      - amount_type
-      - amount
-      - currency
-      - deduction_type_code
-      - frequency
-      - start_date
+      - deduction_id
       properties:
-        member_id:
+        deduction_id:
           type: string
-        operation_id:
-          type: string
-          description: Partner-supplied idempotency key for this row
         amount_type:
           type: string
         amount:
@@ -205,13 +195,23 @@ components:
                 nullable: true
               success:
                 type: boolean
-    DeductionUpdate:
+    DeductionCreate:
       type: object
       required:
-      - deduction_id
+      - member_id
+      - operation_id
+      - amount_type
+      - amount
+      - currency
+      - deduction_type_code
+      - frequency
+      - start_date
       properties:
-        deduction_id:
+        member_id:
           type: string
+        operation_id:
+          type: string
+          description: Partner-supplied idempotency key for this row
         amount_type:
           type: string
         amount:

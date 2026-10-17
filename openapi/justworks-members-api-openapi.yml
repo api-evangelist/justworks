@@ -143,44 +143,13 @@ paths:
         '404':
           description: Member is an EOR or international employee
 components:
-  parameters:
-    MemberId:
-      name: member_id
-      in: path
-      required: true
-      description: Justworks member identifier
-      schema:
-        type: string
-  responses:
-    Unauthorized:
-      description: Missing or invalid OAuth token
-    Forbidden:
-      description: Token lacks the required scope
-    NotFound:
-      description: Resource not found
   schemas:
-    MemberList:
+    CustomFieldValue:
       type: object
       properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Member'
-        next_cursor:
+        id:
           type: string
-          nullable: true
-    MemberName:
-      type: object
-      properties:
-        family_name:
-          type: string
-        given_name:
-          type: string
-        full_preferred_name:
-          type: string
-        preferred_name:
-          type: string
-        additional_names:
+        values:
           type: array
           items:
             type: string
@@ -273,15 +242,46 @@ components:
           type: string
         country:
           type: string
-    CustomFieldValue:
+    MemberList:
       type: object
       properties:
-        id:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Member'
+        next_cursor:
           type: string
-        values:
+          nullable: true
+    MemberName:
+      type: object
+      properties:
+        family_name:
+          type: string
+        given_name:
+          type: string
+        full_preferred_name:
+          type: string
+        preferred_name:
+          type: string
+        additional_names:
           type: array
           items:
             type: string
+  responses:
+    Forbidden:
+      description: Token lacks the required scope
+    NotFound:
+      description: Resource not found
+    Unauthorized:
+      description: Missing or invalid OAuth token
+  parameters:
+    MemberId:
+      name: member_id
+      in: path
+      required: true
+      description: Justworks member identifier
+      schema:
+        type: string
   securitySchemes:
     OAuth2:
       type: oauth2

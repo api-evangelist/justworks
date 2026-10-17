@@ -77,26 +77,6 @@ paths:
                     type: string
                     nullable: true
 components:
-  parameters:
-    Limit:
-      name: limit
-      in: query
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
-        default: 100
-    PayrollId:
-      name: payroll_id
-      in: path
-      required: true
-      schema:
-        type: string
-    Cursor:
-      name: cursor
-      in: query
-      schema:
-        type: string
   schemas:
     Payroll:
       type: object
@@ -128,6 +108,16 @@ components:
           format: date
         payment_method:
           type: string
+    PayrollList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Payroll'
+        next_cursor:
+          type: string
+          nullable: true
     PayrollFee:
       type: object
       properties:
@@ -145,16 +135,26 @@ components:
           type: integer
         currency:
           type: string
-    PayrollList:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/Payroll'
-        next_cursor:
-          type: string
-          nullable: true
+  parameters:
+    Cursor:
+      name: cursor
+      in: query
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 100
+    PayrollId:
+      name: payroll_id
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     OAuth2:
       type: oauth2
