@@ -1,4 +1,4 @@
-# Justworks (justworks)
+# Justworks
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -76,221 +76,178 @@ covering Members, Company, Payroll, Paystubs, Deductions, Time Off, and Webhooks
 2.0 authorization-code grant, cursor pagination, signed at-least-once webhooks, and zero-decimal
 currency representation. Deductions is the primary write surface; everything else is read-only.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/justworks/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/justworks/refs/heads/main/apis.yml)
+**Areas:** PEO · Payroll · Human Resources · Benefits · Health Insurance · 401k · Time Off · Compliance · Small Business · Employer of Record · HRIS · Employee Benefits
 
-## Scope
+## Justworks on APIs.io
 
-- **Type:** Index
-- **Position:** Provider
-- **Access:** 3rd-Party
+Everything profiled for Justworks is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/justworks/](https://apis.io/providers/justworks/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (11)
 
-- PEO
-- Payroll
-- HR
-- Human Resources
-- Benefits
-- Health Insurance
-- 401(k)
-- Time Off
-- Compliance
-- Small Business
-- Employer of Record
-- HRIS
+- [Justworks Members API](https://apis.io/apis/justworks/justworks-members-api/) — Read employee, contractor, and member information from the Justworks Partner API. Provides access to member profiles, employment history, pay history,…
+- [Justworks Company API](https://apis.io/apis/justworks/justworks-company-api/) — Read company-level data from the Justworks Partner API including company identity, departments, offices, bank account on file (masked), verified business…
+- [Justworks Deductions API](https://apis.io/apis/justworks/justworks-deductions-api/) — Manage employee deductions — list deduction types, create one-time and recurring deductions, update existing deductions, and cancel deductions in bulk. The…
+- [Justworks Webhooks API](https://apis.io/apis/justworks/justworks-webhooks-api/) — Manage Justworks Partner API webhooks. Justworks signs every request, delivers events at-least-once with automatic retries, and closes a webhook on…
+- [Justworks Deduction Types API](https://apis.io/apis/justworks/justworks-deduction-types-api/) — Read access to Justworks deduction type catalog
+- [Justworks Payrolls API](https://apis.io/apis/justworks/justworks-payrolls-api/) — Read access to payroll runs and per-payroll fees
+- [Justworks Paystubs API](https://apis.io/apis/justworks/justworks-paystubs-api/) — Read access to per-member paystubs
+- [Justworks Time Off Balances API](https://apis.io/apis/justworks/justworks-time-off-balances-api/) — Asynchronous balance reports for time-off policies
+- [Justworks Time Off Policies API](https://apis.io/apis/justworks/justworks-time-off-policies-api/) — Read access to time-off policy catalog
+- [Justworks Time Off Requests API](https://apis.io/apis/justworks/justworks-time-off-requests-api/) — Read access to time-off requests submitted by members
+- [Justworks O Auth API](https://apis.io/apis/justworks/justworks-oauth-api/) — OAuth 2.0 token endpoints
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-25
-- **Modified:** 2026-05-25
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### MCP servers (1)
 
-### Justworks Members API
+Model Context Protocol servers that expose the API to agents.
 
-Read employee, contractor, and member information from the Justworks Partner API. Provides access to
-member profiles, employment history, pay history, custom-field values, and U.S. tax identifiers
-(SSN) for domestic members. This is the canonical workforce-truth surface a partner integrates
-against. Uses cursor pagination with a hard cap of 100 items per page.
+- [justworks](https://apis.io/servers/justworks/justworks/)
 
-- **Human URL:** [https://public-api.justworks.com/v1/docs](https://public-api.justworks.com/v1/docs)
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- HR
-- PEO
-- Members
-- Employees
+- [Justworks Agentic Access](https://apis.io/agentic-access/justworks/justworks-agentic-access/)
 
-#### Properties
+#### JSON Schema (6)
 
-- [Documentation](https://public-api.justworks.com/v1/docs)
-- [OpenAPI](openapi/justworks-members-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/justworks-members-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/justworks-members-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/justworks-member-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/justworks-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+The data models the API reads and writes.
 
-### Justworks Company API
+- [Justworks Deduction](https://apis.io/schemas/justworks/justworks-deduction/)
+- [Justworks Member](https://apis.io/schemas/justworks/justworks-member/)
+- [Justworks Payroll](https://apis.io/schemas/justworks/justworks-payroll/)
+- [Justworks Paystub](https://apis.io/schemas/justworks/justworks-paystub/)
+- [Justworks Time Off Request](https://apis.io/schemas/justworks/justworks-time-off-request/)
+- [Justworks Webhook Event](https://apis.io/schemas/justworks/justworks-webhook-event/)
 
-Read company-level data from the Justworks Partner API including company identity, departments,
-offices, bank account on file (masked), verified business information, custom-field definitions,
-and the jurisdictions in which the company operates.
+#### JSON-LD (1)
 
-- **Human URL:** [https://public-api.justworks.com/v1/docs](https://public-api.justworks.com/v1/docs)
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [Justworks Context](https://apis.io/jsonld/justworks/justworks-context/)
 
-- HR
-- PEO
-- Company
+#### Collections (13)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://public-api.justworks.com/v1/docs)
-- [OpenAPI](openapi/justworks-company-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/justworks-company-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/justworks-company-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Justworks Company API](https://apis.io/collections/justworks/open-justworks-company-api/)
+- [Justworks Company Deduction Types API](https://apis.io/collections/justworks/open-justworks-deduction-types-api/)
+- [Justworks Company Deductions API](https://apis.io/collections/justworks/open-justworks-deductions-api/)
+- [Justworks Company Members API](https://apis.io/collections/justworks/open-justworks-members-api/)
+- [Justworks Company OAuth API](https://apis.io/collections/justworks/open-justworks-oauth-api/)
+- [Justworks Payroll API](https://apis.io/collections/justworks/open-justworks-payroll-api/)
+- [Justworks Company Payrolls API](https://apis.io/collections/justworks/open-justworks-payrolls-api/)
+- [Justworks Company Paystubs API](https://apis.io/collections/justworks/open-justworks-paystubs-api/)
+- [Justworks Time Off API](https://apis.io/collections/justworks/open-justworks-time-off-api/)
+- [Justworks Company Time Off Balances API](https://apis.io/collections/justworks/open-justworks-time-off-balances-api/)
+- [Justworks Company Time Off Policies API](https://apis.io/collections/justworks/open-justworks-time-off-policies-api/)
+- [Justworks Company Time Off Requests API](https://apis.io/collections/justworks/open-justworks-time-off-requests-api/)
+- [Justworks Company Webhooks API](https://apis.io/collections/justworks/open-justworks-webhooks-api/)
 
-### Justworks Payroll API
+#### Governance rules (1)
 
-Read payroll runs, fees, and paystubs. Each payroll record summarizes gross pay, net pay, employee
-and employer taxes, and debit information; paystubs break down per-member earnings, employee
-deductions, and employer contributions. Monetary fields are zero-decimal integers.
+Spectral rulesets for the provider's contracts.
 
-- **Human URL:** [https://public-api.justworks.com/v1/docs](https://public-api.justworks.com/v1/docs)
+- [Justworks — jsonschema rules](https://apis.io/rules/justworks/justworks-jsonschema-spectral-rules/)
 
-#### Tags
+#### Security (3)
 
-- Payroll
-- PEO
-- Paystubs
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Properties
+- [Justworks Authentication](https://apis.io/security/justworks/justworks-authentication/)
+- [Justworks Domain Security](https://apis.io/security/justworks/justworks-domain-security/)
+- [Justworks Vulnerability Disclosure](https://apis.io/security/justworks/justworks-vulnerability-disclosure/)
 
-- [Documentation](https://public-api.justworks.com/v1/docs)
-- [OpenAPI](openapi/justworks-payroll-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/justworks-payroll-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/justworks-payroll-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/justworks-payroll-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/justworks-paystub-schema.json) — [JSON Schema](https://json-schema.org/specification)
+#### OAuth scopes (1)
 
-### Justworks Deductions API
+The permissions the API asks for.
 
-Manage employee deductions — list deduction types, create one-time and recurring deductions,
-update existing deductions, and cancel deductions in bulk. The primary write surface of the
-Justworks Partner API. Each item carries a partner-supplied operation_id for idempotency.
+- [Justworks Scopes](https://apis.io/scopes/justworks/justworks-scopes/)
 
-- **Human URL:** [https://public-api.justworks.com/v1/docs](https://public-api.justworks.com/v1/docs)
+#### Plans and pricing (1)
 
-#### Tags
+Published plans, tiers and prices.
 
-- Deductions
-- Payroll
-- PEO
+- [Justworks Plans Pricing](https://apis.io/plans/justworks/justworks-plans-pricing/)
 
-#### Properties
+#### Rate limits (1)
 
-- [Documentation](https://public-api.justworks.com/v1/docs)
-- [OpenAPI](openapi/justworks-deductions-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/justworks-deductions-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/justworks-deductions-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/justworks-deduction-schema.json) — [JSON Schema](https://json-schema.org/specification)
+Published request limits.
 
-### Justworks Time Off API
+- [Justworks Rate Limits](https://apis.io/rate-limits/justworks/justworks-rate-limits/)
 
-Manage time-off balances, policies, and requests. Balance reports are asynchronous — submit a
-POST, then poll the report endpoint until ready. Policies and requests are paginated reads with
-standard cursor semantics.
+#### FinOps (1)
 
-- **Human URL:** [https://public-api.justworks.com/v1/docs](https://public-api.justworks.com/v1/docs)
+What the API costs to run, by operation.
 
-#### Tags
+- [Justworks Finops](https://apis.io/finops/justworks/justworks-finops/)
 
-- Time Off
-- PTO
-- Leave
-- HR
+## Where to find this API
 
-#### Properties
-
-- [Documentation](https://public-api.justworks.com/v1/docs)
-- [OpenAPI](openapi/justworks-time-off-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/justworks-time-off-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/justworks-time-off-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/justworks-time-off-request-schema.json) — [JSON Schema](https://json-schema.org/specification)
-
-### Justworks Webhooks API
-
-Manage Justworks Partner API webhooks. Justworks signs every request, delivers events at-least-once
-with automatic retries, and closes a webhook on sustained failures (resumable via API). Event types
-cover member.profile.*, member.employment_state.termination_*, and department.* lifecycle changes.
-A Tour-environment simulate endpoint allows partners to validate their listener without real data.
-
-- **Human URL:** [https://public-api.justworks.com/v1/docs](https://public-api.justworks.com/v1/docs)
-
-#### Tags
-
-- Webhooks
-- Events
-- HR
-
-#### Properties
-
-- [Documentation](https://public-api.justworks.com/v1/docs)
-- [OpenAPI](openapi/justworks-webhooks-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/justworks-webhooks-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/justworks-webhooks-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/justworks-webhook-event-schema.json) — [JSON Schema](https://json-schema.org/specification)
-
-### Justworks OAuth API
-
-OAuth 2.0 token endpoints for the Justworks Partner API. Authorization code is the only supported
-grant for initial token acquisition; refresh token grant is supported for renewal. Access tokens are
-valid for 24 hours; refresh tokens are valid for 30 days. A revoke endpoint is provided for both
-access and refresh tokens.
-
-- **Human URL:** [https://public-api.justworks.com/v1/docs](https://public-api.justworks.com/v1/docs)
-
-#### Tags
-
-- OAuth
-- Authentication
-
-#### Properties
-
-- [Documentation](https://public-api.justworks.com/v1/docs)
-- [OpenAPI](openapi/justworks-oauth-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/justworks-oauth-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/justworks-oauth-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.justworks.com)
 - [Documentation](https://public-api.justworks.com/v1/docs)
-- [Portal](https://www.justworks.com/partners)
-- [Getting Started](https://public-api.justworks.com/v1/docs)
+- [Getting started](https://public-api.justworks.com/v1/docs)
 - [Pricing](https://www.justworks.com/pricing)
-- [Products](https://www.justworks.com/products)
-- [Integrations](https://www.justworks.com/integrations)
-- [Partner Program](https://www.justworks.com/partners)
-- [Partner Integrations](https://www.justworks.com/partners/integrations)
-- [Partner Blog](https://www.justworks.com/partners/blog)
-- [Help Center](https://help.justworks.com)
-- [Trust Center](https://trust.justworks.com)
 - [Blog](https://www.justworks.com/blog)
-- [Careers](https://www.justworks.com/careers)
-- [GitHub Organization](https://github.com/justworkshr)
-- [LinkedIn](https://www.linkedin.com/company/justworks)
-- [Twitter](https://twitter.com/JustworksHR)
-- [YouTube](https://www.youtube.com/c/Justworks)
-- [Plans](plans/justworks-plans-pricing.yml)
-- [Rate Limits](rate-limits/justworks-rate-limits.yml)
-- [Fin Ops](finops/justworks-finops.yml)
-- [Features](undefined)
+- [Trust centre](https://trust.justworks.com)
+- [GitHub](https://github.com/justworkshr)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** info@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 42.3** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 60.0 |
+| Contract quality | 58.9 |
+| Contract governance | 9.8 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 51.2 |
+| Access clarity | 30.3 |
+
+**Agent readiness 41.7** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | partial |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 34.8** — Employment & Payroll
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/justworks/](https://apis.io/providers/justworks/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Justworks: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/justworks/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
